@@ -1,0 +1,60 @@
+{
+  "Navbar": {
+    "about": "私について",
+    "contact": "お問い合わせ",
+    "projects": "プロジェクト"
+  },
+  "Hero": {
+    "greetings": "はじめまして。",
+    "mateus": "津田 和明",
+    "front": "Web開発を中心に、5年間。",
+    "fullstack": "AI開発にも注力しています。",
+    "begin": "詳しく見る",
+    "contact": "連絡を取る"
+  },
+  "About": {
+    "title": "私について",
+    "description-1": "はじめまして、津田 和明と申します。Web開発を中心に、5年間にわたりさまざまなプロジェクトに携わってまいりました。お客さまとの出会いやコミュニケーションを大切にし、課題や目的に寄り添った開発を心がけています。",
+    "description-2": "これまでに、Webシステム開発・アプリ開発をはじめ、YouTube映像制作やゲーム配信関連など、幅広い分野で活動してきました。",
+    "description-3": "近年はAI開発にも注力しており、AIを活用した業務自動化システムや効率化ツールの開発にも力を入れています。"
+  },
+  "Projects": {
+    "title": "プロジェクト",
+    "description": "これまで手がけた主なプロジェクトをご紹介します。",
+    "view": "GitHubでリポジトリを見る",
+    "back": "プロジェクト一覧に戻る",
+    "check": "すべてのプロジェクトを見る"
+  },
+  "Contact": {
+    "follow-me": "SNSでもつながりましょう"
+  },
+  "ContactForm": {
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "メッセージ",
+    "submit": "送信する",
+    "name-placeholder": "お名前を教えてください",
+    "email-placeholder": "返信先のメールアドレス",
+    "message-placeholder": "お気軽にご連絡ください",
+    "success": "メッセージを送信しました。ありがとうございます！",
+    "error": "送信に失敗しました。お手数ですが、もう一度お試しください。",
+    "captcha-error": "認証に失敗しました。もう一度お試しください。",
+    "captcha-expired": "認証の有効期限が切れました。もう一度お試しください。"
+  },
+  "Footer": {
+    "copyright": "All rights reserved.",
+    "made-with": "愛と",
+    "and": "で制作"
+  },
+  "NotFound": {
+    "title": "お探しのページは見つかりませんでした。",
+    "message": "果てしない空にも、幻の星があります。このページもその一つです。",
+    "return": "トップページへ戻る"
+  },
+  "ProjectStatus": {
+    "On-hold": "保留中",
+    "Complete": "完成",
+    "Current": "進行中",
+    "Abandoned": "中断"
+  }
+}

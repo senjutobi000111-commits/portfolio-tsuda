@@ -1,0 +1,164 @@
+[
+  {
+    "title": "Kazanto",
+    "description": {
+      "en": "Directly from your terminal, a new Pokémon journey awaits you. Explore, catch, inspect and more.",
+      "pt": "Diretamente do seu terminal, uma nova jornada Pokémon está à sua espera. Explore, capture, inspecione e mais."
+    },
+    "body": {
+      "en": [
+        "Kazanto is a game based on the famous Pokémon series, designed to be played in the terminal using simple and intuitive commands. The code is entirely written in Golang, and the data is collected from the PokéAPI. The code is fully open source, and any contributions are welcome!",
+
+        "Several crucial features are still missing, but you can already choose from various maps to find Pokémon, catch them, and build your dream team. The project is currently on pause, but I still plan to return to it and add several features I have in mind, such as a currency and store system, a Pokéball system, leveling up Pokémon, and battling the computer.",
+
+        "Kazanto is one of my favorite projects, where I was able to combine fun and programming, making me enjoy the field even more. I learned a lot about state management, caching, consuming APIs in Go, and a bit about software architecture. It's definitely a project that I've benefited greatly from."
+      ],
+      "pt": [
+        "O Kazanto é um jogo  baseado na famosa série Pokémon, feito para ser jogado no terminal através de comandos simples e intuitivos. O código é feito inteiramente em Golang, e os dados são coletados da PokéAPI. O código é totalmente open source, quaisquer contribuições são bem-vindas!",
+
+        "Ainda faltam bastante funcionalidades cruciais, mas já é possível escolher diversos mapas para encontrar pokémons, capturá-los e ir montando o seu time dos sonhos. O andamento do projeto, já faz um tempo, está pausado, mas pretendo ainda voltar nele e adicionar várias funcionalidades que já tenho em mente, como sistema de moedas e lojas, sistema de pokébolas, upar os níveis dos pokémons e batalha contra o computador.",
+
+        "Kazanto é um dos meus projetos favoritos, onde eu consegui conciliar diversão e programação, me fazendo pegar ainda mais gosto pela área. Aprendi bastante sobre state management, caching, consumo de APIs na linguagem Go e um pouco sobre arquitetura de software, é com certeza um projeto que tirei bastente proveito."
+      ]
+    },
+    "repoLink": "https://github.com/Kazyel/Kazanto",
+    "repoImage": "/images/projects/kazanto.svg",
+    "languages": ["go", "bash"],
+    "status": "On-hold"
+  },
+  {
+    "title": "APSystem API",
+    "description": {
+      "en": "API for fetching and displaying data collected from solar panels in a cool way.",
+      "pt": "API para buscar e exibir dados coletados de painéis solares de uma forma divertida."
+    },
+    "body": {
+      "en": [
+        "APSystem API is a system that collects data from multiple solar panels and displays it visually for analysis. This project was one of my first real tasks during my scientific initiation project, so I really care about it. I learned a lot about developing in a team and managing tasks, all under tight deadlines.",
+
+        "The system was initially built with Fastify (later rewritten in Python using the FastAPI framework), and the UI was created with plain JavaScript, manually generating SVGs and CSS to graphically represent the original energy plant interactively.",
+
+        "The code available on GitHub is unfortunately from the early stages of development, so it's poorly structured and missing some features. I wish I could share the version that was actually delivered, but it's private in the company's repository."
+      ],
+      "pt": [
+        "APSystem API é um sistema que coleta dados de vários painéis solares e exibe de forma visual para análise. Esse projeto foi uma das minha primeiras demandas reais enquanto estava no projeto de iniciação científica, então tenho bastante carinho por ele, consegui aprender muito como desenvolver em time e gerenciar tasks, tudo com pressão de prazo de entrega.",
+
+        "O sistema inicialmente foi construído com Fastify (depois foi reescrito em Python no framework FastAPI) e a UI foi feita com JavaScript puro, utilizando de criação manual de SVGs e CSS para representar graficamente a planta de energia original de forma interativa.",
+
+        "O código que está no link do GitHub, infelizmente, é do ínicio do desenvolvimento, então está bem mal construido e falta algumas features. Gostaria de ter a versão que foi entregue, mas está privada no repositório privado da empresa."
+      ]
+    },
+    "repoLink": "https://github.com/Kazyel/API_APSystem",
+    "repoImage": "/images/projects/api_apsystem.png",
+    "languages": ["node", "js", "ts", "fastify", "prisma"],
+    "status": "Complete"
+  },
+  {
+    "title": "Kazyani",
+    "description": {
+      "en": "Silly minigames based on anime series. To have fun and pass sometime alone or with friends.",
+      "pt": "Joguinhos bobos baseados em séries de anime. Para se divertir e passar o tempo sozinho ou com amigos."
+    },
+    "body": {
+      "en": [
+        "Kazyani is one of the projects I had the most fun working on because it combines anime and programming, and because of the new challenges I encountered during development. The code is completely open source, feel free to take a look or contribute if you want.",
+
+        "It's a small project built with NextJS and TailwindCSS, pretty standard. It consumed data from two different APIs and manipulated it to fit the needs of each minigame. As I realized I needed very specific things, I understood that using two APIs wasn't quite the best solution. So I had to create my own database and then build my own API. That's when I temporarily put the project on hold.",
+
+        "The minigames before were already ready and playable, yet needed more polished data that the both APIs couldn't provide me. But handling a database properly and filling it with data wasn't something I was highly proficient at, so I got tired. Still, it has to be done because the benefits will be huge."
+      ],
+      "pt": [
+        "Kazyani é um dos projetos que eu mais me diverti fazendo porque combina animes e programação, e também pelas dificuldades novas que eu encontrei durante o desenvolvimento. Código completamente open source, sinta-se livre pra dar uma olhada ou contribuir, se quiser.",
+
+        "É um projetinho feito com NextJS e TailwindCSS, bem padrão. Fazia consumo de 2 APIs distintas e manipulava os dados pra deixar do jeito que precisava pra cada minigame. Como eu percebi que precisava de coisas muito específicas, percebi que utilizar de 2 APIs não foi a melhor solução. Então, eu tive que fazer a minha própria database para então fazer minha própria API. E foi aí que abandonei o projeto (temporariamente).",
+
+        "Os minigames já estavam prontos e jogáveis, mas precisavam de dados mais refinados que as duas APIs não conseguiam me fornecer. No entanto, lidar corretamente com um banco de dados e preenchê-lo com dados não era algo em que eu tinha muita proficiência, então perdi o interesse. Ainda assim, precisa ser feito, porque os benefícios serão enormes.”"
+      ]
+    },
+    "repoLink": "https://github.com/Kazyel/kazyani",
+    "repoImage": "/images/projects/kazyani.png",
+    "languages": ["react", "nextjs", "tailwind", "ts"],
+    "status": "On-hold"
+  },
+  {
+    "title": "Let him cook",
+    "description": {
+      "en": "Easily save your recipes, keep them organized, and share them with others — all in a modern, intuitive app.",
+      "pt": "Salve suas receitas com facilidade, mantenha tudo organizado e compartilhe com outras pessoas — tudo em um app moderno e intuitivo."
+    },
+    "body": {
+      "en": [
+        "Let Him Cook is my most recent project, and it's an app for saving and sharing recipes. Recently, I started cooking and really enjoyed it. After looking for some recipes online, I wanted a specific place to save some of my ideas. That's where the inspiration came from.",
+
+        "It's being developed with Vite + React, TanStack Router + Query (working on the front-end like this makes it actually fun). I also took the opportunity to use and learn about Supabase, which has been a very enjoyable experience so far.",
+
+        "I have many ideas to implement and ways to challenge myself with this project. It's really great when you feel excited — every day I'm eager to open VSCode and work on whichever feature I decide to implement."
+      ],
+      "pt": [
+        "O Let Him Cook é o meu projeto mais recente e ele consiste em um app para salvar e compartilhar receitas. Recentemente, comecei e gostei bastante de cozinhar, após procurar por algumas receitas na internet eu queria um lugar específico para guardar algumas das ideias. Então, a inspiração veio.",
+
+        "Ele está sendo desenvolvido com Vite + React, TanStack Router + Query (dá até gosto de programar no front-end assim). Também aproveitei pra utilizar e aprender sobre o Supabase, que até agora está sendo uma experiência bastante agradável.",
+
+        "Tenho muitas ideias para implementar e me desafiar nesse projeto. É muito bom quando ficamos animados, todo dia estou empolgado para abrir o meu VSCode e implementar seja lá qual feature for."
+      ]
+    },
+    "repoLink": "https://github.com/Kazyel/let-him-cook",
+    "repoImage": "/images/projects/lethimcook.png",
+    "languages": ["ts", "react", "vite", "tailwind", "tanstack"],
+    "status": "Current"
+  },
+  {
+    "title": "HTML Vampire",
+    "description": {
+      "en": "A lightweight HTML Canvas remake of the acclaimed game Vampire Survivors, featuring fast-paced survival gameplay and simple controls.",
+      "pt": "Uma recriação leve em HTML Canvas do aclamado jogo Vampire Survivors, trazendo uma gameplay de sobrevivência frenética com controles simples."
+    },
+    "body": {
+      "en": [
+        "HTML Vampire is inspired by the famous Vampire Survivors and is being made to run on HTML Canvas. This is a simple project for me to have fun coding — completely casual, yet at the same time it's teaching me a lot and making me revisit concepts I hadn't used in a long time (I haven't used Pythagoras that much since high school).",
+
+        "I'm only using React + TypeScript, without any third-party libraries to help with the canvas or game features — just plain, pure HTML Canvas. It was a challenge I set for myself; sometimes I like putting myself in these situations to see what difficulties arise.",
+
+        "Even though it's just for fun and passing the time, I'm learning much more than I expected. From handling multiple classes properly, to understanding the canvas itself, game developing, as well as math and architecture."
+      ],
+      "pt": [
+        "HTML Vampire é inspirado no famoso Vampire Survivors e está sendo feito pra rodar no HTML Canvas. Esse é um projeto simples para me divertir codando, totalmente despretensioso e que ao mesmo tempo também está me ensinando bastante, e também me fazendo relembrar muita coisa (não lembro de usar tanto Pitágoras desde o ensino médio).",
+
+        "Só estou utilizando React + TypeScript, sem nenhuma outra lib third-party para ajudar com o canvas ou funcionalidades do game, somente o simples e puro HTML Canvas mesmo. Foi um desafio que eu mesmo coloquei sobre o projeto; às vezes eu gosto de me colocar nessas situações pra ver as dificuldades que surgem.",
+
+        "Por mais que seja somente para me divertir e passar o tempo, estou aprendendo muito mais do que eu imaginava. Desde manusear várias classes devidamente, sobre o próprio canvas, matemática, arquitetura e desenvolvimento de jogos."
+      ]
+    },
+    "repoLink": "https://github.com/Kazyel/html-vampire",
+    "repoImage": "/images/projects/htmlvampire.png",
+    "languages": ["ts", "react", "vite"],
+    "status": "Current"
+  },
+  {
+    "title": "CRUD Go!",
+    "description": {
+      "en": "An agile starting point for building REST CRUD APIs with Go — simple to use, easy to extend.",
+      "pt": "Um ponto de partida ágil para construir APIs REST CRUD com Go — simples de usar, fácil de estender."
+    },
+    "body": {
+      "en": [
+        "CRUD Go! is a ready-made template for a simple REST API in Golang, designed to make it easier for me to create other projects whenever I need a basic back-end, saving me the time of building one from scratch.",
+
+        "Of course, it was built in Golang, and I used Gin as the web framework. Users can authenticate either via email + password or through OAuth2, along with middlewares for handling JWT tokens. The template includes a complete CRUD (with validation and error handling) for users, and it's easy to add additional endpoints and functionalities.",
+
+        "This is definitely the project where I've learned the most about back-end development (dependency injection, REST, validation, JWT, auth, migrations) and the Go language in general. Even though I didn't go super deep or tackle extremely complex scenarios, just touching on these topics has been incredibly valuable for my learning."
+      ],
+      "pt": [
+        "CRUD Go! é um template pronto de uma REST API simples em Golang, com o intuito de facilitar na criação de outros projetos meus caso eu precise de um back-end básico, me polpando o tempo de ter que criar do zero.",
+
+        "Obviamente, ele foi feito em Golang e utilizei o Gin como web framework. É possível autenticar usuários atráves de email + senha ou por OAuth2, junto com middlewares para resolução de tokens JWT. Está disponível o CRUD completo (com validação e erros) para usuários e há a possibilidade de fácil adição de outros endpoints e funcionalidades.",
+
+        "Com certeza foi o projeto em que mais aprendi sobre back-end (dependency injection, REST, validação, jwt, auth, migrations) e a linguagem Go no geral. Mesmo que tudo não tenha sido de forma aprofundada e com alta complexidade, simplesmente tocar nesses pontos teve um valor enorme como aprendizado."
+      ]
+    },
+    "repoLink": "https://github.com/Kazyel/crud-go/",
+    "repoImage": "/images/projects/crudgo.png",
+    "languages": ["go"],
+    "status": "Complete"
+  }
+]
