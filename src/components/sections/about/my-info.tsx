@@ -19,7 +19,7 @@ const AboutText = () => {
           key={key}
           className={cn(
             "font-serif-jp mb-3 text-pretty text-black last:mb-0",
-            "text-xs leading-6 sm:text-sm lg:text-base",
+            "text-sm leading-7 sm:text-base lg:text-lg",
           )}
           by="text"
           animation="slideRight"
