@@ -6,8 +6,8 @@ import { useLocale } from "next-intl";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
 import { LanguageCode } from "@/lib/constants/langs";
 
-import Image from "next/image";
 import { ProjectTag } from "./project-tag";
+import { ProjectImage } from "./project-image";
 
 export const ProjectCard = ({ ...props }: ProjectType) => {
   const currentLocale = useLocale() as LanguageCode;
@@ -33,14 +33,9 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
       <ProjectTag status={props.status} />
 
       <figure className="relative col-span-full row-span-full flex aspect-square size-full overflow-hidden">
-        <Image
-          src={props.repoImage}
+        <ProjectImage
+          images={props.images?.length ? props.images : [props.repoImage]}
           alt={`${props.title}-image`}
-          fill
-          loading="lazy"
-          decoding="async"
-          quality={65}
-          className="object-cover object-left"
         />
       </figure>
 
@@ -48,8 +43,8 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
         <h3
           id="project-title"
           className={cn(
-            "text-acc-red-dark text-2xl font-bold tracking-tight transition-all duration-200",
-            "md:text-3xl",
+            "text-off-w font-serif-jp text-lg font-semibold tracking-wide transition-all duration-200",
+            "md:text-xl",
           )}
         >
           {props.title}
@@ -58,7 +53,7 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
         <p
           id="project-text"
           className={cn(
-            "text-off-w text-xs leading-5 tracking-wide text-pretty transition-all duration-200",
+            "text-off-w/85 font-serif-jp text-xs leading-5 tracking-wide text-pretty transition-all duration-200",
             "md:text-sm",
           )}
         >

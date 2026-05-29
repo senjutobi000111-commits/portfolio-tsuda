@@ -5,8 +5,8 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-import Image from "next/image";
 import { m } from "@/components/motion-wrapper";
+import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
 import { ArrowRight } from "lucide-react";
 
 interface ContactChannel {
@@ -24,17 +24,17 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "email",
     label: "Email",
-    value: "your@email.com",
-    href: "mailto:your@email.com",
-    desc: "Slack でのやり取りにも対応",
+    value: "dapplepeach@gmail.com",
+    href: "mailto:dapplepeach@gmail.com",
+    desc: "お気軽にご連絡ください",
     iconSrc: "/images/icons/gmail.svg",
     brand: "#EA4335",
   },
   {
     id: "chatwork",
     label: "Chatwork",
-    value: "chatwork.com/...",
-    href: "#",
+    value: "chatwork.com/33ma22wolf404",
+    href: "https://www.chatwork.com/33ma22wolf404",
     desc: "お気軽にメッセージください",
     iconSrc: "/images/icons/chatwork.svg",
     brand: "#F03748",
@@ -146,15 +146,8 @@ export default function ContactSection() {
         "scroll-mt-[var(--navbar-height)] px-6 py-20 sm:px-12",
       )}
     >
-      {/* 背景 — 霧の水墨山水（pro3）。生成りに馴染ませるため multiply で合成 */}
-      <Image
-        src="/images/pro3.png"
-        alt=""
-        width={626}
-        height={403}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 w-full opacity-90 mix-blend-multiply"
-        aria-hidden="true"
-      />
+      {/* 背景 — Aboutと同じ墨絵の情景で締めくくる */}
+      <BackgroundInkPaint />
 
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center gap-12">
         {/* 見出し */}

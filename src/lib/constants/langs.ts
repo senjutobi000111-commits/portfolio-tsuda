@@ -1,6 +1,8 @@
 import { BrazilFlag } from "@/components/svgs/BrazilFlag";
 import { USFlag } from "@/components/svgs/USFlag";
 import { SiTanstack } from "@/components/svgs/SiTanstack";
+import { SiPlaywright } from "@/components/svgs/SiPlaywright";
+import { SiBubble } from "@/components/svgs/SiBubble";
 
 import {
   SiGo,
@@ -19,6 +21,28 @@ import {
   SiVite,
   SiQiita,
   SiZenn,
+  SiWordpress,
+  SiPhp,
+  SiMysql,
+  SiShopify,
+  SiHtml5,
+  SiCss3,
+  SiElectron,
+  SiUnity,
+  SiRubyonrails,
+  SiN8n,
+  SiNotion,
+  SiSlack,
+  SiOpenai,
+  SiAmazonwebservices,
+  SiLine,
+  SiAwslambda,
+  SiAmazondynamodb,
+  SiAmazons3,
+  SiAwsamplify,
+  SiLeaflet,
+  SiOpenstreetmap,
+  SiNetlify,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -51,6 +75,102 @@ export const TECH_LANGUAGES = {
   zenn: {
     src: SiZenn,
     alt: "Zenn logo",
+  },
+  wordpress: {
+    src: SiWordpress,
+    alt: "WordPress logo",
+  },
+  php: {
+    src: SiPhp,
+    alt: "PHP logo",
+  },
+  mysql: {
+    src: SiMysql,
+    alt: "MySQL logo",
+  },
+  shopify: {
+    src: SiShopify,
+    alt: "Shopify logo",
+  },
+  html: {
+    src: SiHtml5,
+    alt: "HTML5 logo",
+  },
+  css: {
+    src: SiCss3,
+    alt: "CSS3 logo",
+  },
+  electron: {
+    src: SiElectron,
+    alt: "Electron logo",
+  },
+  unity: {
+    src: SiUnity,
+    alt: "Unity logo",
+  },
+  rubyonrails: {
+    src: SiRubyonrails,
+    alt: "Ruby on Rails logo",
+  },
+  playwright: {
+    src: SiPlaywright as unknown as IconType,
+    alt: "Playwright logo",
+  },
+  n8n: {
+    src: SiN8n,
+    alt: "n8n logo",
+  },
+  notion: {
+    src: SiNotion,
+    alt: "Notion logo",
+  },
+  slack: {
+    src: SiSlack,
+    alt: "Slack logo",
+  },
+  openai: {
+    src: SiOpenai,
+    alt: "OpenAI logo",
+  },
+  aws: {
+    src: SiAmazonwebservices,
+    alt: "AWS logo",
+  },
+  line: {
+    src: SiLine,
+    alt: "LINE logo",
+  },
+  lambda: {
+    src: SiAwslambda,
+    alt: "AWS Lambda logo",
+  },
+  dynamodb: {
+    src: SiAmazondynamodb,
+    alt: "Amazon DynamoDB logo",
+  },
+  s3: {
+    src: SiAmazons3,
+    alt: "Amazon S3 logo",
+  },
+  amplify: {
+    src: SiAwsamplify,
+    alt: "AWS Amplify logo",
+  },
+  leaflet: {
+    src: SiLeaflet,
+    alt: "Leaflet logo",
+  },
+  openstreetmap: {
+    src: SiOpenstreetmap,
+    alt: "OpenStreetMap logo",
+  },
+  netlify: {
+    src: SiNetlify,
+    alt: "Netlify logo",
+  },
+  bubble: {
+    src: SiBubble as unknown as IconType,
+    alt: "Bubble logo",
   },
 } as const;
 

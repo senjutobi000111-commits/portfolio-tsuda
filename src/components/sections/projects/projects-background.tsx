@@ -13,23 +13,23 @@ export const ProjectsBackground = () => {
 
   return (
     <div className="absolute inset-0">
-      {/* 尾形光琳「波濤図」— 墨と金の波（暗い背景に馴染ませて使用） */}
+      {/* 霧の水墨山水（pro5）— 元の色のまま。暗いヴェールで墨トーンに沈める */}
       <Image
-        src="/images/rough-waves.webp"
-        alt="Decorative wave painting background"
+        src="/images/pro5.webp"
+        alt="Decorative ink landscape background"
         fill
         sizes="100vw"
-        quality={80}
+        quality={82}
         className={cn(
           "object-cover object-center transition-opacity duration-700",
-          isOpen ? "opacity-15" : "opacity-40",
+          isOpen ? "opacity-25" : "opacity-65",
         )}
         priority={false}
         aria-hidden="true"
       />
 
-      {/* 暗いヴェール — 全体を墨色に締める */}
-      <div className="from-darkest/85 via-darkest/65 to-darkest/90 absolute inset-0 bg-gradient-to-b" />
+      {/* 暗いヴェール — 全体を墨色に締めて可読性を確保 */}
+      <div className="from-darkest/70 via-darkest/55 to-darkest/85 absolute inset-0 bg-gradient-to-b" />
 
       {/* 下部の暖かい光が息づく */}
       <m.div

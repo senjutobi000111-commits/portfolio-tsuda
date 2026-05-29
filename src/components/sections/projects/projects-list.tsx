@@ -3,7 +3,6 @@ import { PROJECTS } from "@/lib/content/projects";
 import { cn } from "@/lib/utils";
 
 import { TextAnimate } from "@/components/ui/text-animate";
-import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectCard } from "@/components/sections/projects/project-card";
 import { m } from "@/components/motion-wrapper";
 
@@ -18,41 +17,28 @@ export const ProjectsList = () => {
       transition={{ duration: 0.25 }}
       className="flex flex-col items-center justify-center gap-12"
     >
-      <div
-        className={cn(
-          "flex w-full flex-col items-start justify-between px-12",
-          "lg:flex-row lg:items-end",
-        )}
-      >
-        <div>
-          <TextAnimate
-            className={cn(
-              "text-acc-red-dark text-6xl font-extrabold tracking-tight",
-              "md:text-7xl",
-            )}
-            once
-          >
-            {t("title")}
-          </TextAnimate>
-
-          <TextAnimate
-            className={cn("text-acc-yellow-3 pt-4 text-xl font-light text-balance")}
-            once
-            by="line"
-            as="h2"
-          >
-            {t("description")}
-          </TextAnimate>
-        </div>
-
-        <ProjectLink
-          title={t("check")}
-          url="https://github.com/Kazyel"
+      <div className="flex w-full flex-col items-start px-12">
+        <TextAnimate
           className={cn(
-            "mt-4 self-start text-base font-light",
-            "sm:text-lg lg:mt-0 lg:self-end",
+            "text-off-w font-serif-jp text-3xl font-semibold tracking-wide",
+            "sm:text-4xl lg:text-5xl",
           )}
-        />
+          once
+        >
+          {t("title")}
+        </TextAnimate>
+
+        <TextAnimate
+          className={cn(
+            "text-off-w/70 font-serif-jp pt-3 text-sm font-light text-balance",
+            "sm:text-base",
+          )}
+          once
+          by="line"
+          as="h2"
+        >
+          {t("description")}
+        </TextAnimate>
       </div>
 
       <div

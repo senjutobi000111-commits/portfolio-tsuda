@@ -1,164 +1,457 @@
 [
   {
-    "title": "Kazanto",
+    "title": "はかせのFXLABO",
     "description": {
-      "en": "Directly from your terminal, a new Pokémon journey awaits you. Explore, catch, inspect and more.",
-      "pt": "Diretamente do seu terminal, uma nova jornada Pokémon está à sua espera. Explore, capture, inspecione e mais."
+      "en": "FX自動売買システム（EA）やインジケーターを開発・販売する、WordPress製の会員制ECサイト。",
+      "pt": "FX自動売買システム（EA）やインジケーターを開発・販売する、WordPress製の会員制ECサイト。"
     },
     "body": {
       "en": [
-        "Kazanto is a game based on the famous Pokémon series, designed to be played in the terminal using simple and intuitive commands. The code is entirely written in Golang, and the data is collected from the PokéAPI. The code is fully open source, and any contributions are welcome!",
-
-        "Several crucial features are still missing, but you can already choose from various maps to find Pokémon, catch them, and build your dream team. The project is currently on pause, but I still plan to return to it and add several features I have in mind, such as a currency and store system, a Pokéball system, leveling up Pokémon, and battling the computer.",
-
-        "Kazanto is one of my favorite projects, where I was able to combine fun and programming, making me enjoy the field even more. I learned a lot about state management, caching, consuming APIs in Go, and a bit about software architecture. It's definitely a project that I've benefited greatly from."
+        "「はかせのFXLABO」は、FXの自動売買システム（EA）やインジケーター、相場分析ツールを開発・販売する専門サイトです。WordPress をベースに、商品販売・会員管理・ブログ・お問い合わせまでを一つのサイトに統合しました。",
+        "ショップは MT4 / MT5 やツール種別ごとに商品を整理し、購入から会員マイページでのライセンス管理までを一貫して行える構成にしました。EA の選び方や開発ノウハウを発信するブログ、よくある質問、お問い合わせ導線もあわせて実装しています。",
+        "「本当に使えるツールを届けたい」というオーナーの想いを軸に、専門性を保ちながらも初めての方にも分かりやすい導線とデザインを心がけて制作しました。",
+        "主な機能として、商品販売・決済、会員登録／マイページでの購入・ライセンス管理、ブログ更新、お問い合わせフォームなどを実装しています。専門性の高いEAでも「選び方」が分かるよう、コンテンツと導線で購入の不安を減らす——という考えを設計の軸にしました。"
       ],
       "pt": [
-        "O Kazanto é um jogo  baseado na famosa série Pokémon, feito para ser jogado no terminal através de comandos simples e intuitivos. O código é feito inteiramente em Golang, e os dados são coletados da PokéAPI. O código é totalmente open source, quaisquer contribuições são bem-vindas!",
-
-        "Ainda faltam bastante funcionalidades cruciais, mas já é possível escolher diversos mapas para encontrar pokémons, capturá-los e ir montando o seu time dos sonhos. O andamento do projeto, já faz um tempo, está pausado, mas pretendo ainda voltar nele e adicionar várias funcionalidades que já tenho em mente, como sistema de moedas e lojas, sistema de pokébolas, upar os níveis dos pokémons e batalha contra o computador.",
-
-        "Kazanto é um dos meus projetos favoritos, onde eu consegui conciliar diversão e programação, me fazendo pegar ainda mais gosto pela área. Aprendi bastante sobre state management, caching, consumo de APIs na linguagem Go e um pouco sobre arquitetura de software, é com certeza um projeto que tirei bastente proveito."
+        "「はかせのFXLABO」は、FXの自動売買システム（EA）やインジケーター、相場分析ツールを開発・販売する専門サイトです。WordPress をベースに、商品販売・会員管理・ブログ・お問い合わせまでを一つのサイトに統合しました。",
+        "ショップは MT4 / MT5 やツール種別ごとに商品を整理し、購入から会員マイページでのライセンス管理までを一貫して行える構成にしました。EA の選び方や開発ノウハウを発信するブログ、よくある質問、お問い合わせ導線もあわせて実装しています。",
+        "「本当に使えるツールを届けたい」というオーナーの想いを軸に、専門性を保ちながらも初めての方にも分かりやすい導線とデザインを心がけて制作しました。",
+        "主な機能として、商品販売・決済、会員登録／マイページでの購入・ライセンス管理、ブログ更新、お問い合わせフォームなどを実装しています。専門性の高いEAでも「選び方」が分かるよう、コンテンツと導線で購入の不安を減らす——という考えを設計の軸にしました。"
       ]
     },
-    "repoLink": "https://github.com/Kazyel/Kazanto",
-    "repoImage": "/images/projects/kazanto.svg",
-    "languages": ["go", "bash"],
-    "status": "On-hold"
-  },
-  {
-    "title": "APSystem API",
-    "description": {
-      "en": "API for fetching and displaying data collected from solar panels in a cool way.",
-      "pt": "API para buscar e exibir dados coletados de painéis solares de uma forma divertida."
-    },
-    "body": {
-      "en": [
-        "APSystem API is a system that collects data from multiple solar panels and displays it visually for analysis. This project was one of my first real tasks during my scientific initiation project, so I really care about it. I learned a lot about developing in a team and managing tasks, all under tight deadlines.",
-
-        "The system was initially built with Fastify (later rewritten in Python using the FastAPI framework), and the UI was created with plain JavaScript, manually generating SVGs and CSS to graphically represent the original energy plant interactively.",
-
-        "The code available on GitHub is unfortunately from the early stages of development, so it's poorly structured and missing some features. I wish I could share the version that was actually delivered, but it's private in the company's repository."
-      ],
-      "pt": [
-        "APSystem API é um sistema que coleta dados de vários painéis solares e exibe de forma visual para análise. Esse projeto foi uma das minha primeiras demandas reais enquanto estava no projeto de iniciação científica, então tenho bastante carinho por ele, consegui aprender muito como desenvolver em time e gerenciar tasks, tudo com pressão de prazo de entrega.",
-
-        "O sistema inicialmente foi construído com Fastify (depois foi reescrito em Python no framework FastAPI) e a UI foi feita com JavaScript puro, utilizando de criação manual de SVGs e CSS para representar graficamente a planta de energia original de forma interativa.",
-
-        "O código que está no link do GitHub, infelizmente, é do ínicio do desenvolvimento, então está bem mal construido e falta algumas features. Gostaria de ter a versão que foi entregue, mas está privada no repositório privado da empresa."
-      ]
-    },
-    "repoLink": "https://github.com/Kazyel/API_APSystem",
-    "repoImage": "/images/projects/api_apsystem.png",
-    "languages": ["node", "js", "ts", "fastify", "prisma"],
+    "repoLink": "https://hakase-ealabo.com",
+    "repoImage": "/images/projects/hakase-fxlabo.webp",
+    "languages": ["wordpress", "php", "mysql", "js"],
     "status": "Complete"
   },
   {
-    "title": "Kazyani",
+    "title": "CoCoMelody",
     "description": {
-      "en": "Silly minigames based on anime series. To have fun and pass sometime alone or with friends.",
-      "pt": "Joguinhos bobos baseados em séries de anime. Para se divertir e passar o tempo sozinho ou com amigos."
+      "en": "カスタマイズ可能なウェディングドレスやフォーマルウェアを扱う、Shopify構築のブライダルECサイト。",
+      "pt": "カスタマイズ可能なウェディングドレスやフォーマルウェアを扱う、Shopify構築のブライダルECサイト。"
     },
     "body": {
       "en": [
-        "Kazyani is one of the projects I had the most fun working on because it combines anime and programming, and because of the new challenges I encountered during development. The code is completely open source, feel free to take a look or contribute if you want.",
-
-        "It's a small project built with NextJS and TailwindCSS, pretty standard. It consumed data from two different APIs and manipulated it to fit the needs of each minigame. As I realized I needed very specific things, I understood that using two APIs wasn't quite the best solution. So I had to create my own database and then build my own API. That's when I temporarily put the project on hold.",
-
-        "The minigames before were already ready and playable, yet needed more polished data that the both APIs couldn't provide me. But handling a database properly and filling it with data wasn't something I was highly proficient at, so I got tired. Still, it has to be done because the benefits will be huge."
+        "CoCoMelody は、カスタマイズ可能なウェディングドレスやカラードレス、フォーマルウェア、アクセサリーを取り扱うブライダル専門の ECサイトです。Shopify をベースに、海外ブランドの日本向けストアとして構築しました。",
+        "豊富な商品を「ウェディングドレス／カラードレス／小物」などのカテゴリで整理し、サイズ・カラーのバリエーション選択やオーダー（カスタマイズ）に対応。店舗での無料試着予約への導線も設け、オンラインと店舗をつなぐ購買体験を意識しました。",
+        "一生に一度の特別な買い物にふさわしく、上質さと使いやすさを両立した UI／UX を心がけ、回遊しやすく信頼感のあるストアに仕上げました。",
+        "主な機能は、商品検索・サイズ／カラー選択、オーダー（カスタマイズ）対応、カート・決済、店舗での試着予約導線などです。オンラインだけでは不安なドレス選びを店舗試着とつなぐO2O導線で補い、安心して購入できる体験を目指す——という狙いで設計しました。"
       ],
       "pt": [
-        "Kazyani é um dos projetos que eu mais me diverti fazendo porque combina animes e programação, e também pelas dificuldades novas que eu encontrei durante o desenvolvimento. Código completamente open source, sinta-se livre pra dar uma olhada ou contribuir, se quiser.",
-
-        "É um projetinho feito com NextJS e TailwindCSS, bem padrão. Fazia consumo de 2 APIs distintas e manipulava os dados pra deixar do jeito que precisava pra cada minigame. Como eu percebi que precisava de coisas muito específicas, percebi que utilizar de 2 APIs não foi a melhor solução. Então, eu tive que fazer a minha própria database para então fazer minha própria API. E foi aí que abandonei o projeto (temporariamente).",
-
-        "Os minigames já estavam prontos e jogáveis, mas precisavam de dados mais refinados que as duas APIs não conseguiam me fornecer. No entanto, lidar corretamente com um banco de dados e preenchê-lo com dados não era algo em que eu tinha muita proficiência, então perdi o interesse. Ainda assim, precisa ser feito, porque os benefícios serão enormes.”"
+        "CoCoMelody は、カスタマイズ可能なウェディングドレスやカラードレス、フォーマルウェア、アクセサリーを取り扱うブライダル専門の ECサイトです。Shopify をベースに、海外ブランドの日本向けストアとして構築しました。",
+        "豊富な商品を「ウェディングドレス／カラードレス／小物」などのカテゴリで整理し、サイズ・カラーのバリエーション選択やオーダー（カスタマイズ）に対応。店舗での無料試着予約への導線も設け、オンラインと店舗をつなぐ購買体験を意識しました。",
+        "一生に一度の特別な買い物にふさわしく、上質さと使いやすさを両立した UI／UX を心がけ、回遊しやすく信頼感のあるストアに仕上げました。",
+        "主な機能は、商品検索・サイズ／カラー選択、オーダー（カスタマイズ）対応、カート・決済、店舗での試着予約導線などです。オンラインだけでは不安なドレス選びを店舗試着とつなぐO2O導線で補い、安心して購入できる体験を目指す——という狙いで設計しました。"
       ]
     },
-    "repoLink": "https://github.com/Kazyel/kazyani",
-    "repoImage": "/images/projects/kazyani.png",
-    "languages": ["react", "nextjs", "tailwind", "ts"],
-    "status": "On-hold"
+    "repoLink": "https://www.cocomelody.jp/",
+    "repoImage": "/images/projects/cocomelody.webp",
+    "languages": ["shopify", "js", "html", "css"],
+    "status": "Complete"
   },
   {
-    "title": "Let him cook",
+    "title": "KAMIKA",
     "description": {
-      "en": "Easily save your recipes, keep them organized, and share them with others — all in a modern, intuitive app.",
-      "pt": "Salve suas receitas com facilidade, mantenha tudo organizado e compartilhe com outras pessoas — tudo em um app moderno e intuitivo."
+      "en": "クリームシャンプー発のヘアケアブランド「KAMIKA」の公式ブランドサイト。WordPressで構築。",
+      "pt": "クリームシャンプー発のヘアケアブランド「KAMIKA」の公式ブランドサイト。WordPressで構築。"
     },
     "body": {
       "en": [
-        "Let Him Cook is my most recent project, and it's an app for saving and sharing recipes. Recently, I started cooking and really enjoyed it. After looking for some recipes online, I wanted a specific place to save some of my ideas. That's where the inspiration came from.",
-
-        "It's being developed with Vite + React, TanStack Router + Query (working on the front-end like this makes it actually fun). I also took the opportunity to use and learn about Supabase, which has been a very enjoyable experience so far.",
-
-        "I have many ideas to implement and ways to challenge myself with this project. It's really great when you feel excited — every day I'm eager to open VSCode and work on whichever feature I decide to implement."
+        "「KAMIKA（カミカ）」は、1本のクリームシャンプーから始まったヘアケアブランドの公式サイトです。WordPress をベースに、ブランドの世界観を伝えるブランドサイトとして構築しました。",
+        "商品の特長や使い方、こだわりの成分をビジュアル豊かに紹介し、定期コースや購入への導線を設計。スマートフォンでの閲覧を重視し、写真と余白を活かした上質な印象のデザインに仕上げました。",
+        "「いつまでも自分らしく輝きたい」というブランドメッセージに寄り添い、信頼感と特別感のある体験を意識して制作しました。",
+        "主な機能として、ブランド・商品紹介、こだわり成分や使い方の解説コンテンツ、お客様の声、定期コース／購入への導線などを備えています。写真と余白で上質さを伝え、スマホ中心の閲覧でも離脱しにくく自然に購入へつながる——という考えを軸に構成しました。"
       ],
       "pt": [
-        "O Let Him Cook é o meu projeto mais recente e ele consiste em um app para salvar e compartilhar receitas. Recentemente, comecei e gostei bastante de cozinhar, após procurar por algumas receitas na internet eu queria um lugar específico para guardar algumas das ideias. Então, a inspiração veio.",
-
-        "Ele está sendo desenvolvido com Vite + React, TanStack Router + Query (dá até gosto de programar no front-end assim). Também aproveitei pra utilizar e aprender sobre o Supabase, que até agora está sendo uma experiência bastante agradável.",
-
-        "Tenho muitas ideias para implementar e me desafiar nesse projeto. É muito bom quando ficamos animados, todo dia estou empolgado para abrir o meu VSCode e implementar seja lá qual feature for."
+        "「KAMIKA（カミカ）」は、1本のクリームシャンプーから始まったヘアケアブランドの公式サイトです。WordPress をベースに、ブランドの世界観を伝えるブランドサイトとして構築しました。",
+        "商品の特長や使い方、こだわりの成分をビジュアル豊かに紹介し、定期コースや購入への導線を設計。スマートフォンでの閲覧を重視し、写真と余白を活かした上質な印象のデザインに仕上げました。",
+        "「いつまでも自分らしく輝きたい」というブランドメッセージに寄り添い、信頼感と特別感のある体験を意識して制作しました。",
+        "主な機能として、ブランド・商品紹介、こだわり成分や使い方の解説コンテンツ、お客様の声、定期コース／購入への導線などを備えています。写真と余白で上質さを伝え、スマホ中心の閲覧でも離脱しにくく自然に購入へつながる——という考えを軸に構成しました。"
       ]
     },
-    "repoLink": "https://github.com/Kazyel/let-him-cook",
-    "repoImage": "/images/projects/lethimcook.png",
-    "languages": ["ts", "react", "vite", "tailwind", "tanstack"],
-    "status": "Current"
+    "repoLink": "https://kamikacosmetics.jp/",
+    "repoImage": "/images/projects/kamika.webp",
+    "languages": ["wordpress", "php", "js", "css"],
+    "status": "Complete"
   },
   {
-    "title": "HTML Vampire",
+    "title": "マスターオブガーデン",
     "description": {
-      "en": "A lightweight HTML Canvas remake of the acclaimed game Vampire Survivors, featuring fast-paced survival gameplay and simple controls.",
-      "pt": "Uma recriação leve em HTML Canvas do aclamado jogo Vampire Survivors, trazendo uma gameplay de sobrevivência frenética com controles simples."
+      "en": "人気アニメ原作のスマホゲーム「マスターオブガーデン（カゲマス）」公式サイト。WordPressで構築。",
+      "pt": "人気アニメ原作のスマホゲーム「マスターオブガーデン（カゲマス）」公式サイト。WordPressで構築。"
     },
     "body": {
       "en": [
-        "HTML Vampire is inspired by the famous Vampire Survivors and is being made to run on HTML Canvas. This is a simple project for me to have fun coding — completely casual, yet at the same time it's teaching me a lot and making me revisit concepts I hadn't used in a long time (I haven't used Pythagoras that much since high school).",
-
-        "I'm only using React + TypeScript, without any third-party libraries to help with the canvas or game features — just plain, pure HTML Canvas. It was a challenge I set for myself; sometimes I like putting myself in these situations to see what difficulties arise.",
-
-        "Even though it's just for fun and passing the time, I'm learning much more than I expected. From handling multiple classes properly, to understanding the canvas itself, game developing, as well as math and architecture."
+        "「陰の実力者になりたくて！ マスターオブガーデン（カゲマス）」は、人気アニメを原作とするスマートフォンゲームの公式サイトです。WordPress をベースに、作品の世界観を前面に押し出したプロモーションサイトとして構築しました。",
+        "ダイナミックなキービジュアルやキャラクター紹介、ムービー、最新情報に加え、各ストア（App Store / Google Play / Windows）やSNSへの導線を配置。インパクトのあるトップビューと、回遊しやすい情報設計を両立させました。",
+        "ファンの期待感を高める没入感のあるデザインを意識し、アニメ・ゲームならではの華やかでスピード感のある表現を心がけて制作しました。",
+        "主な機能は、キービジュアル・ムービー演出、キャラクター紹介、最新情報の発信、各ストア・SNSへの導線、特設（Special）コンテンツなどです。ファンの期待感を高める没入感と、最新情報やダウンロードへ素早く到達できる回遊性を両立させる——という狙いで構成しました。"
       ],
       "pt": [
-        "HTML Vampire é inspirado no famoso Vampire Survivors e está sendo feito pra rodar no HTML Canvas. Esse é um projeto simples para me divertir codando, totalmente despretensioso e que ao mesmo tempo também está me ensinando bastante, e também me fazendo relembrar muita coisa (não lembro de usar tanto Pitágoras desde o ensino médio).",
-
-        "Só estou utilizando React + TypeScript, sem nenhuma outra lib third-party para ajudar com o canvas ou funcionalidades do game, somente o simples e puro HTML Canvas mesmo. Foi um desafio que eu mesmo coloquei sobre o projeto; às vezes eu gosto de me colocar nessas situações pra ver as dificuldades que surgem.",
-
-        "Por mais que seja somente para me divertir e passar o tempo, estou aprendendo muito mais do que eu imaginava. Desde manusear várias classes devidamente, sobre o próprio canvas, matemática, arquitetura e desenvolvimento de jogos."
+        "「陰の実力者になりたくて！ マスターオブガーデン（カゲマス）」は、人気アニメを原作とするスマートフォンゲームの公式サイトです。WordPress をベースに、作品の世界観を前面に押し出したプロモーションサイトとして構築しました。",
+        "ダイナミックなキービジュアルやキャラクター紹介、ムービー、最新情報に加え、各ストア（App Store / Google Play / Windows）やSNSへの導線を配置。インパクトのあるトップビューと、回遊しやすい情報設計を両立させました。",
+        "ファンの期待感を高める没入感のあるデザインを意識し、アニメ・ゲームならではの華やかでスピード感のある表現を心がけて制作しました。",
+        "主な機能は、キービジュアル・ムービー演出、キャラクター紹介、最新情報の発信、各ストア・SNSへの導線、特設（Special）コンテンツなどです。ファンの期待感を高める没入感と、最新情報やダウンロードへ素早く到達できる回遊性を両立させる——という狙いで構成しました。"
       ]
     },
-    "repoLink": "https://github.com/Kazyel/html-vampire",
-    "repoImage": "/images/projects/htmlvampire.png",
-    "languages": ["ts", "react", "vite"],
-    "status": "Current"
+    "repoLink": "https://www.shadow-garden-mog.jp/",
+    "repoImage": "/images/projects/shadow-garden.webp",
+    "languages": ["wordpress", "php", "js", "css"],
+    "status": "Complete"
   },
   {
-    "title": "CRUD Go!",
+    "title": "パチ7",
     "description": {
-      "en": "An agile starting point for building REST CRUD APIs with Go — simple to use, easy to extend.",
-      "pt": "Um ponto de partida ágil para construir APIs REST CRUD com Go — simples de usar, fácil de estender."
+      "en": "パチンコ・パチスロの取材／来店スケジュールを発信する情報サイト「パチ7」のランディングページ。",
+      "pt": "パチンコ・パチスロの取材／来店スケジュールを発信する情報サイト「パチ7」のランディングページ。"
     },
     "body": {
       "en": [
-        "CRUD Go! is a ready-made template for a simple REST API in Golang, designed to make it easier for me to create other projects whenever I need a basic back-end, saving me the time of building one from scratch.",
-
-        "Of course, it was built in Golang, and I used Gin as the web framework. Users can authenticate either via email + password or through OAuth2, along with middlewares for handling JWT tokens. The template includes a complete CRUD (with validation and error handling) for users, and it's easy to add additional endpoints and functionalities.",
-
-        "This is definitely the project where I've learned the most about back-end development (dependency injection, REST, validation, JWT, auth, migrations) and the Go language in general. Even though I didn't go super deep or tackle extremely complex scenarios, just touching on these topics has been incredibly valuable for my learning."
+        "「パチ7（ぱちセブン）」は、パチンコ・パチスロの取材・来店スケジュールや実戦情報を発信する情報サイトのランディングページです。「明日のホール選び」に役立つ情報を、見やすく届けることを目的に制作しました。",
+        "日々更新されるスケジュールやコンテンツへスムーズに辿り着けるよう情報を整理し、スマートフォン中心のユーザーに最適化。視認性とテンポのよい導線を重視した構成に仕上げました。",
+        "HTML / CSS / JavaScript によるコーディングを中心に、表示速度と運用のしやすさを意識して構築しました。",
+        "主な機能として、取材・来店スケジュールやレポートの表示、日々更新されるコンテンツへの導線、スマートフォン最適化などを実装しています。「明日のホール選び」という目的に最短で辿り着けるよう、視認性とテンポを重視した導線づくりを狙いとしました。"
       ],
       "pt": [
-        "CRUD Go! é um template pronto de uma REST API simples em Golang, com o intuito de facilitar na criação de outros projetos meus caso eu precise de um back-end básico, me polpando o tempo de ter que criar do zero.",
-
-        "Obviamente, ele foi feito em Golang e utilizei o Gin como web framework. É possível autenticar usuários atráves de email + senha ou por OAuth2, junto com middlewares para resolução de tokens JWT. Está disponível o CRUD completo (com validação e erros) para usuários e há a possibilidade de fácil adição de outros endpoints e funcionalidades.",
-
-        "Com certeza foi o projeto em que mais aprendi sobre back-end (dependency injection, REST, validação, jwt, auth, migrations) e a linguagem Go no geral. Mesmo que tudo não tenha sido de forma aprofundada e com alta complexidade, simplesmente tocar nesses pontos teve um valor enorme como aprendizado."
+        "「パチ7（ぱちセブン）」は、パチンコ・パチスロの取材・来店スケジュールや実戦情報を発信する情報サイトのランディングページです。「明日のホール選び」に役立つ情報を、見やすく届けることを目的に制作しました。",
+        "日々更新されるスケジュールやコンテンツへスムーズに辿り着けるよう情報を整理し、スマートフォン中心のユーザーに最適化。視認性とテンポのよい導線を重視した構成に仕上げました。",
+        "HTML / CSS / JavaScript によるコーディングを中心に、表示速度と運用のしやすさを意識して構築しました。",
+        "主な機能として、取材・来店スケジュールやレポートの表示、日々更新されるコンテンツへの導線、スマートフォン最適化などを実装しています。「明日のホール選び」という目的に最短で辿り着けるよう、視認性とテンポを重視した導線づくりを狙いとしました。"
       ]
     },
-    "repoLink": "https://github.com/Kazyel/crud-go/",
-    "repoImage": "/images/projects/crudgo.png",
-    "languages": ["go"],
+    "repoLink": "https://pachiseven-lp.jp/",
+    "repoImage": "/images/projects/pachiseven.webp",
+    "languages": ["html", "css", "js"],
+    "status": "Complete"
+  },
+  {
+    "title": "BEARS",
+    "description": {
+      "en": "カジュアル＆アウトドア商品を扱うセレクトショップ「BEARS」のネットショップ（MakeShop構築）。",
+      "pt": "カジュアル＆アウトドア商品を扱うセレクトショップ「BEARS」のネットショップ（MakeShop構築）。"
+    },
+    "body": {
+      "en": [
+        "「BEARS（ベアーズ）」は、宮城県仙台市発のカジュアル＆アウトドアのセレクトショップによるオンラインストアです。MakeShop をベースに、メンズ・レディースのアパレルや雑貨・アクセサリーを扱うネットショップとして構築しました。",
+        "豊富な商品をブランド・カテゴリごとに整理し、見やすい商品一覧から購入・カートまでスムーズに進める導線を設計。ショップの雰囲気が伝わるビジュアルとカスタマイズを行いました。",
+        "HTML / CSS / JavaScript によるテンプレートのカスタマイズを中心に、運用しやすく分かりやすいストアに仕上げました。",
+        "主な機能は、商品一覧・詳細、ブランド／カテゴリ絞り込み、検索、カート・購入、新着情報やバナー訴求などです。セレクトショップの世界観を保ちながら、目的の商品へ素早く辿り着ける見やすい一覧と導線にする——という考えを意識しました。"
+      ],
+      "pt": [
+        "「BEARS（ベアーズ）」は、宮城県仙台市発のカジュアル＆アウトドアのセレクトショップによるオンラインストアです。MakeShop をベースに、メンズ・レディースのアパレルや雑貨・アクセサリーを扱うネットショップとして構築しました。",
+        "豊富な商品をブランド・カテゴリごとに整理し、見やすい商品一覧から購入・カートまでスムーズに進める導線を設計。ショップの雰囲気が伝わるビジュアルとカスタマイズを行いました。",
+        "HTML / CSS / JavaScript によるテンプレートのカスタマイズを中心に、運用しやすく分かりやすいストアに仕上げました。",
+        "主な機能は、商品一覧・詳細、ブランド／カテゴリ絞り込み、検索、カート・購入、新着情報やバナー訴求などです。セレクトショップの世界観を保ちながら、目的の商品へ素早く辿り着ける見やすい一覧と導線にする——という考えを意識しました。"
+      ]
+    },
+    "repoLink": "https://bears0000.shop12.makeshop.jp/",
+    "repoImage": "/images/projects/bears.webp",
+    "languages": ["html", "css", "js"],
+    "status": "Complete"
+  },
+  {
+    "title": "婚活のみかた",
+    "description": {
+      "en": "婚活に役立つ情報をほぼ毎日発信する情報メディア「婚活のみかた」。WordPressで構築。",
+      "pt": "婚活に役立つ情報をほぼ毎日発信する情報メディア「婚活のみかた」。WordPressで構築。"
+    },
+    "body": {
+      "en": [
+        "「婚活のみかた」は、婚活の最新情報やノウハウ、結婚相談所・婚活パーティーの比較、デートスポットなどを発信する情報メディアサイトです。WordPress をベースに、ほぼ毎日更新される記事を快適に読めるメディアとして構築しました。",
+        "記事カテゴリやランキング、検索性を意識した情報設計で、読者が目的の情報にたどり着きやすい構成に。SEO（AIOSEO）対応やスマートフォン最適化も行い、流入と回遊の両面を意識しました。",
+        "読みやすさと信頼感を大切に、継続的な記事更新・運用がしやすいテンプレート設計を心がけて制作しました。",
+        "主な機能として、記事のカテゴリ／タグ分類、ランキング、検索、関連記事、結婚相談所の紹介・資料請求バナー、SEO対応などを備えています。毎日更新される記事でも回遊しやすく、年代や悩みに応じて読者を目的の情報へ導く——という考えで情報設計を行いました。"
+      ],
+      "pt": [
+        "「婚活のみかた」は、婚活の最新情報やノウハウ、結婚相談所・婚活パーティーの比較、デートスポットなどを発信する情報メディアサイトです。WordPress をベースに、ほぼ毎日更新される記事を快適に読めるメディアとして構築しました。",
+        "記事カテゴリやランキング、検索性を意識した情報設計で、読者が目的の情報にたどり着きやすい構成に。SEO（AIOSEO）対応やスマートフォン最適化も行い、流入と回遊の両面を意識しました。",
+        "読みやすさと信頼感を大切に、継続的な記事更新・運用がしやすいテンプレート設計を心がけて制作しました。",
+        "主な機能として、記事のカテゴリ／タグ分類、ランキング、検索、関連記事、結婚相談所の紹介・資料請求バナー、SEO対応などを備えています。毎日更新される記事でも回遊しやすく、年代や悩みに応じて読者を目的の情報へ導く——という考えで情報設計を行いました。"
+      ]
+    },
+    "repoLink": "https://konkatsu-no-mikata.com/",
+    "repoImage": "/images/projects/konkatsu.webp",
+    "languages": ["wordpress", "php", "js", "css"],
+    "status": "Complete"
+  },
+  {
+    "title": "結和税理士法人",
+    "description": {
+      "en": "税務・会計を幅広く手がける「結和税理士法人」のコーポレートサイト。WordPressで構築。",
+      "pt": "税務・会計を幅広く手がける「結和税理士法人」のコーポレートサイト。WordPressで構築。"
+    },
+    "body": {
+      "en": [
+        "「結和税理士法人」は、税務・会計をはじめ企業財務に関する業務を幅広く手がける税理士法人のコーポレートサイトです。WordPress をベースに、事務所の信頼性と専門性を伝えるサイトとして構築しました。",
+        "業務案内や会社概要、コンサルタント紹介、お知らせ、採用情報、お問い合わせまでを分かりやすく整理し、はじめての方でも相談しやすい導線を設計。落ち着いた配色と読みやすいレイアウトで、専門サービスにふさわしい安心感を意識しました。",
+        "「人との結びつきを大切にする」という理念に寄り添い、誠実さと親しみやすさを両立したデザインを心がけて制作しました。",
+        "主な機能として、業務・サービス紹介、会社概要、コンサルタント紹介、お知らせ（記事更新）、採用情報、お問い合わせフォームなどを備えています。専門性で身構えさせず「まず相談してみよう」と思える導線と、安心感のある見せ方を狙いとしました。"
+      ],
+      "pt": [
+        "「結和税理士法人」は、税務・会計をはじめ企業財務に関する業務を幅広く手がける税理士法人のコーポレートサイトです。WordPress をベースに、事務所の信頼性と専門性を伝えるサイトとして構築しました。",
+        "業務案内や会社概要、コンサルタント紹介、お知らせ、採用情報、お問い合わせまでを分かりやすく整理し、はじめての方でも相談しやすい導線を設計。落ち着いた配色と読みやすいレイアウトで、専門サービスにふさわしい安心感を意識しました。",
+        "「人との結びつきを大切にする」という理念に寄り添い、誠実さと親しみやすさを両立したデザインを心がけて制作しました。",
+        "主な機能として、業務・サービス紹介、会社概要、コンサルタント紹介、お知らせ（記事更新）、採用情報、お問い合わせフォームなどを備えています。専門性で身構えさせず「まず相談してみよう」と思える導線と、安心感のある見せ方を狙いとしました。"
+      ]
+    },
+    "repoLink": "https://yuwatax.com/",
+    "repoImage": "/images/projects/yuwatax.webp",
+    "languages": ["wordpress", "php", "js", "css"],
+    "status": "Complete"
+  },
+  {
+    "title": "SoccerCut Pro",
+    "description": {
+      "en": "サッカーの試合・練習映像を分析するためのMacアプリ。カット・二画面・エフェクト・再生速度調整を搭載。",
+      "pt": "サッカーの試合・練習映像を分析するためのMacアプリ。カット・二画面・エフェクト・再生速度調整を搭載。"
+    },
+    "body": {
+      "en": [
+        "「SoccerCut Pro」は、サッカーの試合や練習映像を分析するための Mac 向けデスクトップアプリです。撮影した映像から重要なシーンを素早く切り出し、分析の質と効率を高めることを目的に開発しました。",
+        "従来は時間のかかっていた試合映像のカット作業を大幅に短縮し、スカウティングやチームへの共有をスムーズにします。指導者やアナリストが「見る・切る・伝える」を一つのアプリで完結できることを目指しました。",
+        "初心者でも直感的に扱えるシンプルな操作性を重視し、複雑な設定なしに必要な分析がすぐ行えるインターフェースを心がけて開発しました。",
+        "主な機能として、重要シーンのカット書き出し、二画面同時表示、ペン／矢印／テキストによる注釈（エフェクト）、スロー・早送りの再生速度調整、スクリーンショット保存などを備えています。映像分析の作業時間を大幅に短縮しつつ、分析結果を視覚的に分かりやすく伝える——という狙いで設計しました。"
+      ],
+      "pt": [
+        "「SoccerCut Pro」は、サッカーの試合や練習映像を分析するための Mac 向けデスクトップアプリです。撮影した映像から重要なシーンを素早く切り出し、分析の質と効率を高めることを目的に開発しました。",
+        "従来は時間のかかっていた試合映像のカット作業を大幅に短縮し、スカウティングやチームへの共有をスムーズにします。指導者やアナリストが「見る・切る・伝える」を一つのアプリで完結できることを目指しました。",
+        "初心者でも直感的に扱えるシンプルな操作性を重視し、複雑な設定なしに必要な分析がすぐ行えるインターフェースを心がけて開発しました。",
+        "主な機能として、重要シーンのカット書き出し、二画面同時表示、ペン／矢印／テキストによる注釈（エフェクト）、スロー・早送りの再生速度調整、スクリーンショット保存などを備えています。映像分析の作業時間を大幅に短縮しつつ、分析結果を視覚的に分かりやすく伝える——という狙いで設計しました。"
+      ]
+    },
+    "repoLink": "https://apps.apple.com/jp/app/id6503021660",
+    "repoImage": "/images/projects/soccercut.webp",
+    "languages": ["electron", "ts", "react"],
+    "status": "Complete"
+  },
+  {
+    "title": "リヴリーアイランド",
+    "description": {
+      "en": "あの『リヴリーアイランド』をリブートした、ペット育成・着せ替え・箱庭デコのソーシャルゲームアプリ。",
+      "pt": "あの『リヴリーアイランド』をリブートした、ペット育成・着せ替え・箱庭デコのソーシャルゲームアプリ。"
+    },
+    "body": {
+      "en": [
+        "「リヴリーアイランド」は、かつて人気を博した育成コミュニティをリブートしたスマートフォン向けソーシャルゲームアプリです。不思議な錬金生物「リヴリー」を育て、自分だけの島で気ままに暮らす癒しの体験を提供します。",
+        "エサやりでリヴリーの毛色が変化し、排出する宝石でショップでの買い物を楽しめます。分身となる「ホム」のコーディネートや、アイテムでアイランドを自由にデコレーションでき、眺めているだけで癒される世界観をつくり込みました。",
+        "「育てる・着せ替える・飾る」という3つの楽しみを、直感的でやさしい操作で行き来できるよう設計。日常の中でふと開きたくなる、心地よいテンポと手触りを大切にしました。",
+        "主な機能として、リヴリーの育成（エサやり・成長による色変化）、ホムの着せ替えコーディネート、アイランドのデコレーション、ショップ、撮影／共有などを備えています。「眺めているだけで癒される」体験を軸に、収集・カスタマイズ・共有を自然に行き来できる構成を狙いとしました。"
+      ],
+      "pt": [
+        "「リヴリーアイランド」は、かつて人気を博した育成コミュニティをリブートしたスマートフォン向けソーシャルゲームアプリです。不思議な錬金生物「リヴリー」を育て、自分だけの島で気ままに暮らす癒しの体験を提供します。",
+        "エサやりでリヴリーの毛色が変化し、排出する宝石でショップでの買い物を楽しめます。分身となる「ホム」のコーディネートや、アイテムでアイランドを自由にデコレーションでき、眺めているだけで癒される世界観をつくり込みました。",
+        "「育てる・着せ替える・飾る」という3つの楽しみを、直感的でやさしい操作で行き来できるよう設計。日常の中でふと開きたくなる、心地よいテンポと手触りを大切にしました。",
+        "主な機能として、リヴリーの育成（エサやり・成長による色変化）、ホムの着せ替えコーディネート、アイランドのデコレーション、ショップ、撮影／共有などを備えています。「眺めているだけで癒される」体験を軸に、収集・カスタマイズ・共有を自然に行き来できる構成を狙いとしました。"
+      ]
+    },
+    "repoLink": "https://apps.apple.com/jp/app/id1553045339",
+    "repoImage": "/images/projects/livly.webp",
+    "languages": ["unity"],
+    "status": "Complete"
+  },
+  {
+    "title": "物流SaaS Trac（QA・テスト設計）",
+    "description": {
+      "en": "Rails製マルチテナント物流SaaS「Trac」のQAを担当。結合テスト2,713項目・UAT28シナリオを設計実施し、改善対応702件を整理、最終進捗率99.8%を達成。",
+      "pt": "Rails製マルチテナント物流SaaS「Trac」のQAを担当。結合テスト2,713項目・UAT28シナリオを設計実施し、改善対応702件を整理、最終進捗率99.8%を達成。"
+    },
+    "body": {
+      "en": [
+        "「Trac」は、中小フォワーダー（国際物流業者）向けのマルチテナント型物流SaaSです。書類管理の煩雑さ・人手不足・Excel作成の手間・動静確認の煩雑さという4つの実運用課題の解決をゴールに開発されており、その QA・受入テスト設計を担当しました。",
+        "結合テストは仕様書ベースで2,713項目を設計・実施し、進捗率99.8%を達成。案件カレンダー（12ステップ進捗管理）、マルチテナントのデータ分離、複数業者間のリアルタイムチャット、見積→ブッキング連携、B/L・S/I・A/N・請求書のPDF生成（外貨建て対応）、Marinetraffic／Kpler の動静API連携などを検証対象としました。",
+        "UATは実運用課題タグを付けて28シナリオに整理し、解決効果を検証可能な形に。障害12件のうち客観的根拠に基づく検証で11件をクローズし、改善提案サマリーへ計702件の改善対応を整理しました。",
+        "主な取り組みとして、Playwright によるE2E自動化や Python（openpyxl）での集計自動生成を整備し、結果反映からサマリー更新までの手作業を排除して進捗を可視化しました。「主観ではなく客観的根拠でクローズする」ことを軸に、仕様精読・テスト設計・実施・障害切り分け・改善提案までを一貫して担当しています。"
+      ],
+      "pt": [
+        "「Trac」は、中小フォワーダー（国際物流業者）向けのマルチテナント型物流SaaSです。書類管理の煩雑さ・人手不足・Excel作成の手間・動静確認の煩雑さという4つの実運用課題の解決をゴールに開発されており、その QA・受入テスト設計を担当しました。",
+        "結合テストは仕様書ベースで2,713項目を設計・実施し、進捗率99.8%を達成。案件カレンダー（12ステップ進捗管理）、マルチテナントのデータ分離、複数業者間のリアルタイムチャット、見積→ブッキング連携、B/L・S/I・A/N・請求書のPDF生成（外貨建て対応）、Marinetraffic／Kpler の動静API連携などを検証対象としました。",
+        "UATは実運用課題タグを付けて28シナリオに整理し、解決効果を検証可能な形に。障害12件のうち客観的根拠に基づく検証で11件をクローズし、改善提案サマリーへ計702件の改善対応を整理しました。",
+        "主な取り組みとして、Playwright によるE2E自動化や Python（openpyxl）での集計自動生成を整備し、結果反映からサマリー更新までの手作業を排除して進捗を可視化しました。「主観ではなく客観的根拠でクローズする」ことを軸に、仕様精読・テスト設計・実施・障害切り分け・改善提案までを一貫して担当しています。"
+      ]
+    },
+    "repoLink": "https://demataku-test.com/",
+    "repoImage": "/images/projects/trac-1.webp",
+    "images": [
+      "/images/projects/trac-1.webp",
+      "/images/projects/trac-2.webp",
+      "/images/projects/trac-3.webp",
+      "/images/projects/trac-4.webp",
+      "/images/projects/trac-5.webp"
+    ],
+    "languages": ["playwright", "rubyonrails", "mysql", "python"],
+    "status": "Complete"
+  },
+  {
+    "title": "エンジニア工数管理・承認システム",
+    "description": {
+      "en": "従業員100名規模のIT企業向けに、Jira / Tempo連携で間接業務工数の月次集計・承認を実装。36協定チェックや経理向け配賦データ出力にも対応。",
+      "pt": "従業員100名規模のIT企業向けに、Jira / Tempo連携で間接業務工数の月次集計・承認を実装。36協定チェックや経理向け配賦データ出力にも対応。"
+    },
+    "body": {
+      "en": [
+        "従業員100名規模のIT企業の開発本部向けに、エンジニアの間接業務（会議・採用・障害対応・休暇など）の工数を可視化する工数管理・承認システムを開発しました。Excel運用だった集計・承認フローをWeb化し、Jira / Tempo API と連携して工数データを自動同期します。",
+        "月次決算向けの配賦データ出力や36協定の超過チェックにも対応。要件定義・UI/UX設計・フロントエンド実装・API設計・Jira/Tempo連携・デプロイ運用までを一貫して担当しました（Next.js 14 / TypeScript / Prisma / PostgreSQL）。",
+        "工夫した点として、日本企業の業務に合わせた2段階承認フロー、TanStack Table の仮想スクロールによる大量データの高速表示、楽観的UI更新による操作レスポンス改善、Atlassian Design System を意識したUI設計を行いました。",
+        "主な機能として、ユーザー×Epic単位の工数集計レポート、日次工数グリッド、期間・ステータス別フィルタ、承認ワークフロー（承認／差し戻し／保留）、36協定チェック、CSV／Googleスプレッドシート出力、Slack通知などを備えています。結果として経理部門の月次クローズを約60%短縮し、工数入力の差し戻し率を15%→3%へ改善しました。"
+      ],
+      "pt": [
+        "従業員100名規模のIT企業の開発本部向けに、エンジニアの間接業務（会議・採用・障害対応・休暇など）の工数を可視化する工数管理・承認システムを開発しました。Excel運用だった集計・承認フローをWeb化し、Jira / Tempo API と連携して工数データを自動同期します。",
+        "月次決算向けの配賦データ出力や36協定の超過チェックにも対応。要件定義・UI/UX設計・フロントエンド実装・API設計・Jira/Tempo連携・デプロイ運用までを一貫して担当しました（Next.js 14 / TypeScript / Prisma / PostgreSQL）。",
+        "工夫した点として、日本企業の業務に合わせた2段階承認フロー、TanStack Table の仮想スクロールによる大量データの高速表示、楽観的UI更新による操作レスポンス改善、Atlassian Design System を意識したUI設計を行いました。",
+        "主な機能として、ユーザー×Epic単位の工数集計レポート、日次工数グリッド、期間・ステータス別フィルタ、承認ワークフロー（承認／差し戻し／保留）、36協定チェック、CSV／Googleスプレッドシート出力、Slack通知などを備えています。結果として経理部門の月次クローズを約60%短縮し、工数入力の差し戻し率を15%→3%へ改善しました。"
+      ]
+    },
+    "repoLink": "#",
+    "repoImage": "/images/projects/workhours-1.webp",
+    "images": [
+      "/images/projects/workhours-1.webp",
+      "/images/projects/workhours-2.webp",
+      "/images/projects/workhours-3.webp"
+    ],
+    "languages": ["nextjs", "ts", "tailwind", "prisma", "postgresql", "tanstack"],
+    "status": "Complete"
+  },
+  {
+    "title": "n8n 業務自動化ワークフロー",
+    "description": {
+      "en": "n8nを中核に Gmail・Dify・OpenAI・Pinecone・Notion・Slack を連携させたAI業務自動化。書類処理から応答生成・通知までを一気通貫で自動化。",
+      "pt": "n8nを中核に Gmail・Dify・OpenAI・Pinecone・Notion・Slack を連携させたAI業務自動化。書類処理から応答生成・通知までを一気通貫で自動化。"
+    },
+    "body": {
+      "en": [
+        "業務自動化ツール「n8n」を中核に、Gmail・Dify・OpenAI・Pinecone・Notion・Slack といった複数サービスを連携させた業務自動化ワークフローを構築しました。これまで人手で行っていた「メールで届く書類の確認・転記・対応」を、受信から応答・通知まで一気通貫で自動化することを目的としています。",
+        "具体的には、Gmail の受信をトリガーに添付ファイルの有無を判定し、PDF か画像かで処理を分岐。PDF はテキスト抽出、画像は OpenAI Vision で内容を読み取り、Dify の API で必要な項目を構造化抽出します。抽出データはコードノードで整形して Notion へ蓄積し、要対応のものは Slack へ通知する、という一連のフローを設計しました。",
+        "問い合わせ対応では、社内ドキュメントを Pinecone のベクトルストアと OpenAI Embeddings で RAG 化し、Dify のナレッジと AIエージェントを通じて文脈に沿った回答を自動生成。定型的な確認・回答にかかっていた時間を大幅に削減しました。",
+        "実運用を見据え、条件分岐（Switch）・リトライ・エラーハンドリング・重複処理の抑制を組み込み、各処理をノード単位でモジュール化することで拡張性と保守性を確保。エンジニアでなくても運用・調整しやすい構成を意識し、業務の変化に追従できる自動化基盤として設計しました。"
+      ],
+      "pt": [
+        "業務自動化ツール「n8n」を中核に、Gmail・Dify・OpenAI・Pinecone・Notion・Slack といった複数サービスを連携させた業務自動化ワークフローを構築しました。これまで人手で行っていた「メールで届く書類の確認・転記・対応」を、受信から応答・通知まで一気通貫で自動化することを目的としています。",
+        "具体的には、Gmail の受信をトリガーに添付ファイルの有無を判定し、PDF か画像かで処理を分岐。PDF はテキスト抽出、画像は OpenAI Vision で内容を読み取り、Dify の API で必要な項目を構造化抽出します。抽出データはコードノードで整形して Notion へ蓄積し、要対応のものは Slack へ通知する、という一連のフローを設計しました。",
+        "問い合わせ対応では、社内ドキュメントを Pinecone のベクトルストアと OpenAI Embeddings で RAG 化し、Dify のナレッジと AIエージェントを通じて文脈に沿った回答を自動生成。定型的な確認・回答にかかっていた時間を大幅に削減しました。",
+        "実運用を見据え、条件分岐（Switch）・リトライ・エラーハンドリング・重複処理の抑制を組み込み、各処理をノード単位でモジュール化することで拡張性と保守性を確保。エンジニアでなくても運用・調整しやすい構成を意識し、業務の変化に追従できる自動化基盤として設計しました。"
+      ]
+    },
+    "repoLink": "#",
+    "repoImage": "/images/projects/n8n-1.webp",
+    "images": [
+      "/images/projects/n8n-1.webp",
+      "/images/projects/n8n-2.webp",
+      "/images/projects/n8n-3.webp"
+    ],
+    "languages": ["n8n", "openai", "notion", "slack"],
+    "status": "Complete"
+  },
+  {
+    "title": "動画学習プラットフォーム（LMS）",
+    "description": {
+      "en": "経営者・ビジネスマン向けSaaS型動画学習プラットフォーム「社長の教習所」。動画視聴・進捗可視化・お気に入り・プレイリストを備えたアプリライクなLMSを開発。",
+      "pt": "経営者・ビジネスマン向けSaaS型動画学習プラットフォーム「社長の教習所」。動画視聴・進捗可視化・お気に入り・プレイリストを備えたアプリライクなLMSを開発。"
+    },
+    "body": {
+      "en": [
+        "ビジネス教育コンテンツを配信する SaaS 型の動画学習プラットフォーム「社長の教習所」を開発しました。経営者・ビジネスパーソンが PC・スマートフォンの双方でストレスなく学べるよう、レスポンシブかつネイティブアプリに近い操作感（ボトムタブナビゲーション、ダークUI）を実現しています。",
+        "ホーム画面には「今日のおすすめ」と「前回の続き」を配置し、コースは『シリーズ→エピソード』構造で管理。各コースの完了率をパーセンテージ（例：3/12完了）で可視化し、『続きから再生（Episode 4）』『最初から再生』を選べるようにしました。エピソード一覧では未再生のみのフィルタや並び替え、再生回数の表示にも対応しています。",
+        "パーソナライズ機能として、お気に入り登録・視聴履歴・カスタムプレイリスト作成、オフライン視聴向けのダウンロードを実装。『次に何を観るべきか』で迷わせない導線づくりで、継続率（リテンション）の向上を狙いました。",
+        "技術面では、動画を AWS（S3／CloudFront）でストリーミング配信し、エピソード単位の視聴進捗をデータベースに保存して再開や完了率に反映。管理者がシリーズ・動画を簡単に追加・更新できる拡張性の高いバックエンドを構築し、要件定義・UI/UX設計・フロントエンド・API/DB設計・インフラ構築までを一貫して担当しました。"
+      ],
+      "pt": [
+        "ビジネス教育コンテンツを配信する SaaS 型の動画学習プラットフォーム「社長の教習所」を開発しました。経営者・ビジネスパーソンが PC・スマートフォンの双方でストレスなく学べるよう、レスポンシブかつネイティブアプリに近い操作感（ボトムタブナビゲーション、ダークUI）を実現しています。",
+        "ホーム画面には「今日のおすすめ」と「前回の続き」を配置し、コースは『シリーズ→エピソード』構造で管理。各コースの完了率をパーセンテージ（例：3/12完了）で可視化し、『続きから再生（Episode 4）』『最初から再生』を選べるようにしました。エピソード一覧では未再生のみのフィルタや並び替え、再生回数の表示にも対応しています。",
+        "パーソナライズ機能として、お気に入り登録・視聴履歴・カスタムプレイリスト作成、オフライン視聴向けのダウンロードを実装。『次に何を観るべきか』で迷わせない導線づくりで、継続率（リテンション）の向上を狙いました。",
+        "技術面では、動画を AWS（S3／CloudFront）でストリーミング配信し、エピソード単位の視聴進捗をデータベースに保存して再開や完了率に反映。管理者がシリーズ・動画を簡単に追加・更新できる拡張性の高いバックエンドを構築し、要件定義・UI/UX設計・フロントエンド・API/DB設計・インフラ構築までを一貫して担当しました。"
+      ]
+    },
+    "repoLink": "#",
+    "repoImage": "/images/projects/lms-1.webp",
+    "images": [
+      "/images/projects/lms-1.webp",
+      "/images/projects/lms-2.webp",
+      "/images/projects/lms-3.webp",
+      "/images/projects/lms-4.webp",
+      "/images/projects/lms-5.webp",
+      "/images/projects/lms-6.webp"
+    ],
+    "languages": ["nextjs", "ts", "tailwind", "postgresql", "aws"],
+    "status": "Complete"
+  },
+  {
+    "title": "LINE写真買取査定システム",
+    "description": {
+      "en": "LINEで送られた商品写真を査定し結果を返信する買取査定システム。AWSサーバーレス（API Gateway / Lambda / DynamoDB / S3）＋ Amplify管理画面で構築。",
+      "pt": "LINEで送られた商品写真を査定し結果を返信する買取査定システム。AWSサーバーレス（API Gateway / Lambda / DynamoDB / S3）＋ Amplify管理画面で構築。"
+    },
+    "body": {
+      "en": [
+        "ユーザーが LINE で送った商品写真を、オペレーターが査定して結果を返信する「写真買取査定システム」を構築しました。LINE をフロントの入口に、AWS のサーバーレス構成（API Gateway / Lambda / DynamoDB / S3）でバックエンドを組み、運用担当者向けの管理画面は AWS Amplify で提供しています。",
+        "ユーザーが LINE トークに写真を送ると、Webhook を受けた API Gateway → Lambda が画像を S3 に保存し、依頼情報を DynamoDB に登録。管理画面では「すべて／未返信／返信済み」のステータス別に依頼一覧を表示し、各依頼に対して「買取可能／不明／買取不可」を選択できます。",
+        "オペレーターが査定結果を確定して送信すると、Lambda 経由で LINE Messaging API からユーザーへ自動返信。送信前に内容（ユーザー・写真・判定）を確認するモーダルを設け、誤送信を防ぐ運用フローにしました。",
+        "サーバーレス構成により依頼の増減に応じて自動スケールし、運用コストを抑えています。画像は S3、状態は DynamoDB と役割を分離し、ページングやステータス絞り込みで大量の依頼も捌けるよう設計。LINE という身近な入口とシンプルな管理画面を両立させ、現場がそのまま使える買取オペレーションを実現しました。"
+      ],
+      "pt": [
+        "ユーザーが LINE で送った商品写真を、オペレーターが査定して結果を返信する「写真買取査定システム」を構築しました。LINE をフロントの入口に、AWS のサーバーレス構成（API Gateway / Lambda / DynamoDB / S3）でバックエンドを組み、運用担当者向けの管理画面は AWS Amplify で提供しています。",
+        "ユーザーが LINE トークに写真を送ると、Webhook を受けた API Gateway → Lambda が画像を S3 に保存し、依頼情報を DynamoDB に登録。管理画面では「すべて／未返信／返信済み」のステータス別に依頼一覧を表示し、各依頼に対して「買取可能／不明／買取不可」を選択できます。",
+        "オペレーターが査定結果を確定して送信すると、Lambda 経由で LINE Messaging API からユーザーへ自動返信。送信前に内容（ユーザー・写真・判定）を確認するモーダルを設け、誤送信を防ぐ運用フローにしました。",
+        "サーバーレス構成により依頼の増減に応じて自動スケールし、運用コストを抑えています。画像は S3、状態は DynamoDB と役割を分離し、ページングやステータス絞り込みで大量の依頼も捌けるよう設計。LINE という身近な入口とシンプルな管理画面を両立させ、現場がそのまま使える買取オペレーションを実現しました。"
+      ]
+    },
+    "repoLink": "#",
+    "repoImage": "/images/projects/buyback-1.webp",
+    "images": [
+      "/images/projects/buyback-1.webp",
+      "/images/projects/buyback-2.webp",
+      "/images/projects/buyback-3.webp"
+    ],
+    "languages": ["line", "lambda", "dynamodb", "s3", "amplify"],
+    "status": "Complete"
+  },
+  {
+    "title": "避難所混雑率マップ",
+    "description": {
+      "en": "避難所の混雑状況を色分けで可視化する防災マップ。Leafletで構築し、自治体向けにオープンソース公開。",
+      "pt": "避難所の混雑状況を色分けで可視化する防災マップ。Leafletで構築し、自治体向けにオープンソース公開。"
+    },
+    "body": {
+      "en": [
+        "「避難所の混雑状況の可視化マップ」は、災害時に避難所の混み具合を地図上に色分けで表示する防災マップです。Leaflet と OpenStreetMap のタイルを用いて避難所をマッピングし、混雑率に応じてマーカーの色を変えることで、避難者が空いている避難所をひと目で判断できるようにしました。",
+        "混雑率は『80%以上＝赤／60%以上＝橙／40%以上＝黄／20%以上＝緑／20%以下＝青』の5段階で色分けし、凡例とあわせて緊急時でも直感的に読み取れる表現に。スマートフォンでも見やすい軽量な実装とし、Netlify でホスティングしています。",
+        "自治体や自主防災組織が自分たちのデータで活用できるよう、ソースコードをオープンソースとして公開しました。導入のハードルを下げ、地域防災の現場で役立てられることを目指しています。",
+        "外部依存を抑えた軽量なフロントエンド（Leaflet ＋ 静的ホスティング）により、災害時でも素早く表示でき、低コストで運用できる構成にしました。混雑率の色分けという直感的な表現で、緊急時に『どこへ逃げるか』を迷わず判断できる導線を意識しています。"
+      ],
+      "pt": [
+        "「避難所の混雑状況の可視化マップ」は、災害時に避難所の混み具合を地図上に色分けで表示する防災マップです。Leaflet と OpenStreetMap のタイルを用いて避難所をマッピングし、混雑率に応じてマーカーの色を変えることで、避難者が空いている避難所をひと目で判断できるようにしました。",
+        "混雑率は『80%以上＝赤／60%以上＝橙／40%以上＝黄／20%以上＝緑／20%以下＝青』の5段階で色分けし、凡例とあわせて緊急時でも直感的に読み取れる表現に。スマートフォンでも見やすい軽量な実装とし、Netlify でホスティングしています。",
+        "自治体や自主防災組織が自分たちのデータで活用できるよう、ソースコードをオープンソースとして公開しました。導入のハードルを下げ、地域防災の現場で役立てられることを目指しています。",
+        "外部依存を抑えた軽量なフロントエンド（Leaflet ＋ 静的ホスティング）により、災害時でも素早く表示でき、低コストで運用できる構成にしました。混雑率の色分けという直感的な表現で、緊急時に『どこへ逃げるか』を迷わず判断できる導線を意識しています。"
+      ]
+    },
+    "repoLink": "https://refugecrowdingratemap.netlify.app/",
+    "repoImage": "/images/projects/refuge.webp",
+    "languages": ["leaflet", "openstreetmap", "js", "netlify"],
+    "status": "Complete"
+  },
+  {
+    "title": "ハイスタッフ！（舞台技術者マッチング）",
+    "description": {
+      "en": "照明・音響・衣装など舞台技術者と公演をつなぐマッチングサイト「ハイスタッフ！」。ノーコード（Bubble）で構築。",
+      "pt": "照明・音響・衣装など舞台技術者と公演をつなぐマッチングサイト「ハイスタッフ！」。ノーコード（Bubble）で構築。"
+    },
+    "body": {
+      "en": [
+        "「ハイスタッフ！」は、舞台・演劇の現場と、照明・音響・映像・衣装・ヘアメイク・大道具といった舞台技術者をつなぐマッチングサイトです。ノーコード開発プラットフォーム Bubble を用いて、会員登録・検索・募集・連絡までを一つのWebサービスとして構築しました。",
+        "技術者は専門分野やスキルをプロフィールに登録し、公演側はスタッフ検索から条件に合う人材を探せます。掲示板を通じて募集・相談のやり取りができ、専門性の高い舞台スタッフの人手不足をオンラインで解決することを目指しています。",
+        "Bubble のデータベース・ワークフロー機能を活用し、会員登録／ログイン、プロフィール管理、検索、掲示板などの機能をノーコードで実装。仕様変更や機能追加にも素早く対応できる柔軟な構成にしました。",
+        "ノーコードを採用することで、企画から公開までを短期間・低コストで実現。『舞台技術』という専門領域に特化したマッチングという明確なコンセプトのもと、関係者が直感的に使える導線と画面設計を意識して制作しました。"
+      ],
+      "pt": [
+        "「ハイスタッフ！」は、舞台・演劇の現場と、照明・音響・映像・衣装・ヘアメイク・大道具といった舞台技術者をつなぐマッチングサイトです。ノーコード開発プラットフォーム Bubble を用いて、会員登録・検索・募集・連絡までを一つのWebサービスとして構築しました。",
+        "技術者は専門分野やスキルをプロフィールに登録し、公演側はスタッフ検索から条件に合う人材を探せます。掲示板を通じて募集・相談のやり取りができ、専門性の高い舞台スタッフの人手不足をオンラインで解決することを目指しています。",
+        "Bubble のデータベース・ワークフロー機能を活用し、会員登録／ログイン、プロフィール管理、検索、掲示板などの機能をノーコードで実装。仕様変更や機能追加にも素早く対応できる柔軟な構成にしました。",
+        "ノーコードを採用することで、企画から公開までを短期間・低コストで実現。『舞台技術』という専門領域に特化したマッチングという明確なコンセプトのもと、関係者が直感的に使える導線と画面設計を意識して制作しました。"
+      ]
+    },
+    "repoLink": "https://histaff.work/",
+    "repoImage": "/images/projects/histaff.webp",
+    "languages": ["bubble"],
     "status": "Complete"
   }
 ]

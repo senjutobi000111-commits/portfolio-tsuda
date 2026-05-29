@@ -16,6 +16,7 @@ export type ProjectType = {
   body: { en: string[]; pt: string[] };
   repoLink: string;
   repoImage: string;
+  images?: string[];
   languages: {
     src: IconType;
     alt: string;
