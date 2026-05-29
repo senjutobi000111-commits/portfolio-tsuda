@@ -33,7 +33,7 @@ const BLOG_LINKS = [
   {
     name: "Qiita",
     src: TECH_LANGUAGES.qiita.src,
-    href: "https://qiita.com/",
+    href: "https://qiita.com/zywx21301",
     color: "#55C500",
   },
   {
