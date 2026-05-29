@@ -18,8 +18,8 @@ const AboutText = () => {
         <TextAnimate
           key={key}
           className={cn(
-            "font-serif-jp mb-4 text-pretty text-black last:mb-0",
-            "text-sm leading-7 sm:text-base lg:text-lg",
+            "font-serif-jp mb-3 text-pretty text-black last:mb-0",
+            "text-xs leading-6 sm:text-sm lg:text-base",
           )}
           by="text"
           animation="slideRight"

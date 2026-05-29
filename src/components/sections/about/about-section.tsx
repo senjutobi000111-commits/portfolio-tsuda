@@ -80,7 +80,7 @@ const BlogLinkCard = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex cursor-pointer flex-col items-center gap-2.5"
+      className="group cursor-pointer"
       style={{ "--brand": color } as CSSProperties}
       aria-label={`${name}の投稿を見る`}
     >
@@ -91,9 +91,6 @@ const BlogLinkCard = ({
         )}
       >
         <Icon className="text-darkest/80 size-8 transition-colors duration-200 group-hover:text-[var(--brand)] lg:size-9" />
-      </span>
-      <span className="font-jp text-darkest/60 text-xs font-semibold tracking-wider transition-colors duration-200 group-hover:text-[var(--brand)]">
-        {name}
       </span>
     </Link>
   );
