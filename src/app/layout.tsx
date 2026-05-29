@@ -10,6 +10,9 @@ import { MotionWrapper } from "@/components/motion-wrapper";
 
 import "@/app/globals.css";
 
+// i18n が cookies()/headers() を使うため全ルートを動的レンダリングに固定（静的生成での失敗を回避）
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "津田 和明 | Portfolio",
   description:
