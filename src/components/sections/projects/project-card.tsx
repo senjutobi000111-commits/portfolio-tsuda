@@ -27,7 +27,7 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
   return (
     <article
       id="project-card"
-      className="group border-acc-red-dark/40 relative grid aspect-square w-[clamp(325px,_40vw,_400px)] cursor-pointer grid-cols-1 overflow-hidden rounded-none border shadow-lg"
+      className="group border-acc-yellow/50 relative grid aspect-square w-[clamp(325px,_40vw,_400px)] cursor-pointer grid-cols-1 overflow-hidden rounded-none border shadow-lg"
       onClick={openProject}
     >
       <ProjectTag status={props.status} />

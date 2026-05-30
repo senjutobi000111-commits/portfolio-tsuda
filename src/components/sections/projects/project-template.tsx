@@ -17,7 +17,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
   const hasLink = !!props.repoLink && props.repoLink !== "#";
   const images = props.images?.length ? props.images : [props.repoImage];
   const mediaClasses = cn(
-    "group border-acc-red-dark/40 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] self-center overflow-hidden border-2",
+    "group border-acc-yellow/50 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] self-center overflow-hidden border-2",
     "lg:w-[clamp(350px,_30vw,_400px)] lg:self-start",
     hasLink && "cursor-pointer",
   );
