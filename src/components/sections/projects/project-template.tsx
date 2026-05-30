@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectImage } from "@/components/sections/projects/project-image";
+import { ShineBorder } from "@/components/ui/shine-border";
 import { TextAnimate } from "@/components/ui/text-animate";
 
 type LanguageCode = "en" | "pt";
@@ -17,7 +18,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
   const hasLink = !!props.repoLink && props.repoLink !== "#";
   const images = props.images?.length ? props.images : [props.repoImage];
   const mediaClasses = cn(
-    "group border-acc-yellow/50 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] self-center overflow-hidden border-2",
+    "group border-acc-yellow/50 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] self-center overflow-hidden border",
     "lg:w-[clamp(350px,_30vw,_400px)] lg:self-start",
     hasLink && "cursor-pointer",
   );
@@ -29,6 +30,11 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           "absolute bottom-0 left-0 z-10 h-full w-full bg-gradient-to-t from-black/75 to-transparent opacity-100 transition-all duration-250",
           "group-hover:translate-y-16",
         )}
+      />
+      <ShineBorder
+        shineColor={["#ffbf7a", "#d58430", "#ffbf7a"]}
+        borderWidth={1}
+        duration={6}
       />
     </>
   );

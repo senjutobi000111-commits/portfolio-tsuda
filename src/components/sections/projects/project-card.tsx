@@ -8,6 +8,7 @@ import { LanguageCode } from "@/lib/constants/langs";
 
 import { ProjectTag } from "./project-tag";
 import { ProjectImage } from "./project-image";
+import { ShineBorder } from "@/components/ui/shine-border";
 
 export const ProjectCard = ({ ...props }: ProjectType) => {
   const currentLocale = useLocale() as LanguageCode;
@@ -66,6 +67,12 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
           "absolute bottom-0 left-0 z-10 h-full w-full bg-gradient-to-t from-black to-transparent opacity-100 transition-all duration-250",
           "group-hover:translate-y-16",
         )}
+      />
+
+      <ShineBorder
+        shineColor={["#ffbf7a", "#d58430", "#ffbf7a"]}
+        borderWidth={1}
+        duration={6}
       />
     </article>
   );
