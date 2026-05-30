@@ -110,7 +110,7 @@ export const HeroText = () => {
           text={t("front")}
           delay={1.4}
           className={cn(
-            "font-serif-jp text-off-w font-light leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,1)]",
+            "font-serif-jp text-acc-yellow-3 font-bold leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,1)]",
             "text-xl sm:text-2xl lg:text-3xl",
           )}
         />
@@ -119,7 +119,7 @@ export const HeroText = () => {
           text={t("fullstack")}
           delay={1.9}
           className={cn(
-            "font-serif-jp text-acc-yellow-3 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,1)]",
+            "font-serif-jp text-acc-yellow-3 font-bold leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,1)]",
             "text-xl sm:text-2xl lg:text-3xl",
           )}
         />
