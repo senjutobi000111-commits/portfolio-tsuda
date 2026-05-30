@@ -72,7 +72,7 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
       <ShineBorder
         shineColor={["#ffbf7a", "#d58430", "#ffbf7a"]}
         borderWidth={1}
-        duration={6}
+        duration={10}
       />
     </article>
   );
