@@ -49,24 +49,6 @@ const CONTACT_CHANNELS: ContactChannel[] = [
     brand: "#06C755",
   },
   {
-    id: "x",
-    label: "X",
-    value: "@username",
-    href: "#",
-    desc: "最新の活動はこちら",
-    iconSrc: "/images/icons/x.svg",
-    brand: "#1f1a15",
-  },
-  {
-    id: "youtube",
-    label: "YouTube",
-    value: "@channel",
-    href: "#",
-    desc: "制作物・配信はこちら",
-    iconSrc: "/images/icons/youtube.svg",
-    brand: "#FF0000",
-  },
-  {
     id: "linkedin",
     label: "LinkedIn",
     value: "in/username",
@@ -182,7 +164,7 @@ export default function ContactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
+          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
         >
           {CONTACT_CHANNELS.map((channel) => (
             <ContactCard key={channel.id} {...channel} />
