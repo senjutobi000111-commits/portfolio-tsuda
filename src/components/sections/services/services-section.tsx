@@ -129,11 +129,11 @@ export default function ServicesSection() {
     <section
       id="services-section"
       className={cn(
-        "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
-        "scroll-mt-[var(--navbar-height)] px-6 py-20 sm:px-12",
+        "bg-off-w relative flex flex-col items-center justify-center overflow-clip",
+        "scroll-mt-[var(--navbar-height)] px-6 py-14 sm:px-12 sm:py-16",
       )}
     >
-      <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-12">
+      <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-8 sm:gap-10">
         {/* 見出し */}
         <m.header
           initial={{ opacity: 0, y: -16, filter: "blur(6px)" }}
@@ -151,12 +151,12 @@ export default function ServicesSection() {
           </div>
 
           <h2 className="text-darkest font-serif-jp text-3xl font-semibold tracking-wide sm:text-4xl lg:text-5xl">
-            ご相談いただける内容
+            対応領域
           </h2>
 
           <p className="text-darkest/65 font-serif-jp max-w-xl text-sm leading-relaxed text-pretty sm:text-base">
-            サイト制作・EC 構築から、業務システム開発・AI 業務自動化・QA まで、
-            目的に応じて幅広くご相談いただけます。
+            Webサイト制作・EC構築から、業務システム開発・AI業務自動化・QAまで、
+            これまで幅広い領域に対応してきました。
           </p>
         </m.header>
 
