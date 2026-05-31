@@ -92,24 +92,24 @@ const ServiceCard = ({ Icon, title, desc, tags }: Service) => {
     <m.article
       variants={CARD_ITEM}
       className={cn(
-        "group relative flex flex-col gap-4 rounded-xl border border-black/15 bg-off-w/80 p-6 shadow-sm transition-all duration-300",
+        "group relative flex flex-col gap-2.5 rounded-xl border border-black/15 bg-off-w/80 p-4 shadow-sm transition-all duration-300",
         "hover:border-acc-yellow hover:-translate-y-1 hover:shadow-md",
       )}
     >
-      <div className="border-acc-yellow/40 bg-acc-yellow/10 text-acc-yellow group-hover:bg-acc-yellow/15 flex size-12 items-center justify-center rounded-lg border transition-colors">
-        <Icon className="size-6" />
+      <div className="border-acc-yellow/40 bg-acc-yellow/10 text-acc-yellow group-hover:bg-acc-yellow/15 flex size-10 items-center justify-center rounded-lg border transition-colors">
+        <Icon className="size-5" />
       </div>
-      <h3 className="text-darkest font-serif-jp text-lg leading-snug font-semibold">
+      <h3 className="text-darkest font-serif-jp text-base leading-snug font-semibold">
         {title}
       </h3>
-      <p className="text-darkest/65 font-serif-jp text-sm leading-relaxed">
+      <p className="text-darkest/65 font-serif-jp text-xs leading-relaxed sm:text-sm">
         {desc}
       </p>
-      <div className="mt-auto flex flex-wrap gap-1.5">
+      <div className="mt-auto flex flex-wrap gap-1">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="border-acc-yellow/30 bg-acc-yellow/5 text-acc-yellow font-jp rounded-full border px-2.5 py-0.5 text-xs font-medium"
+            className="border-acc-yellow/30 bg-acc-yellow/5 text-acc-yellow font-jp rounded-full border px-2 py-0.5 text-[10px] font-medium"
           >
             {tag}
           </span>
@@ -129,11 +129,11 @@ export default function ServicesSection() {
     <section
       id="services-section"
       className={cn(
-        "bg-off-w relative flex flex-col items-center justify-center overflow-clip",
-        "scroll-mt-[var(--navbar-height)] px-6 py-14 sm:px-12 sm:py-16",
+        "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
+        "scroll-mt-[var(--navbar-height)] px-6 py-10 sm:px-12 sm:py-12",
       )}
     >
-      <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-8 sm:gap-10">
+      <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-6 sm:gap-8">
         {/* 見出し */}
         <m.header
           initial={{ opacity: 0, y: -16, filter: "blur(6px)" }}
@@ -150,11 +150,11 @@ export default function ServicesSection() {
             <span className="to-acc-yellow/60 h-px w-8 bg-gradient-to-l from-transparent" />
           </div>
 
-          <h2 className="text-darkest font-serif-jp text-3xl font-semibold tracking-wide sm:text-4xl lg:text-5xl">
+          <h2 className="text-darkest font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
             対応領域
           </h2>
 
-          <p className="text-darkest/65 font-serif-jp max-w-xl text-sm leading-relaxed text-pretty sm:text-base">
+          <p className="text-darkest/65 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
             Webサイト制作・EC構築から、業務システム開発・AI業務自動化・QAまで、
             これまで幅広い領域に対応してきました。
           </p>
@@ -166,7 +166,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
         >
           {SERVICES.map((service) => (
             <ServiceCard key={service.id} {...service} />
@@ -185,12 +185,12 @@ export default function ServicesSection() {
             type="button"
             onClick={scrollToContact}
             className={cn(
-              "bg-acc-yellow-2 text-darkest hover:bg-acc-yellow-3 group flex cursor-pointer items-center gap-2 rounded-sm px-6 py-3 text-base font-medium shadow-md transition-all duration-200",
-              "sm:hover:-translate-y-1 sm:text-lg",
+              "bg-acc-yellow-2 text-darkest hover:bg-acc-yellow-3 group flex cursor-pointer items-center gap-2 rounded-sm px-5 py-2.5 text-sm font-medium shadow-md transition-all duration-200",
+              "sm:hover:-translate-y-1 sm:text-base",
             )}
           >
             お気軽にご相談ください
-            <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </button>
           <p className="text-darkest/50 font-serif-jp text-xs tracking-[0.2em]">
             ご相談・お見積もりは無料です
