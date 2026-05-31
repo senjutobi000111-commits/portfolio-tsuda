@@ -13,10 +13,37 @@ import "@/app/globals.css";
 // i18n が cookies()/headers() を使うため全ルートを動的レンダリングに固定（静的生成での失敗を回避）
 export const dynamic = "force-dynamic";
 
+const siteUrl = "https://portfolio-tsuda.vercel.app";
+const siteName = "津田 和明 | Portfolio";
+const siteDescription =
+  "Webエンジニアとして5年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。津田 和明のポートフォリオサイト。";
+
 export const metadata: Metadata = {
-  title: "津田 和明 | Portfolio",
-  description:
-    "Web開発を中心に5年間、さまざまなプロジェクトに携わってきました。近年はAI開発にも注力しています。津田 和明のポートフォリオサイトです。",
+  metadataBase: new URL(siteUrl),
+  title: siteName,
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: siteName,
+    description: siteDescription,
+    siteName,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: siteDescription,
+    images: ["/og.png"],
+  },
 };
 
 const crimson = Crimson_Pro({
@@ -60,27 +87,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <meta property="og:url" content="https://kazyel.dev/" />
-      <meta property="og:type" content="site" />
-      <meta property="og:title" content="津田 和明 | Portfolio" />
-      <meta
-        property="og:description"
-        content="Meu portfólio pessoal para mostraro ao mundo meus projetos e a minha jornada como desenvolvedor,
-          com design limpo e ilustrado com elementos da cultura oriental."
-      />
-
-      <meta property="og:image" content="https://www.kazyel.dev/images/og.png" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://kazyel.dev/" />
-      <meta name="twitter:title" content="site" />
-      <meta
-        name="twitter:description"
-        content="Meu portfólio pessoal para mostraro ao mundo meus projetos e a minha jornada como desenvolvedor,
-          com design limpo e ilustrado com elementos da cultura oriental."
-      />
-      <meta name="twitter:image" content="https://kazyel.dev/images/og.png" />
-
       <body
         className={`${jp.variable} ${unbounded.variable} ${crimson.variable} ${serifJp.variable} font-serif-jp bg-darkest antialiased`}
       >

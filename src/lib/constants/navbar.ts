@@ -26,6 +26,7 @@ export const MOBILE_NAVBAR_LIGHT = "bg-off-w";
 // Navigation link definitions
 export const NAV_LINKS = [
   { name: "about", id: "about-section" },
+  { name: "services", id: "services-section" },
   { name: "projects", id: "projects-section" },
   { name: "contact", id: "contact-section" },
 ] as const;
