@@ -1,11 +1,12 @@
 import type { ProjectType } from "@/lib/types";
 
+import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
-import Link from "next/link";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectImage } from "@/components/sections/projects/project-image";
+import { ProjectLightbox } from "@/components/sections/projects/project-lightbox";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { TextAnimate } from "@/components/ui/text-animate";
 
@@ -17,10 +18,10 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
   const hasLink = !!props.repoLink && props.repoLink !== "#";
   const images = props.images?.length ? props.images : [props.repoImage];
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const mediaClasses = cn(
-    "group border-acc-yellow/50 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] self-center overflow-hidden border",
+    "group border-acc-yellow/50 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] cursor-pointer self-center overflow-hidden border",
     "lg:w-[clamp(350px,_30vw,_400px)] lg:self-start",
-    hasLink && "cursor-pointer",
   );
   const media = (
     <>
@@ -118,14 +119,22 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           </div>
         </div>
 
-        {hasLink ? (
-          <Link href={props.repoLink} target="_blank" className={mediaClasses}>
-            {media}
-          </Link>
-        ) : (
-          <div className={mediaClasses}>{media}</div>
-        )}
+        <button
+          type="button"
+          onClick={() => setLightboxOpen(true)}
+          className={mediaClasses}
+          aria-label={`${props.title} の画像を拡大表示`}
+        >
+          {media}
+        </button>
       </div>
+
+      <ProjectLightbox
+        images={images}
+        alt={props.title}
+        open={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </section>
   );
 };

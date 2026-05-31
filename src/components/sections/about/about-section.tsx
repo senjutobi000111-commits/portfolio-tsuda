@@ -39,7 +39,7 @@ const BLOG_LINKS = [
   {
     name: "Zenn",
     src: TECH_LANGUAGES.zenn.src,
-    href: "https://zenn.dev/",
+    href: "https://zenn.dev/zywx21301",
     color: "#3EA8FF",
   },
 ] as const;
