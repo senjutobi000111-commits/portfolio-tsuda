@@ -10,6 +10,8 @@ import {
   Sparkles,
   Smartphone,
   ShieldCheck,
+  ServerCog,
+  Bot,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -66,6 +68,20 @@ const SERVICES: Service[] = [
     title: "QA・テスト設計",
     desc: "結合テスト・UAT 設計・E2E 自動化など、客観的根拠で品質を担保する仕組みづくりに対応します。",
     tags: ["Playwright", "Python", "openpyxl"],
+  },
+  {
+    id: "migration",
+    Icon: ServerCog,
+    title: "サーバー移行・インフラ刷新",
+    desc: "WordPress・EC・業務システムを別サーバーへ。DNS・DB・メール・SSL含め、ダウンタイムを抑えて移行します。",
+    tags: ["AWS", "VPS", "WordPress", "MySQL", "DNS"],
+  },
+  {
+    id: "scraping",
+    Icon: Bot,
+    title: "スクレイピング・データ収集",
+    desc: "公開情報の収集・整形・蓄積を自動化。動的サイトはヘッドレスブラウザで取得し、CSV／DBへ整理します。",
+    tags: ["Python", "Playwright", "Node.js", "BeautifulSoup"],
   },
 ];
 
@@ -185,7 +201,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
+          className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4"
         >
           {SERVICES.map((service) => (
             <ServiceCard key={service.id} {...service} />
