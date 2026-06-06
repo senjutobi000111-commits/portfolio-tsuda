@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -106,25 +105,15 @@ const CARD_ITEM = {
 };
 
 const ServiceCard = ({ Icon, title, desc, tags }: Service) => {
-  const [revealed, setRevealed] = useState(false);
-
   return (
     <m.article
       variants={CARD_ITEM}
-      onAnimationComplete={(definition) => {
-        if (definition === "visible") setRevealed(true);
-      }}
       className={cn(
         "group relative flex flex-col gap-2.5 overflow-hidden rounded-xl border border-black/15 bg-off-w/80 p-4 shadow-sm transition-all duration-300",
         "hover:border-acc-yellow hover:-translate-y-1 hover:shadow-md",
       )}
     >
-      <div
-        className={cn(
-          "border-acc-yellow/40 bg-acc-yellow/10 text-acc-yellow group-hover:bg-acc-yellow/15 flex size-10 items-center justify-center rounded-lg border transition-colors",
-          revealed && "icon-stroke-draw",
-        )}
-      >
+      <div className="border-acc-yellow/40 bg-acc-yellow/10 text-acc-yellow group-hover:bg-acc-yellow/15 flex size-10 items-center justify-center rounded-lg border transition-colors">
         <Icon className="size-5" />
       </div>
       <h3 className="text-darkest font-serif-jp text-base leading-snug font-semibold">
