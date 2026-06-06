@@ -51,8 +51,8 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    value: "in/username",
-    href: "#",
+    value: "in/和明-津田",
+    href: "https://www.linkedin.com/in/和明-津田-81a570412",
     desc: "経歴・お仕事のご相談",
     iconSrc: "/images/icons/linkedin.svg",
     brand: "#0A66C2",
