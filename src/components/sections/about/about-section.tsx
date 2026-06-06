@@ -16,6 +16,10 @@ import { BackgroundInkPaint } from "@/components/sections/about/background-ink-p
 import Link from "next/link";
 
 const TECH_STACK = [
+  { name: "WordPress", src: TECH_LANGUAGES.wordpress.src },
+  { name: "PHP", src: TECH_LANGUAGES.php.src },
+  { name: "MySQL", src: TECH_LANGUAGES.mysql.src },
+  { name: "Shopify", src: TECH_LANGUAGES.shopify.src },
   { name: "React", src: TECH_LANGUAGES.react.src },
   { name: "TypeScript", src: TECH_LANGUAGES.ts.src },
   { name: "Next.js", src: TECH_LANGUAGES.nextjs.src },
