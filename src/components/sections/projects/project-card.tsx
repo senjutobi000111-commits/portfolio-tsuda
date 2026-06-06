@@ -31,7 +31,7 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
       className="group border-acc-yellow/50 relative grid aspect-square w-[clamp(325px,_40vw,_400px)] cursor-pointer grid-cols-1 overflow-hidden rounded-none border shadow-lg"
       onClick={openProject}
     >
-      <ProjectTag status={props.status} />
+      <ProjectTag status={props.status} role={props.role} />
 
       <figure className="relative col-span-full row-span-full flex aspect-square size-full overflow-hidden">
         <ProjectImage

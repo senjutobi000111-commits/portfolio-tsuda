@@ -22,6 +22,7 @@ export type ProjectType = {
     alt: string;
   }[];
   status: string;
+  role?: string;
 };
 
 export type CustomMotion<T extends "div" | "span" | "p" | "button"> = Omit<

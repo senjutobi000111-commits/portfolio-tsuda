@@ -50,8 +50,9 @@
       "/images/projects/tutu-1.webp",
       "/images/projects/tutu-2.webp"
     ],
-    "languages": ["html", "css", "js"],
-    "status": "Complete"
+    "languages": ["wordpress", "html", "css", "js"],
+    "status": "Complete",
+    "role": "修正"
   },
   {
     "title": "viviON BLUE",
