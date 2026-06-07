@@ -451,8 +451,9 @@
       ]
     },
     "repoLink": "#",
-    "repoImage": "/images/projects/lms-1.webp",
+    "repoImage": "/images/projects/lms-key.webp",
     "images": [
+      "/images/projects/lms-key.webp",
       "/images/projects/lms-1.webp",
       "/images/projects/lms-2.webp",
       "/images/projects/lms-3.webp",
@@ -565,8 +566,9 @@
       ]
     },
     "repoLink": "#",
-    "repoImage": "/images/projects/hr-1.webp",
+    "repoImage": "/images/projects/hr-key.webp",
     "images": [
+      "/images/projects/hr-key.webp",
       "/images/projects/hr-1.webp",
       "/images/projects/hr-2.webp",
       "/images/projects/hr-3.webp",
