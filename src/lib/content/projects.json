@@ -574,6 +574,7 @@
       "/images/projects/hr-5.webp"
     ],
     "languages": ["nextjs", "ts", "tailwind", "prisma", "postgresql", "tanstack"],
-    "status": "Complete"
+    "status": "Complete",
+    "cardSingleImage": true
   }
 ]
