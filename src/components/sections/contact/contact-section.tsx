@@ -42,9 +42,9 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "line",
     label: "LINE",
-    value: "lin.ee/...",
-    href: "#",
-    desc: "公式 LINE からもご相談ください",
+    value: "line.me/ti/p/nXEfkZT_e8",
+    href: "https://line.me/ti/p/nXEfkZT_e8",
+    desc: "LINE からもご相談ください",
     iconSrc: "/images/icons/line.svg",
     brand: "#06C755",
   },
