@@ -135,6 +135,12 @@
     },
     "repoLink": "https://www.cocomelody.jp/",
     "repoImage": "/images/projects/cocomelody.webp",
+    "images": [
+      "/images/projects/cocomelody.webp",
+      "/images/projects/cocomelody-2.webp",
+      "/images/projects/cocomelody-3.webp",
+      "/images/projects/cocomelody-4.webp"
+    ],
     "languages": ["shopify", "js", "html", "css"],
     "status": "Complete"
   },
