@@ -21,6 +21,12 @@
     },
     "repoLink": "https://hakase-ealabo.com",
     "repoImage": "/images/projects/hakase-fxlabo.webp",
+    "images": [
+      "/images/projects/hakase-fxlabo.webp",
+      "/images/projects/hakase-fxlabo-2.webp",
+      "/images/projects/hakase-fxlabo-3.webp",
+      "/images/projects/hakase-fxlabo-4.webp"
+    ],
     "languages": ["wordpress", "php", "mysql", "js"],
     "status": "Complete"
   },
