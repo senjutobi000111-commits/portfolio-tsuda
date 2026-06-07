@@ -391,14 +391,16 @@
       ]
     },
     "repoLink": "#",
-    "repoImage": "/images/projects/workhours-1.webp",
+    "repoImage": "/images/projects/workhours-key.webp",
     "images": [
+      "/images/projects/workhours-key.webp",
       "/images/projects/workhours-1.webp",
       "/images/projects/workhours-2.webp",
       "/images/projects/workhours-3.webp"
     ],
     "languages": ["nextjs", "ts", "tailwind", "prisma", "postgresql", "tanstack"],
-    "status": "Complete"
+    "status": "Complete",
+    "cardSingleImage": true
   },
   {
     "title": "n8n 業務自動化ワークフロー",
