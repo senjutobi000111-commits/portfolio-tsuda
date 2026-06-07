@@ -334,9 +334,14 @@
       ]
     },
     "repoLink": "https://apps.apple.com/jp/app/id1553045339",
-    "repoImage": "/images/projects/livly.webp",
+    "repoImage": "/images/projects/livly-key.webp",
+    "images": [
+      "/images/projects/livly-key.webp",
+      "/images/projects/livly.webp"
+    ],
     "languages": ["unity"],
-    "status": "Complete"
+    "status": "Complete",
+    "cardSingleImage": true
   },
   {
     "title": "物流SaaS Trac（QA・テスト設計）",
