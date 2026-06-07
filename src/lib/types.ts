@@ -23,6 +23,7 @@ export type ProjectType = {
   }[];
   status: string;
   role?: string;
+  cardSingleImage?: boolean;
 };
 
 export type CustomMotion<T extends "div" | "span" | "p" | "button"> = Omit<

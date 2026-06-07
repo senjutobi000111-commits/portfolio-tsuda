@@ -35,7 +35,13 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
 
       <figure className="relative col-span-full row-span-full flex aspect-square size-full overflow-hidden">
         <ProjectImage
-          images={props.images?.length ? props.images : [props.repoImage]}
+          images={
+            props.cardSingleImage
+              ? [props.repoImage]
+              : props.images?.length
+                ? props.images
+                : [props.repoImage]
+          }
           alt={`${props.title}-image`}
         />
       </figure>

@@ -461,7 +461,8 @@
       "/images/projects/lms-6.webp"
     ],
     "languages": ["nextjs", "ts", "tailwind", "postgresql", "aws"],
-    "status": "Complete"
+    "status": "Complete",
+    "cardSingleImage": true
   },
   {
     "title": "LINE写真買取査定システム",
