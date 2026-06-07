@@ -273,6 +273,12 @@
     },
     "repoLink": "https://konkatsu-no-mikata.com/",
     "repoImage": "/images/projects/konkatsu.webp",
+    "images": [
+      "/images/projects/konkatsu.webp",
+      "/images/projects/konkatsu-2.webp",
+      "/images/projects/konkatsu-3.webp",
+      "/images/projects/konkatsu-4.webp"
+    ],
     "languages": ["wordpress", "php", "js", "css"],
     "status": "Complete"
   },
@@ -298,6 +304,12 @@
     },
     "repoLink": "https://yuwatax.com/",
     "repoImage": "/images/projects/yuwatax.webp",
+    "images": [
+      "/images/projects/yuwatax.webp",
+      "/images/projects/yuwatax-2.webp",
+      "/images/projects/yuwatax-3.webp",
+      "/images/projects/yuwatax-4.webp"
+    ],
     "languages": ["wordpress", "php", "js", "css"],
     "status": "Complete"
   },
