@@ -198,6 +198,12 @@
     },
     "repoLink": "https://www.shadow-garden-mog.jp/",
     "repoImage": "/images/projects/shadow-garden.webp",
+    "images": [
+      "/images/projects/shadow-garden.webp",
+      "/images/projects/shadow-garden-2.webp",
+      "/images/projects/shadow-garden-3.webp",
+      "/images/projects/shadow-garden-4.webp"
+    ],
     "languages": ["wordpress", "php", "js", "css"],
     "status": "Complete"
   },
