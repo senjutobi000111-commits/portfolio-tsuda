@@ -519,14 +519,16 @@
       ]
     },
     "repoLink": "#",
-    "repoImage": "/images/projects/n8n-1.webp",
+    "repoImage": "/images/projects/n8n-key.webp",
     "images": [
+      "/images/projects/n8n-key.webp",
       "/images/projects/n8n-1.webp",
       "/images/projects/n8n-2.webp",
       "/images/projects/n8n-3.webp"
     ],
     "languages": ["n8n", "openai", "notion", "slack"],
-    "status": "Complete"
+    "status": "Complete",
+    "cardSingleImage": true
   },
   {
     "title": "動画学習プラットフォーム（LMS）",
