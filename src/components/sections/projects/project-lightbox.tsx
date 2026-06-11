@@ -149,7 +149,7 @@ export const ProjectLightbox = ({
               duration: 0.25,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="relative z-10 flex max-h-[95vh] max-w-[95vw] items-center justify-center overflow-auto"
+            className="relative z-10 flex max-h-[95vh] max-w-[95vw] items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             <AnimatePresence mode="wait">
@@ -166,7 +166,7 @@ export const ProjectLightbox = ({
                   alt={`${alt}${multi ? ` (${index + 1}/${images.length})` : ""}`}
                   width={1920}
                   height={1440}
-                  className="block h-auto w-auto"
+                  className="block h-auto max-h-[95vh] w-auto max-w-[95vw] object-contain"
                   priority
                   unoptimized
                 />
