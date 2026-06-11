@@ -4,9 +4,10 @@ import { useTranslations } from "next-intl";
 interface ProjectTagProps {
   status: string;
   role?: string;
+  hasDemo?: boolean;
 }
 
-export const ProjectTag = ({ status, role }: ProjectTagProps) => {
+export const ProjectTag = ({ status, role, hasDemo }: ProjectTagProps) => {
   const t = useTranslations("ProjectStatus");
 
   return (
@@ -27,6 +28,11 @@ export const ProjectTag = ({ status, role }: ProjectTagProps) => {
       >
         {t(status)}
       </div>
+      {hasDemo && (
+        <div className="text-darkest border-acc-yellow-3/70 bg-acc-yellow-2 rounded-md border px-2 py-1 text-xs font-semibold tracking-tight shadow-sm">
+          Demo
+        </div>
+      )}
     </div>
   );
 };

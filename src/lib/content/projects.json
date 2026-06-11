@@ -464,7 +464,8 @@
       "/images/projects/aiuniverse-5.webp"
     ],
     "languages": ["nextjs", "ts", "tailwind", "openai"],
-    "status": "Complete"
+    "status": "Complete",
+    "hasDemo": true
   },
   {
     "title": "AIアバター面接練習（web-mensetsu）",
@@ -494,7 +495,8 @@
       "/images/projects/mensetsu-3.webp"
     ],
     "languages": ["nextjs", "ts", "tailwind", "openai"],
-    "status": "Complete"
+    "status": "Complete",
+    "hasDemo": true
   },
   {
     "title": "アイシテ（国際マッチングアプリ）",
