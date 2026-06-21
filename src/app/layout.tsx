@@ -16,7 +16,7 @@ export const dynamic = "force-dynamic";
 const siteUrl = "https://portfolio-tsuda.vercel.app";
 const siteName = "津田 和明 | Portfolio";
 const siteDescription =
-  "Webエンジニアとして5年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。津田 和明のポートフォリオサイト。";
+  "Webエンジニアとして6年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。津田 和明のポートフォリオサイト。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
