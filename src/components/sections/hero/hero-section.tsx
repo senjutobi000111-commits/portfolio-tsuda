@@ -29,7 +29,7 @@ export default function HeroSection() {
 
       {/* 背景画像 — ズームアウトしながらフェードイン */}
       <Image
-        src="/images/splash.png"
+        src="/images/splash2.png"
         alt="Splash Background"
         className={cn(
           imageBaseClasses,
