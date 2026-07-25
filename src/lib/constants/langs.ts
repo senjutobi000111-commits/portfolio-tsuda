@@ -46,6 +46,7 @@ import {
   SiNetlify,
   SiExpo,
   SiFirebase,
+  SiTiktok,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -186,6 +187,10 @@ export const TECH_LANGUAGES = {
   firebase: {
     src: SiFirebase,
     alt: "Firebase logo",
+  },
+  tiktok: {
+    src: SiTiktok,
+    alt: "TikTok logo",
   },
 } as const;
 
