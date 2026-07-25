@@ -44,6 +44,8 @@ import {
   SiLeaflet,
   SiOpenstreetmap,
   SiNetlify,
+  SiExpo,
+  SiFirebase,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -176,6 +178,14 @@ export const TECH_LANGUAGES = {
   makeshop: {
     src: SiMakeShop as unknown as IconType,
     alt: "MakeShop logo",
+  },
+  expo: {
+    src: SiExpo,
+    alt: "Expo logo",
+  },
+  firebase: {
+    src: SiFirebase,
+    alt: "Firebase logo",
   },
 } as const;
 
