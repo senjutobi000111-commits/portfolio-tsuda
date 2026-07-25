@@ -3,6 +3,7 @@ import { USFlag } from "@/components/svgs/USFlag";
 import { SiTanstack } from "@/components/svgs/SiTanstack";
 import { SiPlaywright } from "@/components/svgs/SiPlaywright";
 import { SiBubble } from "@/components/svgs/SiBubble";
+import { SiMakeShop } from "@/components/svgs/SiMakeShop";
 
 import {
   SiGo,
@@ -171,6 +172,10 @@ export const TECH_LANGUAGES = {
   bubble: {
     src: SiBubble as unknown as IconType,
     alt: "Bubble logo",
+  },
+  makeshop: {
+    src: SiMakeShop as unknown as IconType,
+    alt: "MakeShop logo",
   },
 } as const;
 
