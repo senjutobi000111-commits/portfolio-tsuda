@@ -156,8 +156,9 @@
       ]
     },
     "repoLink": "https://www.ryuyu.net",
-    "repoImage": "/images/projects/ryuyu-1.webp",
+    "repoImage": "/images/projects/ryuyu-og.webp",
     "images": [
+      "/images/projects/ryuyu-og.webp",
       "/images/projects/ryuyu-1.webp",
       "/images/projects/ryuyu-2.webp",
       "/images/projects/ryuyu-3.webp",
