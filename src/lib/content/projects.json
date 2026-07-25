@@ -27,129 +27,14 @@
       "/images/projects/hakase-fxlabo-3.webp",
       "/images/projects/hakase-fxlabo-4.webp"
     ],
-    "languages": ["wordpress", "php", "mysql", "js"],
+    "languages": [
+      "wordpress",
+      "php",
+      "mysql",
+      "js"
+    ],
     "status": "Complete",
     "role": "修正"
-  },
-  {
-    "title": "HAIR & MAKE EARTH",
-    "description": {
-      "en": "全国展開する美容室チェーン「HAIR & MAKE EARTH（アース）」公式サイト。サロン検索・ヘアスタイル・採用情報まで網羅したWordPressサイト。",
-      "pt": "全国展開する美容室チェーン「HAIR & MAKE EARTH（アース）」公式サイト。サロン検索・ヘアスタイル・採用情報まで網羅したWordPressサイト。"
-    },
-    "body": {
-      "en": [
-        "「HAIR & MAKE EARTH（アース）」は、全国に300店舗以上を展開する大手美容室チェーンの公式ウェブサイトです。WordPress をベースに、サロン検索・ヘアスタイルギャラリー・キャンペーン特集・商品紹介・採用情報まで、ユーザー（来店客）と求職者の双方を対象にした大規模ブランドサイトとして構成されています。",
-        "トップでは新卒採用バナー（2027年度募集）やキャンペーンを華やかに打ち出すヒーローエリアと、エリア／条件から最寄りサロンを探せる SALON SEARCH を上部に常設。続いてヘアスタイル特集・新着お知らせを並列で見せ、目的別に最短で必要なページへたどり着けるようにしました。",
-        "ヘアスタイルは ALL／SHORT／BOB／MEDIUM／LONG／ARRANGE／MEN'S の7カテゴリでフィルタリング可能。メディア情報も EARTH MAG／PRODUCT／STAFF／STYLING で整理し、雑誌・YouTube・テレビ出演など多数の露出情報を一覧で見せられる構成にしました。記事点数が多い大規模WPサイトでも回遊が破綻しないよう、カテゴリ階層と検索動線を整理しています。",
-        "全店舗共通のブランドトーンを保ちつつ、店舗ごとの個別ページ・キャンペーン・採用情報の更新が運営側で完結する CMS 設計を意識。「お客様の予約導線」「求職者の応募導線」「メディア／企業情報」という3つのユーザー目的を同居させながら、ブランドサイトとしての一貫した世界観を維持することを軸に制作しました。"
-      ],
-      "pt": [
-        "「HAIR & MAKE EARTH（アース）」は、全国に300店舗以上を展開する大手美容室チェーンの公式ウェブサイトです。WordPress をベースに、サロン検索・ヘアスタイルギャラリー・キャンペーン特集・商品紹介・採用情報まで、ユーザー（来店客）と求職者の双方を対象にした大規模ブランドサイトとして構成されています。",
-        "トップでは新卒採用バナー（2027年度募集）やキャンペーンを華やかに打ち出すヒーローエリアと、エリア／条件から最寄りサロンを探せる SALON SEARCH を上部に常設。続いてヘアスタイル特集・新着お知らせを並列で見せ、目的別に最短で必要なページへたどり着けるようにしました。",
-        "ヘアスタイルは ALL／SHORT／BOB／MEDIUM／LONG／ARRANGE／MEN'S の7カテゴリでフィルタリング可能。メディア情報も EARTH MAG／PRODUCT／STAFF／STYLING で整理し、雑誌・YouTube・テレビ出演など多数の露出情報を一覧で見せられる構成にしました。記事点数が多い大規模WPサイトでも回遊が破綻しないよう、カテゴリ階層と検索動線を整理しています。",
-        "全店舗共通のブランドトーンを保ちつつ、店舗ごとの個別ページ・キャンペーン・採用情報の更新が運営側で完結する CMS 設計を意識。「お客様の予約導線」「求職者の応募導線」「メディア／企業情報」という3つのユーザー目的を同居させながら、ブランドサイトとしての一貫した世界観を維持することを軸に制作しました。"
-      ]
-    },
-    "repoLink": "https://hairmake-earth.com/",
-    "repoImage": "/images/projects/earth-1.webp",
-    "images": [
-      "/images/projects/earth-1.webp",
-      "/images/projects/earth-2.webp",
-      "/images/projects/earth-3.webp"
-    ],
-    "languages": ["wordpress", "php", "js", "css"],
-    "status": "Complete"
-  },
-  {
-    "title": "ブライダルハウスTUTU",
-    "description": {
-      "en": "国内・海外リゾートウェディングからドレス・フォトまでトータルプロデュースする「ブライダルハウスTUTU」公式サイト。",
-      "pt": "国内・海外リゾートウェディングからドレス・フォトまでトータルプロデュースする「ブライダルハウスTUTU」公式サイト。"
-    },
-    "body": {
-      "en": [
-        "「ブライダルハウスTUTU」は、式場探しから国内・海外リゾートウェディング、ドレス選び、前撮りフォトまで、結婚式をトータルプロデュースするブライダルブランドの公式ウェブサイトです。「あなたの夢が、カタチになる場所」をコンセプトに、ブランドの世界観をビジュアル主体で伝えるブランディングサイトとして構築しました。",
-        "ファーストビューには、邸宅・チャペル・リゾート・フォトの4つの世界観を並列表示するスプリットキービジュアルを配置し、RESORT／DRESS／PHOTO の主要サービスへ即座にアクセスできる導線を上部に常設。BUSINESS／COMPANY／RECRUIT／NEWS／CONTACT といった企業情報も整理し、新郎新婦・採用希望者・取引先のいずれにも適切な入口を用意しました。",
-        "セリフ書体を活かしたエレガントな日本語タイポと、写真の余白を最大限に活かしたミニマルな構成で、ハイエンドな結婚式ブランドにふさわしい上質さを表現。写真がブランド体験そのものになる前提で、装飾を極力削り、コンテンツ（実例写真・各サービスのキービジュアル）に主役を譲るデザインを心がけました。",
-        "主な機能として、トップのスプリットキービジュアル、サービス別ランディング（リゾート／ドレス／フォト）、BUSINESS／COMPANY 等の企業情報ページ、NEWS の更新、CONTACT への導線などを備えています。情報量が増えても写真主体の世界観を崩さず、結婚式という「一生に一度の体験」にふさわしい高級感を保つことを軸に設計しました。"
-      ],
-      "pt": [
-        "「ブライダルハウスTUTU」は、式場探しから国内・海外リゾートウェディング、ドレス選び、前撮りフォトまで、結婚式をトータルプロデュースするブライダルブランドの公式ウェブサイトです。「あなたの夢が、カタチになる場所」をコンセプトに、ブランドの世界観をビジュアル主体で伝えるブランディングサイトとして構築しました。",
-        "ファーストビューには、邸宅・チャペル・リゾート・フォトの4つの世界観を並列表示するスプリットキービジュアルを配置し、RESORT／DRESS／PHOTO の主要サービスへ即座にアクセスできる導線を上部に常設。BUSINESS／COMPANY／RECRUIT／NEWS／CONTACT といった企業情報も整理し、新郎新婦・採用希望者・取引先のいずれにも適切な入口を用意しました。",
-        "セリフ書体を活かしたエレガントな日本語タイポと、写真の余白を最大限に活かしたミニマルな構成で、ハイエンドな結婚式ブランドにふさわしい上質さを表現。写真がブランド体験そのものになる前提で、装飾を極力削り、コンテンツ（実例写真・各サービスのキービジュアル）に主役を譲るデザインを心がけました。",
-        "主な機能として、トップのスプリットキービジュアル、サービス別ランディング（リゾート／ドレス／フォト）、BUSINESS／COMPANY 等の企業情報ページ、NEWS の更新、CONTACT への導線などを備えています。情報量が増えても写真主体の世界観を崩さず、結婚式という「一生に一度の体験」にふさわしい高級感を保つことを軸に設計しました。"
-      ]
-    },
-    "repoLink": "https://www.tutuwedding.com/",
-    "repoImage": "/images/projects/tutu-1.webp",
-    "images": [
-      "/images/projects/tutu-1.webp",
-      "/images/projects/tutu-2.webp"
-    ],
-    "languages": ["wordpress", "html", "css", "js"],
-    "status": "Complete",
-    "role": "修正"
-  },
-  {
-    "title": "株式会社リヴァンプ",
-    "description": {
-      "en": "「企業を芯から元気にする」をミッションに、経営・DX・投資を通じてクライアントの内製化支援を行う株式会社リヴァンプ公式コーポレートサイト。WordPressで構築。",
-      "pt": "「企業を芯から元気にする」をミッションに、経営・DX・投資を通じてクライアントの内製化支援を行う株式会社リヴァンプ公式コーポレートサイト。WordPressで構築。"
-    },
-    "body": {
-      "en": [
-        "「株式会社リヴァンプ（Revamp Corporation）」は、経営・DX・投資の3領域からクライアントの内製化を支援する経営支援会社の公式コーポレートサイトです。WordPress をベースに、ブランドメッセージ「企業を芯から元気にする」を軸とした、信頼感と先進性を両立するブランディングサイトとして構築されています。",
-        "トップでは REVAMP のロゴとともに、社員ポートレートを起用したヒーローセクションを配置し、「人」を打ち出すブランドトーンを確立。SPECIAL MOVIE で会社の世界観を動画で伝え、続く SERVICE／CASE STUDY／NEWS／RECRUIT への導線を上部ナビゲーションに集約しました。",
-        "ABOUT US では「企業を芯から元気にする」「内製化支援の技術会社」というメッセージのもと、会社概要・沿革・メッセージ・プロフィールを階層的に整理。CASE STUDY では実際の支援先（PIVOT、東洋経済、ad_studies など）を、現場のポートレートと数値で語る構成にすることで、抽象的なコンサルティング業務に対する説得力を担保しました。",
-        "経営支援・DX・投資という抽象度の高いサービスを扱う領域では、「会社の人格」が伝わるかどうかが受託判断を左右します。社員写真・経営者ポートレート・オフィス空間・動画コンテンツを通じてリヴァンプの空気感を伝えつつ、英語版（/en）対応・採用情報・お問い合わせまで、見込み顧客と求職者の双方が必要な情報に最短で辿り着ける情報設計を意識して制作しました。"
-      ],
-      "pt": [
-        "「株式会社リヴァンプ（Revamp Corporation）」は、経営・DX・投資の3領域からクライアントの内製化を支援する経営支援会社の公式コーポレートサイトです。WordPress をベースに、ブランドメッセージ「企業を芯から元気にする」を軸とした、信頼感と先進性を両立するブランディングサイトとして構築されています。",
-        "トップでは REVAMP のロゴとともに、社員ポートレートを起用したヒーローセクションを配置し、「人」を打ち出すブランドトーンを確立。SPECIAL MOVIE で会社の世界観を動画で伝え、続く SERVICE／CASE STUDY／NEWS／RECRUIT への導線を上部ナビゲーションに集約しました。",
-        "ABOUT US では「企業を芯から元気にする」「内製化支援の技術会社」というメッセージのもと、会社概要・沿革・メッセージ・プロフィールを階層的に整理。CASE STUDY では実際の支援先（PIVOT、東洋経済、ad_studies など）を、現場のポートレートと数値で語る構成にすることで、抽象的なコンサルティング業務に対する説得力を担保しました。",
-        "経営支援・DX・投資という抽象度の高いサービスを扱う領域では、「会社の人格」が伝わるかどうかが受託判断を左右します。社員写真・経営者ポートレート・オフィス空間・動画コンテンツを通じてリヴァンプの空気感を伝えつつ、英語版（/en）対応・採用情報・お問い合わせまで、見込み顧客と求職者の双方が必要な情報に最短で辿り着ける情報設計を意識して制作しました。"
-      ]
-    },
-    "repoLink": "https://revamp.co.jp/",
-    "repoImage": "/images/projects/revamp-1.webp",
-    "images": [
-      "/images/projects/revamp-1.webp",
-      "/images/projects/revamp-2.webp",
-      "/images/projects/revamp-3.webp"
-    ],
-    "languages": ["wordpress", "php", "js", "css"],
-    "status": "Complete"
-  },
-  {
-    "title": "clinicHP（クリニック特化HP制作・集客）",
-    "description": {
-      "en": "美容外科・矯正・歯科矯正クリニック（自費診療）に特化したホームページ制作・集客サービス「clinicHP」公式サイト。WordPressで構築。",
-      "pt": "美容外科・矯正・歯科矯正クリニック（自費診療）に特化したホームページ制作・集客サービス「clinicHP」公式サイト。WordPressで構築。"
-    },
-    "body": {
-      "en": [
-        "「clinicHP」は、美容外科・矯正・歯科矯正クリニック（自費診療領域）に特化したホームページ制作・集客支援サービスの公式サイトです。WordPress をベースに、クリニック向け Web マーケティングのノウハウを売る BtoB サービスサイトとして構築されています。",
-        "トップでは「クリニック専門ホームページ集客」というポジショニングを明確に打ち出し、無料相談・資料請求・お問い合わせの3つの主要 CTA を上部に常設。続いて制作実績・サービス内容・こだわり・メリット・成功事例・コラムといったコンテンツを、見込み顧客（クリニック経営者・院長）の検討フェーズに合わせて順に配置する情報設計にしました。",
-        "/works では『WOM CLINIC GINZA』をはじめとする制作実績を、サイト URL・制作期間・制作内容とともに具体的に紹介。/service では「専門知識と経験で Web 戦略を強力サポート」というメッセージのもと、課題（しかし…）→ 解決（clinicHP の専門チームが宣伝部になる）という流れで、検討中のクリニック様が「自分事」として読める構成にしました。",
-        "クリニック業界特有の薬機法・医療広告ガイドラインへの配慮、自費診療の単価とLTVに見合うブランディング、スマホ中心の患者導線への最適化など、業界文脈を踏まえた制作・集客の専門性を、サイト全体のトンマナと情報設計で伝えることを軸にしました。"
-      ],
-      "pt": [
-        "「clinicHP」は、美容外科・矯正・歯科矯正クリニック（自費診療領域）に特化したホームページ制作・集客支援サービスの公式サイトです。WordPress をベースに、クリニック向け Web マーケティングのノウハウを売る BtoB サービスサイトとして構築されています。",
-        "トップでは「クリニック専門ホームページ集客」というポジショニングを明確に打ち出し、無料相談・資料請求・お問い合わせの3つの主要 CTA を上部に常設。続いて制作実績・サービス内容・こだわり・メリット・成功事例・コラムといったコンテンツを、見込み顧客（クリニック経営者・院長）の検討フェーズに合わせて順に配置する情報設計にしました。",
-        "/works では『WOM CLINIC GINZA』をはじめとする制作実績を、サイト URL・制作期間・制作内容とともに具体的に紹介。/service では「専門知識と経験で Web 戦略を強力サポート」というメッセージのもと、課題（しかし…）→ 解決（clinicHP の専門チームが宣伝部になる）という流れで、検討中のクリニック様が「自分事」として読める構成にしました。",
-        "クリニック業界特有の薬機法・医療広告ガイドラインへの配慮、自費診療の単価とLTVに見合うブランディング、スマホ中心の患者導線への最適化など、業界文脈を踏まえた制作・集客の専門性を、サイト全体のトンマナと情報設計で伝えることを軸にしました。"
-      ]
-    },
-    "repoLink": "https://clinichp.nobu-n.co.jp/",
-    "repoImage": "/images/projects/clinichp-1.webp",
-    "images": [
-      "/images/projects/clinichp-1.webp",
-      "/images/projects/clinichp-2.webp",
-      "/images/projects/clinichp-3.webp"
-    ],
-    "languages": ["wordpress", "php", "js", "css"],
-    "status": "Complete"
   },
   {
     "title": "viviON BLUE",
@@ -177,7 +62,12 @@
       "/images/projects/vivionblue-1.webp",
       "/images/projects/vivionblue-2.webp"
     ],
-    "languages": ["shopify", "js", "html", "css"],
+    "languages": [
+      "shopify",
+      "js",
+      "html",
+      "css"
+    ],
     "status": "Complete"
   },
   {
@@ -208,88 +98,12 @@
       "/images/projects/cocomelody-3.webp",
       "/images/projects/cocomelody-4.webp"
     ],
-    "languages": ["shopify", "js", "html", "css"],
-    "status": "Complete"
-  },
-  {
-    "title": "KAMIKA",
-    "description": {
-      "en": "クリームシャンプー発のヘアケアブランド「KAMIKA」の公式ブランドサイト。WordPressで構築。",
-      "pt": "クリームシャンプー発のヘアケアブランド「KAMIKA」の公式ブランドサイト。WordPressで構築。"
-    },
-    "body": {
-      "en": [
-        "「KAMIKA（カミカ）」は、1本のクリームシャンプーから始まったヘアケアブランドの公式サイトです。WordPress をベースに、ブランドの世界観を伝えるブランドサイトとして構築しました。",
-        "商品の特長や使い方、こだわりの成分をビジュアル豊かに紹介し、定期コースや購入への導線を設計。スマートフォンでの閲覧を重視し、写真と余白を活かした上質な印象のデザインに仕上げました。",
-        "「いつまでも自分らしく輝きたい」というブランドメッセージに寄り添い、信頼感と特別感のある体験を意識して制作しました。",
-        "主な機能として、ブランド・商品紹介、こだわり成分や使い方の解説コンテンツ、お客様の声、定期コース／購入への導線などを備えています。写真と余白で上質さを伝え、スマホ中心の閲覧でも離脱しにくく自然に購入へつながる——という考えを軸に構成しました。"
-      ],
-      "pt": [
-        "「KAMIKA（カミカ）」は、1本のクリームシャンプーから始まったヘアケアブランドの公式サイトです。WordPress をベースに、ブランドの世界観を伝えるブランドサイトとして構築しました。",
-        "商品の特長や使い方、こだわりの成分をビジュアル豊かに紹介し、定期コースや購入への導線を設計。スマートフォンでの閲覧を重視し、写真と余白を活かした上質な印象のデザインに仕上げました。",
-        "「いつまでも自分らしく輝きたい」というブランドメッセージに寄り添い、信頼感と特別感のある体験を意識して制作しました。",
-        "主な機能として、ブランド・商品紹介、こだわり成分や使い方の解説コンテンツ、お客様の声、定期コース／購入への導線などを備えています。写真と余白で上質さを伝え、スマホ中心の閲覧でも離脱しにくく自然に購入へつながる——という考えを軸に構成しました。"
-      ]
-    },
-    "repoLink": "https://kamikacosmetics.jp/",
-    "repoImage": "/images/projects/kamika.webp",
-    "languages": ["wordpress", "php", "js", "css"],
-    "status": "Complete"
-  },
-  {
-    "title": "マスターオブガーデン",
-    "description": {
-      "en": "人気アニメ原作のスマホゲーム「マスターオブガーデン（カゲマス）」公式サイト。WordPressで構築。",
-      "pt": "人気アニメ原作のスマホゲーム「マスターオブガーデン（カゲマス）」公式サイト。WordPressで構築。"
-    },
-    "body": {
-      "en": [
-        "「陰の実力者になりたくて！ マスターオブガーデン（カゲマス）」は、人気アニメを原作とするスマートフォンゲームの公式サイトです。WordPress をベースに、作品の世界観を前面に押し出したプロモーションサイトとして構築しました。",
-        "ダイナミックなキービジュアルやキャラクター紹介、ムービー、最新情報に加え、各ストア（App Store / Google Play / Windows）やSNSへの導線を配置。インパクトのあるトップビューと、回遊しやすい情報設計を両立させました。",
-        "ファンの期待感を高める没入感のあるデザインを意識し、アニメ・ゲームならではの華やかでスピード感のある表現を心がけて制作しました。",
-        "主な機能は、キービジュアル・ムービー演出、キャラクター紹介、最新情報の発信、各ストア・SNSへの導線、特設（Special）コンテンツなどです。ファンの期待感を高める没入感と、最新情報やダウンロードへ素早く到達できる回遊性を両立させる——という狙いで構成しました。"
-      ],
-      "pt": [
-        "「陰の実力者になりたくて！ マスターオブガーデン（カゲマス）」は、人気アニメを原作とするスマートフォンゲームの公式サイトです。WordPress をベースに、作品の世界観を前面に押し出したプロモーションサイトとして構築しました。",
-        "ダイナミックなキービジュアルやキャラクター紹介、ムービー、最新情報に加え、各ストア（App Store / Google Play / Windows）やSNSへの導線を配置。インパクトのあるトップビューと、回遊しやすい情報設計を両立させました。",
-        "ファンの期待感を高める没入感のあるデザインを意識し、アニメ・ゲームならではの華やかでスピード感のある表現を心がけて制作しました。",
-        "主な機能は、キービジュアル・ムービー演出、キャラクター紹介、最新情報の発信、各ストア・SNSへの導線、特設（Special）コンテンツなどです。ファンの期待感を高める没入感と、最新情報やダウンロードへ素早く到達できる回遊性を両立させる——という狙いで構成しました。"
-      ]
-    },
-    "repoLink": "https://www.shadow-garden-mog.jp/",
-    "repoImage": "/images/projects/shadow-garden.webp",
-    "images": [
-      "/images/projects/shadow-garden.webp",
-      "/images/projects/shadow-garden-2.webp",
-      "/images/projects/shadow-garden-3.webp",
-      "/images/projects/shadow-garden-4.webp"
+    "languages": [
+      "shopify",
+      "js",
+      "html",
+      "css"
     ],
-    "languages": ["wordpress", "php", "js", "css"],
-    "status": "Complete"
-  },
-  {
-    "title": "パチ7",
-    "description": {
-      "en": "パチンコ・パチスロの取材／来店スケジュールを発信する情報サイト「パチ7」のランディングページ。",
-      "pt": "パチンコ・パチスロの取材／来店スケジュールを発信する情報サイト「パチ7」のランディングページ。"
-    },
-    "body": {
-      "en": [
-        "「パチ7（ぱちセブン）」は、パチンコ・パチスロの取材・来店スケジュールや実戦情報を発信する情報サイトのランディングページです。「明日のホール選び」に役立つ情報を、見やすく届けることを目的に制作しました。",
-        "日々更新されるスケジュールやコンテンツへスムーズに辿り着けるよう情報を整理し、スマートフォン中心のユーザーに最適化。視認性とテンポのよい導線を重視した構成に仕上げました。",
-        "HTML / CSS / JavaScript によるコーディングを中心に、表示速度と運用のしやすさを意識して構築しました。",
-        "主な機能として、取材・来店スケジュールやレポートの表示、日々更新されるコンテンツへの導線、スマートフォン最適化などを実装しています。「明日のホール選び」という目的に最短で辿り着けるよう、視認性とテンポを重視した導線づくりを狙いとしました。"
-      ],
-      "pt": [
-        "「パチ7（ぱちセブン）」は、パチンコ・パチスロの取材・来店スケジュールや実戦情報を発信する情報サイトのランディングページです。「明日のホール選び」に役立つ情報を、見やすく届けることを目的に制作しました。",
-        "日々更新されるスケジュールやコンテンツへスムーズに辿り着けるよう情報を整理し、スマートフォン中心のユーザーに最適化。視認性とテンポのよい導線を重視した構成に仕上げました。",
-        "HTML / CSS / JavaScript によるコーディングを中心に、表示速度と運用のしやすさを意識して構築しました。",
-        "主な機能として、取材・来店スケジュールやレポートの表示、日々更新されるコンテンツへの導線、スマートフォン最適化などを実装しています。「明日のホール選び」という目的に最短で辿り着けるよう、視認性とテンポを重視した導線づくりを狙いとしました。"
-      ]
-    },
-    "repoLink": "https://pachiseven-lp.jp/",
-    "repoImage": "/images/projects/pachiseven.webp",
-    "languages": ["html", "css", "js"],
     "status": "Complete"
   },
   {
@@ -314,7 +128,11 @@
     },
     "repoLink": "https://bears0000.shop12.makeshop.jp/",
     "repoImage": "/images/projects/bears.webp",
-    "languages": ["html", "css", "js"],
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
     "status": "Complete"
   },
   {
@@ -345,38 +163,12 @@
       "/images/projects/konkatsu-3.webp",
       "/images/projects/konkatsu-4.webp"
     ],
-    "languages": ["wordpress", "php", "js", "css"],
-    "status": "Complete"
-  },
-  {
-    "title": "結和税理士法人",
-    "description": {
-      "en": "税務・会計を幅広く手がける「結和税理士法人」のコーポレートサイト。WordPressで構築。",
-      "pt": "税務・会計を幅広く手がける「結和税理士法人」のコーポレートサイト。WordPressで構築。"
-    },
-    "body": {
-      "en": [
-        "「結和税理士法人」は、税務・会計をはじめ企業財務に関する業務を幅広く手がける税理士法人のコーポレートサイトです。WordPress をベースに、事務所の信頼性と専門性を伝えるサイトとして構築しました。",
-        "業務案内や会社概要、コンサルタント紹介、お知らせ、採用情報、お問い合わせまでを分かりやすく整理し、はじめての方でも相談しやすい導線を設計。落ち着いた配色と読みやすいレイアウトで、専門サービスにふさわしい安心感を意識しました。",
-        "「人との結びつきを大切にする」という理念に寄り添い、誠実さと親しみやすさを両立したデザインを心がけて制作しました。",
-        "主な機能として、業務・サービス紹介、会社概要、コンサルタント紹介、お知らせ（記事更新）、採用情報、お問い合わせフォームなどを備えています。専門性で身構えさせず「まず相談してみよう」と思える導線と、安心感のある見せ方を狙いとしました。"
-      ],
-      "pt": [
-        "「結和税理士法人」は、税務・会計をはじめ企業財務に関する業務を幅広く手がける税理士法人のコーポレートサイトです。WordPress をベースに、事務所の信頼性と専門性を伝えるサイトとして構築しました。",
-        "業務案内や会社概要、コンサルタント紹介、お知らせ、採用情報、お問い合わせまでを分かりやすく整理し、はじめての方でも相談しやすい導線を設計。落ち着いた配色と読みやすいレイアウトで、専門サービスにふさわしい安心感を意識しました。",
-        "「人との結びつきを大切にする」という理念に寄り添い、誠実さと親しみやすさを両立したデザインを心がけて制作しました。",
-        "主な機能として、業務・サービス紹介、会社概要、コンサルタント紹介、お知らせ（記事更新）、採用情報、お問い合わせフォームなどを備えています。専門性で身構えさせず「まず相談してみよう」と思える導線と、安心感のある見せ方を狙いとしました。"
-      ]
-    },
-    "repoLink": "https://yuwatax.com/",
-    "repoImage": "/images/projects/yuwatax.webp",
-    "images": [
-      "/images/projects/yuwatax.webp",
-      "/images/projects/yuwatax-2.webp",
-      "/images/projects/yuwatax-3.webp",
-      "/images/projects/yuwatax-4.webp"
+    "languages": [
+      "wordpress",
+      "php",
+      "js",
+      "css"
     ],
-    "languages": ["wordpress", "php", "js", "css"],
     "status": "Complete"
   },
   {
@@ -401,7 +193,11 @@
     },
     "repoLink": "https://apps.apple.com/jp/app/id6503021660",
     "repoImage": "/images/projects/soccercut.webp",
-    "languages": ["electron", "ts", "react"],
+    "languages": [
+      "electron",
+      "ts",
+      "react"
+    ],
     "status": "Complete"
   },
   {
@@ -430,7 +226,9 @@
       "/images/projects/livly-key.webp",
       "/images/projects/livly.webp"
     ],
-    "languages": ["unity"],
+    "languages": [
+      "unity"
+    ],
     "status": "Complete",
     "cardSingleImage": true
   },
@@ -463,7 +261,12 @@
       "/images/projects/aiuniverse-4.webp",
       "/images/projects/aiuniverse-5.webp"
     ],
-    "languages": ["nextjs", "ts", "tailwind", "openai"],
+    "languages": [
+      "nextjs",
+      "ts",
+      "tailwind",
+      "openai"
+    ],
     "status": "Complete",
     "hasDemo": true
   },
@@ -494,7 +297,12 @@
       "/images/projects/mensetsu-2.webp",
       "/images/projects/mensetsu-3.webp"
     ],
-    "languages": ["nextjs", "ts", "tailwind", "openai"],
+    "languages": [
+      "nextjs",
+      "ts",
+      "tailwind",
+      "openai"
+    ],
     "status": "Complete",
     "hasDemo": true
   },
@@ -525,7 +333,10 @@
       "/images/projects/aishite-2.webp",
       "/images/projects/aishite-3.webp"
     ],
-    "languages": ["react", "ts"],
+    "languages": [
+      "react",
+      "ts"
+    ],
     "status": "Complete"
   },
   {
@@ -557,7 +368,12 @@
       "/images/projects/trac-4.webp",
       "/images/projects/trac-5.webp"
     ],
-    "languages": ["playwright", "rubyonrails", "mysql", "python"],
+    "languages": [
+      "playwright",
+      "rubyonrails",
+      "mysql",
+      "python"
+    ],
     "status": "Complete"
   },
   {
@@ -588,7 +404,14 @@
       "/images/projects/workhours-2.webp",
       "/images/projects/workhours-3.webp"
     ],
-    "languages": ["nextjs", "ts", "tailwind", "prisma", "postgresql", "tanstack"],
+    "languages": [
+      "nextjs",
+      "ts",
+      "tailwind",
+      "prisma",
+      "postgresql",
+      "tanstack"
+    ],
     "status": "Complete",
     "cardSingleImage": true
   },
@@ -620,7 +443,12 @@
       "/images/projects/n8n-2.webp",
       "/images/projects/n8n-3.webp"
     ],
-    "languages": ["n8n", "openai", "notion", "slack"],
+    "languages": [
+      "n8n",
+      "openai",
+      "notion",
+      "slack"
+    ],
     "status": "Complete",
     "cardSingleImage": true
   },
@@ -655,7 +483,13 @@
       "/images/projects/lms-5.webp",
       "/images/projects/lms-6.webp"
     ],
-    "languages": ["nextjs", "ts", "tailwind", "postgresql", "aws"],
+    "languages": [
+      "nextjs",
+      "ts",
+      "tailwind",
+      "postgresql",
+      "aws"
+    ],
     "status": "Complete",
     "cardSingleImage": true
   },
@@ -686,7 +520,13 @@
       "/images/projects/buyback-2.webp",
       "/images/projects/buyback-3.webp"
     ],
-    "languages": ["line", "lambda", "dynamodb", "s3", "amplify"],
+    "languages": [
+      "line",
+      "lambda",
+      "dynamodb",
+      "s3",
+      "amplify"
+    ],
     "status": "Complete"
   },
   {
@@ -711,7 +551,12 @@
     },
     "repoLink": "https://refugecrowdingratemap.netlify.app/",
     "repoImage": "/images/projects/refuge.webp",
-    "languages": ["leaflet", "openstreetmap", "js", "netlify"],
+    "languages": [
+      "leaflet",
+      "openstreetmap",
+      "js",
+      "netlify"
+    ],
     "status": "Complete"
   },
   {
@@ -736,7 +581,9 @@
     },
     "repoLink": "https://histaff.work/",
     "repoImage": "/images/projects/histaff.webp",
-    "languages": ["bubble"],
+    "languages": [
+      "bubble"
+    ],
     "status": "Complete"
   },
   {
@@ -769,7 +616,14 @@
       "/images/projects/hr-4.webp",
       "/images/projects/hr-5.webp"
     ],
-    "languages": ["nextjs", "ts", "tailwind", "prisma", "postgresql", "tanstack"],
+    "languages": [
+      "nextjs",
+      "ts",
+      "tailwind",
+      "prisma",
+      "postgresql",
+      "tanstack"
+    ],
     "status": "Complete",
     "cardSingleImage": true
   }
