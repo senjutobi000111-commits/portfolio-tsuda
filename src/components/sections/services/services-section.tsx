@@ -135,28 +135,28 @@ const ServiceCard = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "group relative flex flex-col gap-2.5 overflow-hidden rounded-xl border border-black/15 bg-off-w/80 p-4 shadow-sm transition-all duration-300",
-        "hover:border-acc-yellow hover:-translate-y-1 hover:shadow-md",
+        "group relative flex flex-col gap-2.5 overflow-hidden rounded-xl border border-off-w/10 bg-off-w/[0.035] p-4 shadow-sm backdrop-blur-[2px] transition-all duration-300",
+        "hover:border-acc-yellow hover:bg-off-w/[0.06] hover:-translate-y-1",
       )}
     >
-      <div className="border-acc-yellow/40 bg-acc-yellow/10 text-acc-yellow group-hover:bg-acc-yellow/15 flex size-10 items-center justify-center overflow-hidden rounded-lg border transition-colors">
+      <div className="border-acc-yellow/30 bg-acc-yellow/[0.07] group-hover:bg-acc-yellow/10 flex size-12 items-center justify-center overflow-hidden rounded-lg border transition-colors">
         {reduced ? (
-          <Icon className="size-5" />
+          <Icon className="text-acc-yellow size-5" />
         ) : (
           <GrainIcon text={kanji} hovered={hovered} className="size-full" />
         )}
       </div>
-      <h3 className="text-darkest font-serif-jp text-base leading-snug font-semibold">
+      <h3 className="text-off-w font-serif-jp text-base leading-snug font-semibold">
         {title}
       </h3>
-      <p className="text-darkest/65 font-serif-jp text-xs leading-relaxed sm:text-sm">
+      <p className="text-off-w/60 font-serif-jp text-xs leading-relaxed sm:text-sm">
         {desc}
       </p>
       <div className="mt-auto flex flex-wrap gap-1">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="border-acc-yellow/30 bg-acc-yellow/5 text-acc-yellow font-jp rounded-full border px-2 py-0.5 text-[10px] font-medium"
+            className="border-acc-yellow/25 bg-acc-yellow/10 text-acc-yellow-3 font-jp rounded-full border px-2 py-0.5 text-[10px] font-medium"
           >
             {tag}
           </span>
@@ -185,10 +185,13 @@ export default function ServicesSection() {
     <section
       id="services-section"
       className={cn(
-        "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
+        "bg-darkest relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
         "scroll-mt-[var(--navbar-height)] px-6 py-10 sm:px-12 sm:py-12",
       )}
     >
+      {/* 上端 — 直前の明るいセクションから墨色へ自然に繋ぐ */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-off-w to-transparent" />
+
       {/* 背景 — 対応領域を象徴する「粒」の場。カーソルで掃ける */}
       {!reduced && (
         <GrainField className="pointer-events-none absolute inset-0 z-0 size-full" />
@@ -212,7 +215,7 @@ export default function ServicesSection() {
           </div>
 
           {reduced ? (
-            <h2 className="text-darkest font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
+            <h2 className="text-off-w font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
               対応領域
             </h2>
           ) : (
@@ -220,12 +223,12 @@ export default function ServicesSection() {
               <h2 className="sr-only">対応領域</h2>
               <GrainHeading
                 text="対応領域"
-                className="block h-14 w-[15rem] sm:h-16 sm:w-[19rem] lg:h-20 lg:w-[23rem]"
+                className="block h-16 w-[16rem] sm:h-20 sm:w-[21rem] lg:h-24 lg:w-[25rem]"
               />
             </>
           )}
 
-          <p className="text-darkest/65 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
+          <p className="text-off-w/60 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
             Webサイト制作・EC構築から、業務システム開発・AI業務自動化・QAまで、
             これまで幅広い領域に対応してきました。
           </p>
@@ -263,7 +266,7 @@ export default function ServicesSection() {
             お気軽にご相談ください
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </button>
-          <p className="text-darkest/50 font-serif-jp text-xs tracking-[0.2em]">
+          <p className="text-off-w/45 font-serif-jp text-xs tracking-[0.2em]">
             ご相談・お見積もりは無料です
           </p>
         </m.div>

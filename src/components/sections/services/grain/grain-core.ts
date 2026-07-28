@@ -5,6 +5,7 @@
 export const INK = "#1f1a15"; // --color-darkest
 export const GOLD = "#d58430"; // --color-acc-yellow
 export const GOLD_HI = "#ffbf7a"; // --color-acc-yellow-3
+export const WARM = "#f3e5d7"; // --color-off-w — warm-white grains on the dark field
 
 /** A Japanese-serif stack; only the glyph *shape* is sampled, so any mincho works. */
 export const GRAIN_FONT =
@@ -56,10 +57,10 @@ export function sampleGlyphPoints(
   for (let y = 0; y < height; y += stride) {
     for (let x = 0; x < width; x += stride) {
       if (data[(y * width + x) * 4 + 3] > 128) {
-        // small jitter within the sampling cell keeps the field organic
+        // slight jitter keeps the field organic without smearing the strokes
         points.push({
-          x: x + (Math.random() - 0.5) * stride,
-          y: y + (Math.random() - 0.5) * stride,
+          x: x + (Math.random() - 0.5) * stride * 0.6,
+          y: y + (Math.random() - 0.5) * stride * 0.6,
         });
       }
     }

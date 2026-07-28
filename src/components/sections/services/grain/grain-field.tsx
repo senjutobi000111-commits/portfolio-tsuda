@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import { GOLD, INK, grainDpr } from "./grain-core";
+import { GOLD, WARM, grainDpr } from "./grain-core";
 import { usePrefersReducedMotion } from "@/lib/hooks/use-prefers-reduced-motion";
 
 interface FieldGrain {
@@ -39,14 +39,16 @@ export function GrainField({ className }: { className?: string }) {
 
     const paint = () => {
       ctx.clearRect(0, 0, w, h);
+      ctx.globalCompositeOperation = "lighter";
       for (const g of grains) {
         ctx.globalAlpha = g.a;
-        ctx.fillStyle = g.gold ? GOLD : INK;
+        ctx.fillStyle = g.gold ? GOLD : WARM;
         ctx.beginPath();
         ctx.arc(g.x, g.y, g.r, 0, Math.PI * 2);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = "source-over";
     };
 
     const build = () => {
