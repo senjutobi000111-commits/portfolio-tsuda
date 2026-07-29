@@ -16,8 +16,6 @@ import {
 import { cn } from "@/lib/utils";
 import { m } from "@/components/motion-wrapper";
 import { ShineBorder } from "@/components/ui/shine-border";
-import { usePrefersReducedMotion } from "@/lib/hooks/use-prefers-reduced-motion";
-import { GrainHeading } from "@/components/sections/services/grain/grain-heading";
 
 interface Service {
   id: string;
@@ -146,8 +144,6 @@ const ServiceCard = ({ Icon, title, desc, tags }: Service) => {
 };
 
 export default function ServicesSection() {
-  const reduced = usePrefersReducedMotion();
-
   const scrollToContact = () => {
     const el = document.getElementById("contact-section");
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -178,20 +174,9 @@ export default function ServicesSection() {
             <span className="to-acc-yellow/60 h-px w-8 bg-gradient-to-l from-transparent" />
           </div>
 
-          {/* 「対応領域」— 粒が集まって文字になる効果は維持（墨色） */}
-          {reduced ? (
-            <h2 className="text-darkest font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
-              対応領域
-            </h2>
-          ) : (
-            <>
-              <h2 className="sr-only">対応領域</h2>
-              <GrainHeading
-                text="対応領域"
-                className="block h-16 w-[16rem] sm:h-20 sm:w-[21rem] lg:h-24 lg:w-[25rem]"
-              />
-            </>
-          )}
+          <h2 className="text-darkest font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
+            対応領域
+          </h2>
 
           <p className="text-darkest/65 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
             Webサイト制作・EC構築から、業務システム開発・AI業務自動化・QAまで、
