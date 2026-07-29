@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -18,15 +17,11 @@ import { cn } from "@/lib/utils";
 import { m } from "@/components/motion-wrapper";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { usePrefersReducedMotion } from "@/lib/hooks/use-prefers-reduced-motion";
-import { GrainField } from "@/components/sections/services/grain/grain-field";
 import { GrainHeading } from "@/components/sections/services/grain/grain-heading";
-import { GrainIcon } from "@/components/sections/services/grain/grain-icon";
 
 interface Service {
   id: string;
   Icon: LucideIcon;
-  /** Single kanji that stands in for the service, rendered as grains. */
-  kanji: string;
   title: string;
   desc: string;
   tags: string[];
@@ -36,7 +31,6 @@ const SERVICES: Service[] = [
   {
     id: "web",
     Icon: Layout,
-    kanji: "制",
     title: "Webサイト・コーポレートサイト制作",
     desc: "ブランドサイト・採用サイト・メディアまで。WordPress や HTML / CSS / JS でのコーディング制作に対応します。",
     tags: ["WordPress", "HTML", "CSS", "JavaScript"],
@@ -44,7 +38,6 @@ const SERVICES: Service[] = [
   {
     id: "ec",
     Icon: ShoppingBag,
-    kanji: "商",
     title: "EC サイト構築",
     desc: "海外ブランドの日本向けストアやセレクトショップまで。プラットフォームは目的・規模に応じて選定します。",
     tags: ["Shopify", "楽天市場", "MakeShop", "Bubble"],
@@ -52,7 +45,6 @@ const SERVICES: Service[] = [
   {
     id: "system",
     Icon: Server,
-    kanji: "系",
     title: "業務システム・SaaS 開発",
     desc: "従業員管理・工数管理・LINE×サーバーレスなど、要件定義から運用までフルスタックで一貫対応します。",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS"],
@@ -60,7 +52,6 @@ const SERVICES: Service[] = [
   {
     id: "ai",
     Icon: Sparkles,
-    kanji: "知",
     title: "AI 業務自動化",
     desc: "メール処理・問い合わせ応答・データ集計など、ノーコード × AI で業務フローを一気通貫で自動化します。",
     tags: ["n8n", "Dify", "OpenAI", "Notion", "Slack"],
@@ -68,7 +59,6 @@ const SERVICES: Service[] = [
   {
     id: "app",
     Icon: Smartphone,
-    kanji: "機",
     title: "モバイル・デスクトップアプリ開発",
     desc: "Mac / Windows のデスクトップアプリやモバイルアプリ、ゲームなど、目的に応じた構成で開発します。",
     tags: ["Electron", "Unity", "React"],
@@ -76,7 +66,6 @@ const SERVICES: Service[] = [
   {
     id: "qa",
     Icon: ShieldCheck,
-    kanji: "質",
     title: "QA・テスト設計",
     desc: "結合テスト・UAT 設計・E2E 自動化など、客観的根拠で品質を担保する仕組みづくりに対応します。",
     tags: ["Playwright", "Python", "openpyxl"],
@@ -84,7 +73,6 @@ const SERVICES: Service[] = [
   {
     id: "migration",
     Icon: ServerCog,
-    kanji: "移",
     title: "サーバー移行・インフラ刷新",
     desc: "WordPress・EC・業務システムを別サーバーへ。DNS・DB・メール・SSL含め、ダウンタイムを抑えて移行します。",
     tags: ["AWS", "VPS", "WordPress", "MySQL", "DNS"],
@@ -92,7 +80,6 @@ const SERVICES: Service[] = [
   {
     id: "scraping",
     Icon: Bot,
-    kanji: "集",
     title: "スクレイピング・データ収集",
     desc: "公開情報の収集・整形・蓄積を自動化。動的サイトはヘッドレスブラウザで取得し、CSV／DBへ整理します。",
     tags: ["Python", "Playwright", "Node.js", "BeautifulSoup"],
@@ -119,44 +106,29 @@ const CARD_ITEM = {
   },
 };
 
-const ServiceCard = ({
-  service,
-  reduced,
-}: {
-  service: Service;
-  reduced: boolean;
-}) => {
-  const { Icon, kanji, title, desc, tags } = service;
-  const [hovered, setHovered] = useState(false);
-
+const ServiceCard = ({ Icon, title, desc, tags }: Service) => {
   return (
     <m.article
       variants={CARD_ITEM}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       className={cn(
-        "group relative flex flex-col gap-2.5 overflow-hidden rounded-xl border border-off-w/10 bg-off-w/[0.035] p-4 shadow-sm backdrop-blur-[2px] transition-all duration-300",
-        "hover:border-acc-yellow hover:bg-off-w/[0.06] hover:-translate-y-1",
+        "group relative flex flex-col gap-2.5 overflow-hidden rounded-xl border border-black/15 bg-off-w/80 p-4 shadow-sm transition-all duration-300",
+        "hover:border-acc-yellow hover:-translate-y-1 hover:shadow-md",
       )}
     >
-      <div className="border-acc-yellow/30 bg-acc-yellow/[0.07] group-hover:bg-acc-yellow/10 flex size-12 items-center justify-center overflow-hidden rounded-lg border transition-colors">
-        {reduced ? (
-          <Icon className="text-acc-yellow size-5" />
-        ) : (
-          <GrainIcon text={kanji} hovered={hovered} className="size-full" />
-        )}
+      <div className="border-acc-yellow/40 bg-acc-yellow/10 text-acc-yellow group-hover:bg-acc-yellow/15 flex size-10 items-center justify-center rounded-lg border transition-colors">
+        <Icon className="size-5" />
       </div>
-      <h3 className="text-off-w font-serif-jp text-base leading-snug font-semibold">
+      <h3 className="text-darkest font-serif-jp text-base leading-snug font-semibold">
         {title}
       </h3>
-      <p className="text-off-w/60 font-serif-jp text-xs leading-relaxed sm:text-sm">
+      <p className="text-darkest/65 font-serif-jp text-xs leading-relaxed sm:text-sm">
         {desc}
       </p>
       <div className="mt-auto flex flex-wrap gap-1">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="border-acc-yellow/25 bg-acc-yellow/10 text-acc-yellow-3 font-jp rounded-full border px-2 py-0.5 text-[10px] font-medium"
+            className="border-acc-yellow/30 bg-acc-yellow/5 text-acc-yellow font-jp rounded-full border px-2 py-0.5 text-[10px] font-medium"
           >
             {tag}
           </span>
@@ -185,18 +157,10 @@ export default function ServicesSection() {
     <section
       id="services-section"
       className={cn(
-        "bg-darkest relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
+        "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
         "scroll-mt-[var(--navbar-height)] px-6 py-10 sm:px-12 sm:py-12",
       )}
     >
-      {/* 上端 — 直前の明るいセクションから墨色へ自然に繋ぐ */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-off-w to-transparent" />
-
-      {/* 背景 — 対応領域を象徴する「粒」の場。カーソルで掃ける */}
-      {!reduced && (
-        <GrainField className="pointer-events-none absolute inset-0 z-0 size-full" />
-      )}
-
       <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-6 sm:gap-8">
         {/* 見出し */}
         <m.header
@@ -214,8 +178,9 @@ export default function ServicesSection() {
             <span className="to-acc-yellow/60 h-px w-8 bg-gradient-to-l from-transparent" />
           </div>
 
+          {/* 「対応領域」— 粒が集まって文字になる効果は維持（墨色） */}
           {reduced ? (
-            <h2 className="text-off-w font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
+            <h2 className="text-darkest font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
               対応領域
             </h2>
           ) : (
@@ -228,7 +193,7 @@ export default function ServicesSection() {
             </>
           )}
 
-          <p className="text-off-w/60 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
+          <p className="text-darkest/65 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
             Webサイト制作・EC構築から、業務システム開発・AI業務自動化・QAまで、
             これまで幅広い領域に対応してきました。
           </p>
@@ -243,7 +208,7 @@ export default function ServicesSection() {
           className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4"
         >
           {SERVICES.map((service) => (
-            <ServiceCard key={service.id} service={service} reduced={reduced} />
+            <ServiceCard key={service.id} {...service} />
           ))}
         </m.div>
 
@@ -266,7 +231,7 @@ export default function ServicesSection() {
             お気軽にご相談ください
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </button>
-          <p className="text-off-w/45 font-serif-jp text-xs tracking-[0.2em]">
+          <p className="text-darkest/50 font-serif-jp text-xs tracking-[0.2em]">
             ご相談・お見積もりは無料です
           </p>
         </m.div>

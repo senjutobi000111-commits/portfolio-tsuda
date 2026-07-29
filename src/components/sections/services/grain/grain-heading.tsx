@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import { GOLD, GOLD_HI, WARM, grainDpr, sampleGlyphPoints } from "./grain-core";
+import { INK, grainDpr, sampleGlyphPoints } from "./grain-core";
 
 interface HeadingGrain {
   hx: number;
@@ -11,23 +11,15 @@ interface HeadingGrain {
   y: number;
   vx: number;
   vy: number;
-  color: string;
   r: number;
   ph: number;
 }
 
-function pickColor(): string {
-  const r = Math.random();
-  if (r < 0.14) return GOLD_HI;
-  if (r < 0.32) return GOLD;
-  return WARM;
-}
-
 /**
- * Renders `text` as glowing grains on a dark field. Grains start scattered and
- * GATHER into the glyphs when the section scrolls into view; the cursor sweeps
- * them apart and they spring back. Additive blending gives the luminous cores.
- * Decorative — pair with an sr-only heading; skip on reduced motion (caller).
+ * Renders `text` as a field of black ink grains that start scattered and
+ * GATHER into the glyphs when the section scrolls into view. The cursor sweeps
+ * the grains apart as it passes; they spring back. Decorative — pair with an
+ * sr-only heading; skip on reduced motion (caller decides).
  */
 export function GrainHeading({
   text,
@@ -81,7 +73,6 @@ export function GrainHeading({
         y: p.y + (Math.random() - 0.5) * h * 3.5,
         vx: 0,
         vy: 0,
-        color: pickColor(),
         r: Math.random() * 0.7 + 0.75,
         ph: Math.random() * Math.PI * 2,
       }));
@@ -89,7 +80,6 @@ export function GrainHeading({
 
     const frame = (t: number) => {
       ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = "lighter";
       const spring = entered ? 0.075 : 0.02;
       for (const g of grains) {
         g.vx += (g.hx - g.x) * spring;
@@ -117,14 +107,13 @@ export function GrainHeading({
         const settled = Math.max(0, 1 - dist / 6);
         const shimmer = 0.9 + Math.sin(t * 0.0028 + g.ph) * 0.1;
         ctx.globalAlpha =
-          (entered ? Math.min(0.95, 0.16 + settled * 0.8) : 0.28) * shimmer;
-        ctx.fillStyle = g.color;
+          (entered ? Math.min(0.98, 0.2 + settled * 0.85) : 0.3) * shimmer;
+        ctx.fillStyle = INK;
         ctx.beginPath();
         ctx.arc(g.x, g.y, g.r, 0, Math.PI * 2);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
-      ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(frame);
     };
 
