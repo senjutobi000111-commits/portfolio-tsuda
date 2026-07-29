@@ -3,11 +3,11 @@
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  Layout,
+  Smartphone,
   ShoppingBag,
   Server,
   Sparkles,
-  Smartphone,
+  Gamepad2,
   ShieldCheck,
   ServerCog,
   Bot,
@@ -29,11 +29,11 @@ interface Service {
 
 const SERVICES: Service[] = [
   {
-    id: "web",
-    Icon: Layout,
-    title: "Webサイト・コーポレートサイト制作",
-    desc: "ブランドサイト・採用サイト・メディアまで。WordPress や HTML / CSS / JS でのコーディング制作に対応します。",
-    tags: ["WordPress", "HTML", "CSS", "JavaScript"],
+    id: "mobile",
+    Icon: Smartphone,
+    title: "iOS / Android アプリ開発",
+    desc: "Expo（React Native）を中心に、iOS / Android のクロスプラットフォームアプリを開発。App Store・Google Play へのリリースまで一貫して対応します。",
+    tags: ["Swift", "Expo", "React Native", "App Store"],
   },
   {
     id: "ec",
@@ -58,9 +58,9 @@ const SERVICES: Service[] = [
   },
   {
     id: "app",
-    Icon: Smartphone,
-    title: "モバイル・デスクトップアプリ開発",
-    desc: "Mac / Windows のデスクトップアプリやモバイルアプリ、ゲームなど、目的に応じた構成で開発します。",
+    Icon: Gamepad2,
+    title: "デスクトップアプリ・ゲーム開発",
+    desc: "Mac / Windows のデスクトップアプリや、ゲームなど、目的に応じた構成で開発します。",
     tags: ["Electron", "Unity", "React"],
   },
   {
@@ -231,9 +231,6 @@ export default function ServicesSection() {
             お気軽にご相談ください
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </button>
-          <p className="text-darkest/50 font-serif-jp text-xs tracking-[0.2em]">
-            ご相談・お見積もりは無料です
-          </p>
         </m.div>
       </div>
     </section>
