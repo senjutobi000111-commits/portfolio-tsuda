@@ -14,12 +14,19 @@ const AboutText = () => {
         "xl:border-l-2 xl:border-black xl:pl-6",
       )}
     >
-      {["description-1", "description-2", "description-3", "description-4", "description-5"].map((key) => (
+      {[
+        "description-1",
+        "description-2",
+        "description-3",
+        "description-4",
+        "description-5",
+        "description-6",
+      ].map((key) => (
         <TextAnimate
           key={key}
           className={cn(
-            "font-serif-jp mb-3 text-pretty text-black last:mb-0",
-            "text-sm leading-7 sm:text-base lg:text-lg",
+            "font-serif-jp mb-2.5 text-pretty text-black last:mb-0",
+            "text-[13px] leading-6 sm:text-sm sm:leading-7 lg:text-base lg:leading-7",
           )}
           by="text"
           animation="slideRight"
