@@ -154,7 +154,7 @@ export default function ServicesSection() {
       id="services-section"
       className={cn(
         "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
-        "scroll-mt-[var(--navbar-height)] px-6 py-10 sm:px-12 sm:py-12",
+        "scroll-mt-[var(--navbar-height)] px-6 py-16 sm:px-12 sm:py-20",
       )}
     >
       <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-6 sm:gap-8">
