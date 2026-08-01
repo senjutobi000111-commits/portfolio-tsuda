@@ -10,7 +10,7 @@ const AboutText = () => {
   return (
     <div
       className={cn(
-        "relative z-10 max-w-[clamp(400px,64vw,900px)]",
+        "relative z-10 max-w-[clamp(400px,82vw,1200px)]",
         "xl:border-l-2 xl:border-black xl:pl-6",
       )}
     >

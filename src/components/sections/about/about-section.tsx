@@ -150,7 +150,7 @@ export default function AboutSection() {
       id="about-section"
       className={cn(
         "bg-off-w relative flex min-h-dvh scroll-mt-[var(--navbar-height)] flex-col items-center justify-center gap-y-8 overflow-clip px-6 pt-16 pb-18",
-        "md:scroll-mt-0 xl:gap-y-16 xl:p-0",
+        "md:scroll-mt-0 xl:gap-y-10 xl:px-0 xl:py-16",
       )}
     >
       <MyInfo />
