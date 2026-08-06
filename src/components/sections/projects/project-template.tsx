@@ -110,7 +110,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
           <div
             className={cn(
-              "bg-off-w flex flex-wrap items-center justify-center gap-5 self-start p-4",
+              "bg-off-w mb-6 flex flex-wrap items-center justify-center gap-5 self-start p-5 sm:mb-8",
             )}
           >
             {props.languages.map((lang, index) => (
