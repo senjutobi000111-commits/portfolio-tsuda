@@ -97,7 +97,9 @@
     "repoImage": "/images/projects/destinyline-1.webp",
     "images": [
       "/images/projects/destinyline-1.webp",
-      "/images/projects/destinyline-2.webp"
+      "/images/projects/destinyline-2.webp",
+      "/images/projects/destinyline-3.webp",
+      "/images/projects/destinyline-4.webp"
     ],
     "languages": [
       "wordpress",
