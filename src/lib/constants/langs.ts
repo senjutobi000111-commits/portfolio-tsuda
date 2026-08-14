@@ -47,6 +47,7 @@ import {
   SiExpo,
   SiFirebase,
   SiTiktok,
+  SiFlutter,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -191,6 +192,10 @@ export const TECH_LANGUAGES = {
   tiktok: {
     src: SiTiktok,
     alt: "TikTok logo",
+  },
+  flutter: {
+    src: SiFlutter,
+    alt: "Flutter logo",
   },
 } as const;
 
