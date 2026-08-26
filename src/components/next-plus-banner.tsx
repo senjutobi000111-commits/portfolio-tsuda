@@ -4,7 +4,7 @@ export const NextPlusBanner = () => {
   return (
     <div className="w-full">
       <iframe
-        src="https://nextplus.link/embed/qHkhSwpxPrR1MTLAALok6fH4kKebTSMk?theme=light&design=coupon"
+        src="https://www.nextplus.link/embed/qHkhSwpxPfR1MTLAALok6fH4kKebTSMk?theme=light&design=coupon"
         title="NEXT+ 近くのお得"
         loading="lazy"
         style={{
