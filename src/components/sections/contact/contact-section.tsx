@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { m } from "@/components/motion-wrapper";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
+import { NextPlusBanner } from "@/components/next-plus-banner";
 import { ArrowRight } from "lucide-react";
 
 interface ContactChannel {
@@ -185,6 +186,9 @@ export default function ContactSection() {
           </span>
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-black/20" />
         </m.div>
+
+        {/* NEXT+ 紹介バナー（ページ最下部に追加のみ） */}
+        <NextPlusBanner />
       </div>
     </section>
   );
