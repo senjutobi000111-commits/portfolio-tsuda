@@ -48,6 +48,7 @@ import {
   SiFirebase,
   SiTiktok,
   SiFlutter,
+  SiLaravel,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -196,6 +197,10 @@ export const TECH_LANGUAGES = {
   flutter: {
     src: SiFlutter,
     alt: "Flutter logo",
+  },
+  laravel: {
+    src: SiLaravel,
+    alt: "Laravel logo",
   },
 } as const;
 
