@@ -4,6 +4,7 @@ import { SiTanstack } from "@/components/svgs/SiTanstack";
 import { SiPlaywright } from "@/components/svgs/SiPlaywright";
 import { SiBubble } from "@/components/svgs/SiBubble";
 import { SiMakeShop } from "@/components/svgs/SiMakeShop";
+import { Database } from "lucide-react";
 
 import {
   SiGo,
@@ -49,6 +50,8 @@ import {
   SiTiktok,
   SiFlutter,
   SiLaravel,
+  SiSharp,
+  SiDotnet,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -201,6 +204,18 @@ export const TECH_LANGUAGES = {
   laravel: {
     src: SiLaravel,
     alt: "Laravel logo",
+  },
+  csharp: {
+    src: SiSharp,
+    alt: "C# logo",
+  },
+  dotnet: {
+    src: SiDotnet,
+    alt: ".NET logo",
+  },
+  database: {
+    src: Database as unknown as IconType,
+    alt: "Database logo",
   },
 } as const;
 
