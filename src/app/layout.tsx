@@ -13,7 +13,7 @@ import "@/app/globals.css";
 // i18n が cookies()/headers() を使うため全ルートを動的レンダリングに固定（静的生成での失敗を回避）
 export const dynamic = "force-dynamic";
 
-const siteUrl = "https://portfolio-tsuda.vercel.app";
+const siteUrl = "https://portfolio-takashi.vercel.app";
 const siteName = "萩原 祟志 | Portfolio";
 const siteDescription =
   "Webエンジニアとして8年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。萩原 祟志のポートフォリオサイト。";
