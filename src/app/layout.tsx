@@ -14,9 +14,9 @@ import "@/app/globals.css";
 export const dynamic = "force-dynamic";
 
 const siteUrl = "https://portfolio-tsuda.vercel.app";
-const siteName = "津田 和明 | Portfolio";
+const siteName = "萩原 祟志 | Portfolio";
 const siteDescription =
-  "Webエンジニアとして8年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。津田 和明のポートフォリオサイト。";
+  "Webエンジニアとして8年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。萩原 祟志のポートフォリオサイト。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

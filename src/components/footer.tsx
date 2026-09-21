@@ -76,7 +76,7 @@ export const Footer = () => {
         )}
       >
         <p className="text-off-w text-xs font-bold tracking-tight">
-          © {new Date().getFullYear()} • Kazyel
+          © {new Date().getFullYear()} • Hagiwara
         </p>
         <p className="text-off-w/50 max-xs:text-[0.5rem] text-[0.65rem]">
           {t("copyright")}

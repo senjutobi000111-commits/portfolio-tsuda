@@ -113,11 +113,11 @@ export default function Navbar() {
           aria-label="Go to home section"
           className={cn(
             "before:font-jp relative cursor-pointer border-l-2 pl-2 font-extrabold tracking-tight transition-colors duration-150",
-            "before:font-jp before:absolute before:top-0 before:-left-6 before:text-base before:transition-all before:duration-150 before:content-['津']",
+            "before:font-jp before:absolute before:top-0 before:-left-6 before:text-base before:transition-all before:duration-150 before:content-['萩']",
             currentStyles.link,
           )}
         >
-          Tsuda
+          Hagiwara
         </button>
       </div>
 
