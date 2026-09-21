@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
-import { HeroText } from "./hero-text";
 import { HeroOverlay } from "./hero-overlay";
 
 const STATIC_COLOR = "#f3e5d7";
@@ -21,16 +20,15 @@ export default function HeroSection() {
         "px-8 xs:px-12 sm:pb-28 lg:px-24 lg:pb-32",
       )}
     >
-      {/* Hero Content */}
+      {/* Hero Content — 名前・キャッチは背景画像に描かれているため、CTAボタンのみ表示 */}
       <div className="relative z-30 flex w-full max-w-[480px] flex-col gap-y-8 sm:max-w-[540px] lg:max-w-[600px]">
-        <HeroText />
         <HeroButtons />
       </div>
 
       {/* 背景画像 — ズームアウトしながらフェードイン */}
       <Image
-        src="/images/splash2.png"
-        alt="Splash Background"
+        src="/images/hero-2026.webp"
+        alt="萩原 祟志 — ポートフォリオ"
         className={cn(
           imageBaseClasses,
           "splash-animation inset-0 z-10 h-full w-full object-cover object-center",
