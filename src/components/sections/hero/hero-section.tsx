@@ -4,7 +4,9 @@ import Image from "next/image";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import { HeroOverlay } from "./hero-overlay";
-import { Briefcase, Layers, MapPin, Clock } from "lucide-react";
+import { HeroFacts } from "./hero-facts";
+import { HeroPetals } from "./hero-petals";
+import { HeroScrollIndicator } from "./hero-scroll-indicator";
 
 const STATIC_COLOR = "#f3e5d7";
 const MID_COLOR = "#f3e5d744";
@@ -23,40 +25,20 @@ export default function HeroSection() {
     >
       {/* Hero Content — 名前・キャッチは背景画像に描かれているため、クイック情報とCTAのみ表示 */}
       <div className="relative z-30 flex w-full max-w-[480px] flex-col gap-y-6 sm:max-w-[560px] lg:max-w-[640px]">
-        {/* クイック情報（ファーストビュー） */}
-        <div className="flex w-fit max-w-full flex-col gap-2 rounded-xl border border-off-w/15 bg-black/35 px-4 py-3 shadow-lg backdrop-blur-md">
-          <div className="text-off-w font-serif-jp flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm sm:text-base">
-            <span className="flex items-center gap-1.5">
-              <Briefcase className="text-acc-yellow-3 size-4 sm:size-[1.15rem]" />
-              開発経験 <b className="text-acc-yellow-3 font-semibold">8年</b>
-            </span>
-            <span className="text-off-w/30" aria-hidden="true">｜</span>
-            <span className="flex items-center gap-1.5">
-              <Layers className="text-acc-yellow-3 size-4 sm:size-[1.15rem]" />
-              制作実績 <b className="text-acc-yellow-3 font-semibold">50件</b>
-            </span>
-            <span className="text-off-w/30" aria-hidden="true">｜</span>
-            <span className="flex items-center gap-1.5">
-              <MapPin className="text-acc-yellow-3 size-4 sm:size-[1.15rem]" />
-              香川県
-            </span>
-          </div>
-          <div className="text-off-w/90 font-serif-jp flex items-center gap-1.5 text-xs sm:text-sm">
-            <Clock className="text-acc-yellow-3 size-4 shrink-0" />
-            対応可能時間：平日 9:00〜22:00 / 土日祝 18:00〜23:00
-          </div>
-        </div>
-
+        <HeroFacts />
         <HeroButtons />
       </div>
 
-      {/* 背景画像 — ズームアウトしながらフェードイン */}
+      {/* ⑩ スクロール誘導 */}
+      <HeroScrollIndicator />
+
+      {/* 背景画像 — フェードイン＋ゆっくりズーム（Ken Burns） */}
       <Image
         src="/images/hero-2026.webp"
         alt="萩原 祟志 — ポートフォリオ"
         className={cn(
           imageBaseClasses,
-          "splash-animation inset-0 z-10 h-full w-full object-cover object-center",
+          "hero-bg-anim inset-0 z-10 h-full w-full object-cover object-center",
         )}
         loading="eager"
         priority
@@ -64,6 +46,9 @@ export default function HeroSection() {
         fill
         sizes="100vw"
       />
+
+      {/* ④ 桜の花びら */}
+      <HeroPetals />
 
       {/* 暗いオーバーレイ — クライアントコンポーネントに分離 */}
       <HeroOverlay />
