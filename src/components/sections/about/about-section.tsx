@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import type { IconType } from "@icons-pack/react-simple-icons";
 
 import { TECH_LANGUAGES } from "@/lib/constants/langs";
@@ -13,7 +12,6 @@ import {
 import { Marquee } from "@/components/ui/marquee";
 import { MyInfo } from "@/components/sections/about/my-info";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
-import Link from "next/link";
 
 const TECH_STACK = [
   { name: "WordPress", src: TECH_LANGUAGES.wordpress.src },
@@ -30,22 +28,6 @@ const TECH_STACK = [
   { name: "PostgreSQL", src: TECH_LANGUAGES.postgresql.src },
   { name: "Git", src: TECH_LANGUAGES.git.src },
   { name: "Vite", src: TECH_LANGUAGES.vite.src },
-] as const;
-
-// Qiita・Zenn は外部リンク付きで別枠表示
-const BLOG_LINKS = [
-  {
-    name: "Qiita",
-    src: TECH_LANGUAGES.qiita.src,
-    href: "https://qiita.com/zywx21301",
-    color: "#55C500",
-  },
-  {
-    name: "Zenn",
-    src: TECH_LANGUAGES.zenn.src,
-    href: "https://zenn.dev/zywx21301",
-    color: "#3EA8FF",
-  },
 ] as const;
 
 interface LanguageCardProps {
@@ -73,33 +55,6 @@ const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
   );
 };
 
-const BlogLinkCard = ({
-  src: Icon,
-  name,
-  href,
-  color,
-}: (typeof BLOG_LINKS)[number]) => {
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group cursor-pointer"
-      style={{ "--brand": color } as CSSProperties}
-      aria-label={`${name}の投稿を見る`}
-    >
-      <span
-        className={cn(
-          "flex size-16 items-center justify-center border border-black/15 shadow-sm transition-all duration-200 lg:size-[4.5rem] lg:border-2 lg:border-black",
-          "bg-off-w group-hover:-translate-y-1 group-hover:border-[var(--brand)] group-hover:shadow-md",
-        )}
-      >
-        <Icon className="text-darkest/80 size-8 transition-colors duration-200 group-hover:text-[var(--brand)] lg:size-9" />
-      </span>
-    </Link>
-  );
-};
-
 const TechStackMarquee = () => {
   return (
     <div className="flex w-full flex-col items-center gap-4">
@@ -121,24 +76,6 @@ const TechStackMarquee = () => {
         {/* Fade gradients */}
         <div className="from-off-w pointer-events-none absolute inset-y-0 left-0 z-0 w-1/5 bg-gradient-to-r" />
         <div className="from-off-w pointer-events-none absolute inset-y-0 right-0 z-0 w-1/5 bg-gradient-to-l" />
-      </div>
-
-      {/* Blog links — Qiita & Zenn */}
-      <div className="flex flex-col items-center gap-6">
-        {/* 左右対称の罫線で囲んだ見出し */}
-        <div className="flex w-60 items-center gap-4">
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-black/25" />
-          <span className="font-jp text-darkest/55 text-xs tracking-[0.3em] whitespace-nowrap">
-            記事を読む
-          </span>
-          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-black/25" />
-        </div>
-
-        <div className="flex items-start gap-10">
-          {BLOG_LINKS.map((blog) => (
-            <BlogLinkCard key={blog.name} {...blog} />
-          ))}
-        </div>
       </div>
     </div>
   );

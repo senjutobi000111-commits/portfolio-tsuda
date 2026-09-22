@@ -9,7 +9,7 @@ export const SOCIAL_LINKS: Socials<"linkedIn" | "github"> = {
     text: "GitHub",
   },
   linkedIn: {
-    href: "https://www.linkedin.com/in/和明-津田-81a570412",
+    href: "https://www.linkedin.com/in/祟志-萩原-a17b28436/",
     icon: SiLinkedin,
     text: "LinkedIn",
   },
