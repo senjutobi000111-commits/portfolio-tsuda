@@ -306,12 +306,43 @@
     animation-iteration-count: infinite;
   }
 
+  /* 肩書き「AI」への一度きりの金シャイン */
+  @keyframes hero-ai-shine-sweep {
+    0% {
+      background-position: 150% 0;
+    }
+    100% {
+      background-position: -50% 0;
+    }
+  }
+
+  .hero-ai-shine {
+    color: #ffbf7a;
+    background: linear-gradient(
+      100deg,
+      #ffbf7a 0%,
+      #ffbf7a 42%,
+      #fffdf5 50%,
+      #ffbf7a 58%,
+      #ffbf7a 100%
+    );
+    background-size: 300% 100%;
+    background-position: 150% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hero-ai-shine-sweep 1.6s ease-out 1.3s 1 both;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-bg-anim {
       animation: enter-splash 1.8s ease forwards;
     }
     .hero-petal {
       display: none;
+    }
+    .hero-ai-shine {
+      animation: none;
     }
   }
 

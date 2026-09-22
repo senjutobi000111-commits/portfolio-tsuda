@@ -4,6 +4,7 @@ import Image from "next/image";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import { HeroOverlay } from "./hero-overlay";
+import { HeroRole } from "./hero-role";
 import { HeroFacts } from "./hero-facts";
 import { HeroPetals } from "./hero-petals";
 import { HeroScrollIndicator } from "./hero-scroll-indicator";
@@ -24,7 +25,8 @@ export default function HeroSection() {
       )}
     >
       {/* Hero Content — 名前・キャッチは背景画像に描かれているため、クイック情報とCTAのみ表示 */}
-      <div className="relative z-30 flex w-full max-w-[480px] flex-col gap-y-6 sm:max-w-[560px] lg:max-w-[640px]">
+      <div className="relative z-30 flex w-full max-w-[480px] flex-col gap-y-5 sm:max-w-[560px] lg:max-w-[640px]">
+        <HeroRole />
         <HeroFacts />
         <HeroButtons />
       </div>
