@@ -7,7 +7,7 @@ import { HeroOverlay } from "./hero-overlay";
 import { HeroRole } from "./hero-role";
 import { HeroFacts } from "./hero-facts";
 import { HeroPetals } from "./hero-petals";
-import { HeroSparkles } from "./hero-sparkles";
+import { HeroDroplets } from "./hero-droplets";
 import { HeroScrollIndicator } from "./hero-scroll-indicator";
 
 const STATIC_COLOR = "#f3e5d7";
@@ -53,8 +53,8 @@ export default function HeroSection() {
       {/* ④ 桜の花びら */}
       <HeroPetals />
 
-      {/* 名前まわりのきらめき＋水面グロー */}
-      <HeroSparkles />
+      {/* 水面から水滴が立ち上がり名前を形づくる演出 */}
+      <HeroDroplets />
 
       {/* 暗いオーバーレイ — クライアントコンポーネントに分離 */}
       <HeroOverlay />
