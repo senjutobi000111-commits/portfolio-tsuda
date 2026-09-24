@@ -19,35 +19,7 @@ interface ContactChannel {
   brand: string;
 }
 
-// ※ value / href は仮置きです。実際の連絡先に差し替えてください。
 const CONTACT_CHANNELS: ContactChannel[] = [
-  {
-    id: "email",
-    label: "Email",
-    value: "dapplepeach@gmail.com",
-    href: "mailto:dapplepeach@gmail.com",
-    desc: "お気軽にご連絡ください",
-    iconSrc: "/images/icons/gmail.svg",
-    brand: "#EA4335",
-  },
-  {
-    id: "chatwork",
-    label: "Chatwork",
-    value: "chatwork.com/33ma22wolf404",
-    href: "https://www.chatwork.com/33ma22wolf404",
-    desc: "お気軽にメッセージください",
-    iconSrc: "/images/icons/chatwork.svg",
-    brand: "#F03748",
-  },
-  {
-    id: "line",
-    label: "LINE",
-    value: "line.me/ti/p/nXEfkZT_e8",
-    href: "https://line.me/ti/p/nXEfkZT_e8",
-    desc: "LINE からもご相談ください",
-    iconSrc: "/images/icons/line.svg",
-    brand: "#06C755",
-  },
   {
     id: "linkedin",
     label: "LinkedIn",
@@ -164,7 +136,7 @@ export default function ContactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
+          className="mx-auto grid w-full max-w-md grid-cols-1 gap-4 sm:gap-5"
         >
           {CONTACT_CHANNELS.map((channel) => (
             <ContactCard key={channel.id} {...channel} />
