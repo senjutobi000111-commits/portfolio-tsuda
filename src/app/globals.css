@@ -317,21 +317,11 @@
   }
 
   .hero-ai-shine {
-    color: #ffe6b8;
-    background: linear-gradient(
-      100deg,
-      #ffe6b8 0%,
-      #ffe6b8 42%,
-      #ffffff 50%,
-      #ffe6b8 58%,
-      #ffe6b8 100%
-    );
-    background-size: 300% 100%;
-    background-position: 150% 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: hero-ai-shine-sweep 1.6s ease-out 1.3s 1 both;
+    color: #ffd15a;
+    text-shadow:
+      0 0 14px rgba(255, 190, 70, 0.7),
+      0 0 4px rgba(255, 214, 120, 0.9),
+      0 1px 3px rgba(0, 0, 0, 0.45);
   }
 
   @media (prefers-reduced-motion: reduce) {

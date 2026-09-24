@@ -16,20 +16,14 @@ export const HeroRole = () => {
         <span className="from-acc-yellow-3/90 h-px w-8 bg-gradient-to-r to-transparent" />
         <span className="text-acc-yellow-3 text-xs font-bold tracking-[0.34em] uppercase drop-shadow-[0_1px_5px_rgba(0,0,0,0.95)] sm:text-sm">
           Full-Stack{" "}
-          <span className="hero-ai-shine drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
-            AI
-          </span>{" "}
+          <span className="hero-ai-shine">AI</span>{" "}
           Engineer
         </span>
       </div>
 
       {/* 見出し（大きめ明朝・強い影で背景から浮かす） */}
       <p className="text-off-w font-serif-jp text-3xl font-bold tracking-wide [text-shadow:0_1px_4px_rgba(0,0,0,0.95),0_3px_20px_rgba(0,0,0,0.65)] sm:text-4xl lg:text-5xl">
-        フルスタック
-        <span className="hero-ai-shine drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
-          AI
-        </span>
-        エンジニア
+        フルスタック<span className="hero-ai-shine">AI</span>エンジニア
       </p>
     </m.div>
   );
