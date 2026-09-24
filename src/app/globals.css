@@ -317,14 +317,14 @@
   }
 
   .hero-ai-shine {
-    color: #ffbf7a;
+    color: #ffe6b8;
     background: linear-gradient(
       100deg,
-      #ffbf7a 0%,
-      #ffbf7a 42%,
-      #fffdf5 50%,
-      #ffbf7a 58%,
-      #ffbf7a 100%
+      #ffe6b8 0%,
+      #ffe6b8 42%,
+      #ffffff 50%,
+      #ffe6b8 58%,
+      #ffe6b8 100%
     );
     background-size: 300% 100%;
     background-position: 150% 0;
