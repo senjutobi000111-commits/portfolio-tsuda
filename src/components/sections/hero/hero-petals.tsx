@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 // index からの決定的な擬似乱数（SSR とクライアントで一致させ hydration ずれを防ぐ）
 const rand = (i: number, seed: number) => (Math.sin(i * 12.9898 + seed * 78.233) + 1) / 2;
 
-const PETALS = Array.from({ length: 16 }, (_, i) => ({
+const PETALS = Array.from({ length: 26 }, (_, i) => ({
   left: Math.round(rand(i, 1) * 100),
   size: 8 + Math.round(rand(i, 2) * 10),
   duration: 9 + Math.round(rand(i, 3) * 9),
