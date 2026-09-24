@@ -19,7 +19,35 @@ interface ContactChannel {
   brand: string;
 }
 
+// Email / Chatwork / LINE は value・href を空にしてある（表示値とリンクを削除。後日差し替え予定）。
 const CONTACT_CHANNELS: ContactChannel[] = [
+  {
+    id: "email",
+    label: "Email",
+    value: "",
+    href: "",
+    desc: "お気軽にご連絡ください",
+    iconSrc: "/images/icons/gmail.svg",
+    brand: "#EA4335",
+  },
+  {
+    id: "chatwork",
+    label: "Chatwork",
+    value: "",
+    href: "",
+    desc: "お気軽にメッセージください",
+    iconSrc: "/images/icons/chatwork.svg",
+    brand: "#F03748",
+  },
+  {
+    id: "line",
+    label: "LINE",
+    value: "",
+    href: "",
+    desc: "LINE からもご相談ください",
+    iconSrc: "/images/icons/line.svg",
+    brand: "#06C755",
+  },
   {
     id: "linkedin",
     label: "LinkedIn",
@@ -52,41 +80,64 @@ const CARD_ITEM = {
 };
 
 const ContactCard = ({ label, value, href, desc, iconSrc, brand }: ContactChannel) => {
-  return (
-    <m.div variants={CARD_ITEM}>
-      <Link
-        href={href}
-        target={href.startsWith("mailto:") ? undefined : "_blank"}
-        rel="noopener noreferrer"
-        style={{ "--brand": brand } as CSSProperties}
-        aria-label={`${label} で連絡する`}
-        className={cn(
-          "group relative flex items-center gap-4 rounded-xl border border-black/15 p-4 shadow-sm backdrop-blur-sm transition-all duration-300",
-          "bg-off-w/80 hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-md",
-        )}
-      >
-        {/* アイコン — 本物のブランドロゴSVGをリンク参照 */}
-        <span className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-black/15 bg-black/[0.03] transition-colors duration-300 group-hover:border-[var(--brand)]/50">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={iconSrc} alt={`${label} のロゴ`} className="size-6 object-contain" loading="lazy" />
-        </span>
+  const hasLink = href.length > 0;
 
-        {/* ラベル + 値 */}
-        <span className="flex min-w-0 flex-1 flex-col">
-          <span className="text-acc-yellow font-jp text-[0.65rem] font-bold tracking-[0.22em] uppercase">
-            {label}
-          </span>
+  const cardClass = cn(
+    "group relative flex items-center gap-4 rounded-xl border border-black/15 p-4 shadow-sm backdrop-blur-sm transition-all duration-300",
+    "bg-off-w/80",
+    hasLink && "hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-md",
+  );
+
+  const inner = (
+    <>
+      {/* アイコン — 本物のブランドロゴSVG */}
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-black/15 bg-black/[0.03] transition-colors duration-300 group-hover:border-[var(--brand)]/50">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={iconSrc} alt={`${label} のロゴ`} className="size-6 object-contain" loading="lazy" />
+      </span>
+
+      {/* ラベル + 値 */}
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="text-acc-yellow font-jp text-[0.65rem] font-bold tracking-[0.22em] uppercase">
+          {label}
+        </span>
+        {value ? (
           <span className="text-darkest font-serif-jp truncate text-sm sm:text-base">
             {value}
           </span>
-          <span className="text-darkest/45 font-jp truncate text-xs">{desc}</span>
-        </span>
+        ) : null}
+        <span className="text-darkest/45 font-jp truncate text-xs">{desc}</span>
+      </span>
 
-        {/* 矢印 */}
-        <span className="text-darkest/50 flex size-8 shrink-0 items-center justify-center rounded-full border border-black/20 transition-all duration-300 group-hover:border-[var(--brand)] group-hover:bg-[var(--brand)]/10 group-hover:text-[var(--brand)]">
-          <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-        </span>
-      </Link>
+      {/* 矢印 */}
+      <span className="text-darkest/50 flex size-8 shrink-0 items-center justify-center rounded-full border border-black/20 transition-all duration-300 group-hover:border-[var(--brand)] group-hover:bg-[var(--brand)]/10 group-hover:text-[var(--brand)]">
+        <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+      </span>
+    </>
+  );
+
+  return (
+    <m.div variants={CARD_ITEM}>
+      {hasLink ? (
+        <Link
+          href={href}
+          target={href.startsWith("mailto:") ? undefined : "_blank"}
+          rel="noopener noreferrer"
+          style={{ "--brand": brand } as CSSProperties}
+          aria-label={`${label} で連絡する`}
+          className={cardClass}
+        >
+          {inner}
+        </Link>
+      ) : (
+        <div
+          style={{ "--brand": brand } as CSSProperties}
+          aria-label={label}
+          className={cardClass}
+        >
+          {inner}
+        </div>
+      )}
     </m.div>
   );
 };
@@ -136,7 +187,7 @@ export default function ContactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="mx-auto grid w-full max-w-md grid-cols-1 gap-4 sm:gap-5"
+          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
         >
           {CONTACT_CHANNELS.map((channel) => (
             <ContactCard key={channel.id} {...channel} />
