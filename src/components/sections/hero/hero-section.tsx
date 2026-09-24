@@ -1,17 +1,19 @@
 import { cn } from "@/lib/utils";
 
+import Image from "next/image";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import { HeroOverlay } from "./hero-overlay";
 import { HeroRole } from "./hero-role";
 import { HeroFacts } from "./hero-facts";
 import { HeroPetals } from "./hero-petals";
-import { HeroVideo } from "./hero-video";
 import { HeroScrollIndicator } from "./hero-scroll-indicator";
 
 const STATIC_COLOR = "#f3e5d7";
 const MID_COLOR = "#f3e5d744";
 const DARK_COLOR = "#00000033";
+
+const imageBaseClasses = "pointer-events-none absolute";
 
 export default function HeroSection() {
   return (
@@ -32,8 +34,20 @@ export default function HeroSection() {
       {/* ⑩ スクロール誘導 */}
       <HeroScrollIndicator />
 
-      {/* 背景動画（poster＝現行ヒーロー画像。reduced-motion では静止画） */}
-      <HeroVideo />
+      {/* 背景画像 — フェードイン＋ゆっくりズーム（Ken Burns） */}
+      <Image
+        src="/images/hero-2026.webp"
+        alt="萩原 祟志 — ポートフォリオ"
+        className={cn(
+          imageBaseClasses,
+          "hero-bg-anim inset-0 z-10 h-full w-full object-cover object-center",
+        )}
+        loading="eager"
+        priority
+        quality={85}
+        fill
+        sizes="100vw"
+      />
 
       {/* ④ 桜の花びら */}
       <HeroPetals />
