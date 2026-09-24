@@ -19,13 +19,13 @@ interface ContactChannel {
   brand: string;
 }
 
-// Email / Chatwork / LINE は value・href を空にしてある（表示値とリンクを削除。後日差し替え予定）。
+// Chatwork / LINE は仮リンク（xxxxxx）です。正式リンクが決まり次第差し替えてください。
 const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "email",
     label: "Email",
-    value: "",
-    href: "",
+    value: "suizhiqiuyuan248@gmail.com",
+    href: "mailto:suizhiqiuyuan248@gmail.com",
     desc: "お気軽にご連絡ください",
     iconSrc: "/images/icons/gmail.svg",
     brand: "#EA4335",
@@ -33,8 +33,8 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "chatwork",
     label: "Chatwork",
-    value: "",
-    href: "",
+    value: "chatwork.com/xxxxxx",
+    href: "https://www.chatwork.com/xxxxxx",
     desc: "お気軽にメッセージください",
     iconSrc: "/images/icons/chatwork.svg",
     brand: "#F03748",
@@ -42,8 +42,8 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "line",
     label: "LINE",
-    value: "",
-    href: "",
+    value: "line.me/xxxxxx",
+    href: "https://line.me/xxxxxx",
     desc: "LINE からもご相談ください",
     iconSrc: "/images/icons/line.svg",
     brand: "#06C755",
@@ -98,7 +98,7 @@ const ContactCard = ({ label, value, href, desc, iconSrc, brand }: ContactChanne
 
       {/* ラベル + 値 */}
       <span className="flex min-w-0 flex-1 flex-col">
-        <span className="text-acc-yellow font-jp text-[0.65rem] font-bold tracking-[0.22em] uppercase">
+        <span className="text-acc-yellow font-jp text-xs font-bold tracking-[0.18em] uppercase sm:text-sm">
           {label}
         </span>
         {value ? (
