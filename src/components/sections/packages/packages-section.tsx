@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 import { m } from "@/components/motion-wrapper";
@@ -12,7 +13,7 @@ interface Package {
   id: string;
   title: string;
   category: string;
-  image: string;
+  images: string[];
   value: string;
   href: string;
 }
@@ -23,12 +24,94 @@ const PACKAGES: Package[] = [
     id: "makeshop-ec",
     title: "MakeShop EC 構築・改修",
     category: "EC・ネットショップ",
-    image: "/images/packages/makeshop-ec.webp",
+    images: [
+      "/images/packages/makeshop-ec-1.webp",
+      "/images/packages/makeshop-ec-2.webp",
+      "/images/packages/makeshop-ec-3.webp",
+    ],
     value:
       "デザイン×開発×AI を一人で一貫。売れる動線設計から SEO 対策まで、MakeShop 仕様に準拠した高品質な EC サイトを構築します。",
     href: "https://www.lancers.jp/menu/detail/1344958",
   },
 ];
+
+// ホバーで自動的に横スライドする画像スライドショー
+const PackageSlideshow = ({
+  images,
+  alt,
+  category,
+}: {
+  images: string[];
+  alt: string;
+  category: string;
+}) => {
+  const [idx, setIdx] = useState(0);
+  const timer = useRef<number | null>(null);
+
+  const stop = () => {
+    if (timer.current) {
+      clearInterval(timer.current);
+      timer.current = null;
+    }
+  };
+  const start = () => {
+    if (images.length < 2) return;
+    stop();
+    timer.current = window.setInterval(
+      () => setIdx((i) => (i + 1) % images.length),
+      1600,
+    );
+  };
+
+  useEffect(() => stop, []);
+
+  return (
+    <div
+      className="relative aspect-[16/9] w-full overflow-hidden"
+      onMouseEnter={start}
+      onMouseLeave={() => {
+        stop();
+        setIdx(0);
+      }}
+    >
+      <div
+        className="flex h-full w-full transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${idx * 100}%)` }}
+      >
+        {images.map((src, i) => (
+          <div key={src} className="relative h-full w-full shrink-0 basis-full">
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover"
+              priority={i === 0}
+            />
+          </div>
+        ))}
+      </div>
+
+      <span className="text-off-w absolute top-3 left-3 z-10 rounded-full bg-black/45 px-3 py-1 text-[0.65rem] font-bold tracking-[0.15em] backdrop-blur-sm">
+        {category}
+      </span>
+
+      {images.length > 1 && (
+        <div className="absolute bottom-2.5 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+          {images.map((src, i) => (
+            <span
+              key={src}
+              className={cn(
+                "h-1.5 rounded-full transition-all duration-300",
+                i === idx ? "w-4 bg-white" : "w-1.5 bg-white/50",
+              )}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const GRID_CONTAINER = {
   hidden: {},
@@ -48,7 +131,7 @@ const CARD_ITEM = {
   },
 };
 
-const PackageCard = ({ title, category, image, value, href }: Package) => {
+const PackageCard = ({ title, category, images, value, href }: Package) => {
   return (
     <m.article
       variants={CARD_ITEM}
@@ -57,18 +140,9 @@ const PackageCard = ({ title, category, image, value, href }: Package) => {
         "bg-off-w/85 backdrop-blur-sm hover:-translate-y-1 hover:shadow-md",
       )}
     >
-      {/* バナー（作成済みをそのまま） */}
-      <Link href={href} target="_blank" rel="noopener noreferrer" className="relative block aspect-[16/9] w-full overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
-        <span className="text-off-w absolute top-3 left-3 rounded-full bg-black/45 px-3 py-1 text-[0.65rem] font-bold tracking-[0.15em] backdrop-blur-sm">
-          {category}
-        </span>
+      {/* バナー（ホバーで自動スライド） */}
+      <Link href={href} target="_blank" rel="noopener noreferrer" className="block">
+        <PackageSlideshow images={images} alt={title} category={category} />
       </Link>
 
       {/* 内容 */}
