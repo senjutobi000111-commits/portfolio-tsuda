@@ -46,6 +46,19 @@ const PACKAGES: Package[] = [
       "新規顧客の獲得と売上アップにつながる Shopify EC を構築。デザイン×開発×AI を一貫し、SEO・スマホ対応まで対応します。",
     href: "https://www.lancers.jp/menu/detail/1344963",
   },
+  {
+    id: "studio-web",
+    title: "STUDIO Web サイト構築",
+    category: "コーポレート・LP",
+    images: [
+      "/images/packages/studio-web-1.webp",
+      "/images/packages/studio-web-2.webp",
+      "/images/packages/studio-web-3.webp",
+    ],
+    value:
+      "ノーコードの STUDIO で、洗練されたデザインと売れる導線の Web サイトを構築。AI 機能拡張・レスポンシブ対応まで一貫して対応します。",
+    href: "https://www.lancers.jp/menu/detail/1344968",
+  },
 ];
 
 // ホバーで自動的に横スライドする画像スライドショー
