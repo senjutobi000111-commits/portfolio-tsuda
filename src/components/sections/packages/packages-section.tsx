@@ -355,10 +355,10 @@ const PackageCard = ({ title, category, images, value, href }: Package) => {
 
       {/* 内容 */}
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <h3 className="text-darkest font-serif-jp text-lg font-bold tracking-wide sm:text-xl">
+        <h3 className="text-darkest font-serif-jp text-base leading-snug font-bold tracking-wide">
           {title}
         </h3>
-        <p className="text-darkest/70 font-jp flex-1 text-sm leading-relaxed text-pretty">
+        <p className="text-darkest/70 font-jp flex-1 text-xs leading-relaxed text-pretty sm:text-sm">
           {value}
         </p>
         <Link
@@ -385,7 +385,7 @@ export default function PackagesSection() {
     >
       <BackgroundInkPaint />
 
-      <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-12">
+      <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-6 sm:gap-8">
         {/* 見出し */}
         <m.header
           initial={{ opacity: 0, y: -16, filter: "blur(6px)" }}
@@ -402,11 +402,11 @@ export default function PackagesSection() {
             <span className="to-acc-yellow/60 h-px w-8 bg-gradient-to-l from-transparent" />
           </div>
 
-          <h2 className="text-darkest font-serif-jp text-3xl font-semibold tracking-wide sm:text-4xl lg:text-5xl">
+          <h2 className="text-darkest font-serif-jp text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
             サービスパッケージ
           </h2>
 
-          <p className="text-darkest/65 font-serif-jp max-w-xl text-sm leading-relaxed text-pretty sm:text-base">
+          <p className="text-darkest/65 font-serif-jp max-w-xl text-xs leading-relaxed text-pretty sm:text-sm">
             目的に合わせて選べる制作パッケージです。ご相談・お見積りは無料。
             まずはお気軽にお問い合わせください。
           </p>
