@@ -29,6 +29,7 @@ export const NAV_LINKS = [
   { name: "services", id: "services-section" },
   { name: "packages", id: "packages-section" },
   { name: "projects", id: "projects-section" },
+  { name: "blog", id: "blog-section" },
   { name: "contact", id: "contact-section" },
 ] as const;
 

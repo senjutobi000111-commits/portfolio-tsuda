@@ -4,7 +4,8 @@
     "services": "サービス",
     "packages": "パッケージ",
     "contact": "お問い合わせ",
-    "projects": "制作実績"
+    "projects": "制作実績",
+    "blog": "ブログ"
   },
   "Hero": {
     "greetings": "はじめまして。",
