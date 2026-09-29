@@ -124,6 +124,123 @@ const PACKAGES: Package[] = [
       "Stripe・PayPay など多様な決済を EC・Web サイトに導入。安全でスムーズな購入体験を実装します。",
     href: "https://www.lancers.jp/menu/detail/1344982",
   },
+  {
+    id: "excel-automation",
+    title: "Excel 業務の自動化（VBA / Python / AI）",
+    category: "AI・業務自動化",
+    images: [
+      "/images/packages/excel-automation-1.webp",
+      "/images/packages/excel-automation-2.webp",
+      "/images/packages/excel-automation-3.webp",
+    ],
+    value:
+      "Excel 業務を VBA・Python・AI で自動化。手作業や集計にかかる時間を大幅に削減します。",
+    href: "https://www.lancers.jp/menu/detail/1345016",
+  },
+  {
+    id: "qa-automation",
+    title: "QA テスト自動化（Playwright 他）",
+    category: "QA・テスト自動化",
+    images: [
+      "/images/packages/qa-automation-1.webp",
+      "/images/packages/qa-automation-2.webp",
+      "/images/packages/qa-automation-3.webp",
+    ],
+    value:
+      "Playwright などで Web システム・アプリの QA テストを自動化。回帰確認を効率化し、品質を担保します。",
+    href: "https://www.lancers.jp/menu/detail/1345020",
+  },
+  {
+    id: "aws-serverless",
+    title: "AWS サーバーレス開発",
+    category: "業務システム・SaaS",
+    images: [
+      "/images/packages/aws-serverless-1.webp",
+      "/images/packages/aws-serverless-2.webp",
+      "/images/packages/aws-serverless-3.webp",
+    ],
+    value:
+      "AWS で拡張性が高く高速なサーバーレスシステムを開発。運用負荷を抑えつつスケールする構成に。",
+    href: "https://www.lancers.jp/menu/detail/1345021",
+  },
+  {
+    id: "flutter-ios",
+    title: "Flutter iOS アプリ開発",
+    category: "モバイルアプリ",
+    images: [
+      "/images/packages/flutter-ios-1.webp",
+      "/images/packages/flutter-ios-2.webp",
+      "/images/packages/flutter-ios-3.webp",
+    ],
+    value:
+      "Flutter で高品質な iOS アプリを開発し、App Store への申請まで対応します。",
+    href: "https://www.lancers.jp/menu/detail/1345027",
+  },
+  {
+    id: "flutter-android",
+    title: "Flutter Android アプリ開発",
+    category: "モバイルアプリ",
+    images: [
+      "/images/packages/flutter-android-1.webp",
+      "/images/packages/flutter-android-2.webp",
+      "/images/packages/flutter-android-3.webp",
+    ],
+    value:
+      "Flutter で高品質な Android アプリを開発し、Google Play への申請まで対応します。",
+    href: "https://www.lancers.jp/menu/detail/1345029",
+  },
+  {
+    id: "crm-salesforce",
+    title: "Salesforce / HubSpot 構築・運用改善",
+    category: "CRM・SFA",
+    images: [
+      "/images/packages/crm-salesforce-1.webp",
+      "/images/packages/crm-salesforce-2.webp",
+      "/images/packages/crm-salesforce-3.webp",
+    ],
+    value:
+      "Salesforce・HubSpot の構築から運用改善まで、継続的に支援します。",
+    href: "https://www.lancers.jp/menu/detail/1345133",
+  },
+  {
+    id: "kintone",
+    title: "kintone アプリ構築・カスタマイズ",
+    category: "業務システム・SaaS",
+    images: [
+      "/images/packages/kintone-1.webp",
+      "/images/packages/kintone-2.webp",
+      "/images/packages/kintone-3.webp",
+    ],
+    value:
+      "kintone の新規アプリ構築からカスタマイズまで対応。現場に合わせた業務アプリを実装します。",
+    href: "https://www.lancers.jp/menu/detail/1345139",
+  },
+  {
+    id: "nextengine",
+    title: "ネクストエンジン 導入・自動化",
+    category: "EC・ネットショップ",
+    images: [
+      "/images/packages/nextengine-1.webp",
+      "/images/packages/nextengine-2.webp",
+      "/images/packages/nextengine-3.webp",
+    ],
+    value:
+      "ネクストエンジンの初期設定から受注・在庫の自動化まで対応。EC 運用を効率化します。",
+    href: "https://www.lancers.jp/menu/detail/1345318",
+  },
+  {
+    id: "makeshop-ec-sales",
+    title: "MakeShop 集客 EC 構築",
+    category: "EC・ネットショップ",
+    images: [
+      "/images/packages/makeshop-ec-sales-1.webp",
+      "/images/packages/makeshop-ec-sales-2.webp",
+      "/images/packages/makeshop-ec-sales-3.webp",
+    ],
+    value:
+      "MakeShop で、新規顧客の獲得と売上アップにつながる EC を構築します。",
+    href: "https://www.lancers.jp/menu/detail/1345655",
+  },
 ];
 
 // ホバーで自動的に横スライドする画像スライドショー
