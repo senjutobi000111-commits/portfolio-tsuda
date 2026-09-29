@@ -33,6 +33,19 @@ const PACKAGES: Package[] = [
       "デザイン×開発×AI を一人で一貫。売れる動線設計から SEO 対策まで、MakeShop 仕様に準拠した高品質な EC サイトを構築します。",
     href: "https://www.lancers.jp/menu/detail/1344958",
   },
+  {
+    id: "shopify-ec",
+    title: "Shopify EC 構築",
+    category: "EC・ネットショップ",
+    images: [
+      "/images/packages/shopify-ec-1.webp",
+      "/images/packages/shopify-ec-2.webp",
+      "/images/packages/shopify-ec-3.webp",
+    ],
+    value:
+      "新規顧客の獲得と売上アップにつながる Shopify EC を構築。デザイン×開発×AI を一貫し、SEO・スマホ対応まで対応します。",
+    href: "https://www.lancers.jp/menu/detail/1344963",
+  },
 ];
 
 // ホバーで自動的に横スライドする画像スライドショー
