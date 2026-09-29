@@ -15,53 +15,99 @@ function inline(text: string): ReactNode[] {
   });
 }
 
-// 簡易マークダウン（## / ### 見出し・- 箇条書き・段落・**強調**）
+type Block =
+  | { type: "h2"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "ul"; items: string[] }
+  | { type: "p"; text: string };
+
+// 行ベースの簡易マークダウン（## / ### 見出し・- 箇条書き・段落・**強調**）
+function parse(content: string): Block[] {
+  const lines = content.replace(/\r/g, "").split("\n");
+  const out: Block[] = [];
+  let para: string[] = [];
+  let list: string[] = [];
+
+  const flushPara = () => {
+    if (para.length) {
+      out.push({ type: "p", text: para.join(" ") });
+      para = [];
+    }
+  };
+  const flushList = () => {
+    if (list.length) {
+      out.push({ type: "ul", items: [...list] });
+      list = [];
+    }
+  };
+
+  for (const line of lines) {
+    const t = line.trim();
+    if (t === "") {
+      flushPara();
+      flushList();
+    } else if (t.startsWith("## ")) {
+      flushPara();
+      flushList();
+      out.push({ type: "h2", text: t.slice(3) });
+    } else if (t.startsWith("### ")) {
+      flushPara();
+      flushList();
+      out.push({ type: "h3", text: t.slice(4) });
+    } else if (t.startsWith("- ")) {
+      flushPara();
+      list.push(t.slice(2));
+    } else {
+      flushList();
+      para.push(t);
+    }
+  }
+  flushPara();
+  flushList();
+  return out;
+}
+
 export function ArticleContent({ content }: { content: string }) {
-  const blocks = content.trim().split(/\n\n+/);
+  const blocks = parse(content);
 
   return (
-    <div className="flex flex-col gap-5">
-      {blocks.map((raw, i) => {
-        const block = raw.trim();
-
-        if (block.startsWith("## ")) {
+    <div className="flex flex-col gap-4">
+      {blocks.map((b, i) => {
+        if (b.type === "h2") {
           return (
             <h2
               key={i}
-              className="text-darkest font-serif-jp mt-4 border-l-4 border-acc-yellow pl-3 text-xl font-bold tracking-wide sm:text-2xl"
+              className="text-darkest font-serif-jp border-acc-yellow mt-5 border-l-4 pl-3 text-lg font-bold tracking-wide sm:text-xl"
             >
-              {inline(block.slice(3))}
+              {inline(b.text)}
             </h2>
           );
         }
-        if (block.startsWith("### ")) {
+        if (b.type === "h3") {
           return (
-            <h3 key={i} className="text-darkest font-serif-jp mt-2 text-lg font-bold">
-              {inline(block.slice(4))}
+            <h3 key={i} className="text-darkest font-serif-jp mt-3 text-base font-bold sm:text-lg">
+              {inline(b.text)}
             </h3>
           );
         }
-
-        const lines = block.split("\n");
-        if (lines.every((l) => l.trim().startsWith("- "))) {
+        if (b.type === "ul") {
           return (
             <ul
               key={i}
-              className="text-darkest/80 font-jp list-disc space-y-1.5 pl-5 text-sm leading-relaxed sm:text-base"
+              className="text-darkest/80 font-jp list-disc space-y-1.5 pl-5 text-sm leading-relaxed"
             >
-              {lines.map((l, j) => (
-                <li key={j}>{inline(l.trim().slice(2))}</li>
+              {b.items.map((it, j) => (
+                <li key={j}>{inline(it)}</li>
               ))}
             </ul>
           );
         }
-
         return (
           <p
             key={i}
-            className="text-darkest/80 font-jp text-sm leading-loose text-pretty sm:text-base"
+            className="text-darkest/80 font-jp text-sm leading-relaxed text-pretty"
           >
-            {inline(block.replace(/\n/g, " "))}
+            {inline(b.text)}
           </p>
         );
       })}
