@@ -59,6 +59,71 @@ const PACKAGES: Package[] = [
       "ノーコードの STUDIO で、洗練されたデザインと売れる導線の Web サイトを構築。AI 機能拡張・レスポンシブ対応まで一貫して対応します。",
     href: "https://www.lancers.jp/menu/detail/1344968",
   },
+  {
+    id: "wix-web",
+    title: "Wix Web サイト構築",
+    category: "コーポレート・LP",
+    images: [
+      "/images/packages/wix-web-1.webp",
+      "/images/packages/wix-web-2.webp",
+      "/images/packages/wix-web-3.webp",
+    ],
+    value:
+      "Wix で、洗練されたデザインと売れる動線の Web サイトを構築。Velo コード開発・SEO・レスポンシブ対応まで対応します。",
+    href: "https://www.lancers.jp/menu/detail/1344969",
+  },
+  {
+    id: "wordpress-web",
+    title: "WordPress サイト構築",
+    category: "コーポレート・LP",
+    images: [
+      "/images/packages/wordpress-web-1.webp",
+      "/images/packages/wordpress-web-2.webp",
+      "/images/packages/wordpress-web-3.webp",
+    ],
+    value:
+      "WordPress で、洗練されたデザインと売れる動線のサイトを構築。独自テーマ開発・SEO・スマホ対応まで一貫対応します。",
+    href: "https://www.lancers.jp/menu/detail/1344971",
+  },
+  {
+    id: "rakuten-ec",
+    title: "楽天 EC 構築",
+    category: "EC・ネットショップ",
+    images: [
+      "/images/packages/rakuten-ec-1.webp",
+      "/images/packages/rakuten-ec-2.webp",
+      "/images/packages/rakuten-ec-3.webp",
+    ],
+    value:
+      "楽天市場で、新規顧客の獲得と売上アップにつながる EC を構築。売れる動線設計・SEO まで対応します。",
+    href: "https://www.lancers.jp/menu/detail/1344980",
+  },
+  {
+    id: "bubble-app",
+    title: "Bubble Web アプリ開発",
+    category: "Web アプリ開発",
+    images: [
+      "/images/packages/bubble-app-1.webp",
+      "/images/packages/bubble-app-2.webp",
+      "/images/packages/bubble-app-3.webp",
+    ],
+    value:
+      "ノーコードの Bubble で、高品質な Web アプリ・マッチングサイトを高速に開発します。",
+    href: "https://www.lancers.jp/menu/detail/1344981",
+  },
+  {
+    id: "payment",
+    title: "決済導入（Stripe / PayPay 他）",
+    category: "決済導入",
+    images: [
+      "/images/packages/payment-1.webp",
+      "/images/packages/payment-2.webp",
+      "/images/packages/payment-3.webp",
+    ],
+    value:
+      "Stripe・PayPay など多様な決済を EC・Web サイトに導入。安全でスムーズな購入体験を実装します。",
+    href: "https://www.lancers.jp/menu/detail/1344982",
+  },
 ];
 
 // ホバーで自動的に横スライドする画像スライドショー
