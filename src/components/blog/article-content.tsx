@@ -63,7 +63,7 @@ const components: Components = {
     );
   },
   pre: ({ children }) => (
-    <pre className="bg-darkest text-off-w overflow-x-auto rounded-lg p-4 font-mono text-xs leading-relaxed">
+    <pre className="bg-darkest overflow-x-auto rounded-lg p-4 font-mono text-xs leading-relaxed [&>code]:bg-transparent [&>code]:p-0 [&>code]:text-off-w [&_*]:text-off-w">
       {children}
     </pre>
   ),
