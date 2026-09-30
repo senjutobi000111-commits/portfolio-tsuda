@@ -19,7 +19,6 @@ interface ContactChannel {
   brand: string;
 }
 
-// Chatwork / LINE は仮リンク（xxxxxx）です。正式リンクが決まり次第差し替えてください。
 const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "email",
@@ -33,8 +32,8 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "chatwork",
     label: "Chatwork",
-    value: "chatwork.com/xxxxxx",
-    href: "https://www.chatwork.com/xxxxxx",
+    value: "chatwork.com/smartec34_cw",
+    href: "https://www.chatwork.com/smartec34_cw",
     desc: "お気軽にメッセージください",
     iconSrc: "/images/icons/chatwork.svg",
     brand: "#F03748",
@@ -42,8 +41,8 @@ const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "line",
     label: "LINE",
-    value: "line.me/xxxxxx",
-    href: "https://line.me/xxxxxx",
+    value: "line.me/ti/p/9jFrJ5Lg2q",
+    href: "https://line.me/ti/p/9jFrJ5Lg2q",
     desc: "LINE からもご相談ください",
     iconSrc: "/images/icons/line.svg",
     brand: "#06C755",
