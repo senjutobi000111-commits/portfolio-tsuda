@@ -241,6 +241,18 @@ const PACKAGES: Package[] = [
       "MakeShop で、新規顧客の獲得と売上アップにつながる EC を構築します。",
     href: "https://www.lancers.jp/menu/detail/1345655",
   },
+  {
+    id: "ai-doc-automation",
+    title: "生成AI 文書処理・自動化基盤",
+    category: "AI・業務自動化",
+    images: [
+      "/images/packages/ai-doc-automation-1.webp",
+      "/images/packages/ai-doc-automation-2.webp",
+    ],
+    value:
+      "生成 AI を活用し、文書の処理・分類・要約を自動化する業務基盤を構築します。",
+    href: "https://www.lancers.jp/menu/detail/1337923",
+  },
 ];
 
 // ホバーで自動的に横スライドする画像スライドショー
