@@ -1,3 +1,5 @@
+import importedPosts from "./imported-posts.json";
+
 export interface Article {
   slug: string;
   title: string;
@@ -5,11 +7,14 @@ export interface Article {
   category: string;
   tags: string[];
   excerpt: string;
-  content: string; // 見出し(## / ###)・箇条書き(-)・**強調** に対応した簡易マークダウン
+  content: string; // Markdown
 }
 
-// ※ 記事は実案件をもとにした下書きです。公開前に内容をご確認・加筆ください。
-export const BLOG_POSTS: Article[] = [
+// Qiita から取り込んだ記事（外部リンク・画像・レビュー系は除去済み）
+const IMPORTED_POSTS = importedPosts as Article[];
+
+// ※ 下書き記事は実案件をもとにした草案です。公開前に内容をご確認・加筆ください。
+const SEED_POSTS: Article[] = [
   {
     slug: "findable-ec-design",
     title: "“探しやすいEC”の作り方 — 数百カテゴリの回遊設計とJSON-LD",
@@ -95,6 +100,9 @@ FAQ や社内規程・ガイドラインをベクトル化しておき、質問�
 アップデート開発は、現状把握 → 影響範囲を絞った変更 → 回帰確認 → 根拠の記録、の流れで安全に進められます。ゼロから作るのとは違う価値がある仕事です。`,
   },
 ];
+
+// 取り込み記事＋下書きを統合（表示は各ページ側で新しい順にソート）
+export const BLOG_POSTS: Article[] = [...IMPORTED_POSTS, ...SEED_POSTS];
 
 export const getPost = (slug: string) =>
   BLOG_POSTS.find((p) => p.slug === slug);
