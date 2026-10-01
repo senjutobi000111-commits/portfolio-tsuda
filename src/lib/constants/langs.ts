@@ -4,7 +4,7 @@ import { SiTanstack } from "@/components/svgs/SiTanstack";
 import { SiPlaywright } from "@/components/svgs/SiPlaywright";
 import { SiBubble } from "@/components/svgs/SiBubble";
 import { SiMakeShop } from "@/components/svgs/SiMakeShop";
-import { Database, LayoutTemplate } from "lucide-react";
+import { Database, LayoutTemplate, ShoppingBag } from "lucide-react";
 
 import {
   SiGo,
@@ -220,6 +220,10 @@ export const TECH_LANGUAGES = {
   studio: {
     src: LayoutTemplate as unknown as IconType,
     alt: "STUDIO logo",
+  },
+  futureshop: {
+    src: ShoppingBag as unknown as IconType,
+    alt: "FutureShop logo",
   },
 } as const;
 
