@@ -337,10 +337,10 @@
       ]
     },
     "repoLink": "https://www.lancers.jp/profile/Midori1122/portfolio_popup/752915",
-    "repoImage": "/images/projects/hdmap-1.webp",
+    "repoImage": "/images/projects/hdmap-2.webp",
     "images": [
-      "/images/projects/hdmap-1.webp",
       "/images/projects/hdmap-2.webp",
+      "/images/projects/hdmap-1.webp",
       "/images/projects/hdmap-3.webp",
       "/images/projects/hdmap-4.webp",
       "/images/projects/hdmap-5.webp"
@@ -348,6 +348,43 @@
     "languages": [
       "wordpress",
       "php"
+    ],
+    "status": "Complete"
+  },
+  {
+    "title": "STORAGE（西麻布・個室カラオケダイニング 公式サイト）",
+    "description": {
+      "en": "西麻布・六本木エリアの個室カラオケダイニング「STORAGE」の公式サイト。ダークで上質な写真訴求のデザインに、完全個室（ROOMS）・飲み放題付きプラン（PLAN）・BAR FOOD／サラダ／パスタ／ピザ／デザート／ドリンクのメニュー、来店予約（RESERVE）・LINE・Instagram 連携・多言語（日英）までを、STUDIO でサイト全体を構築しました。",
+      "pt": "西麻布・六本木エリアの個室カラオケダイニング「STORAGE」の公式サイト。ダークで上質な写真訴求のデザインに、完全個室（ROOMS）・飲み放題付きプラン（PLAN）・BAR FOOD／サラダ／パスタ／ピザ／デザート／ドリンクのメニュー、来店予約（RESERVE）・LINE・Instagram 連携・多言語（日英）までを、STUDIO でサイト全体を構築しました。"
+    },
+    "body": {
+      "en": [
+        "「STORAGE」は、西麻布・六本木エリアにある個室カラオケダイニングの公式サイトです。「カラオケ付き完全個室 × ダイニング」という体験を、上質で非日常感のあるダークトーンのデザインで表現することを目指し、サイト全体の構築・リニューアルを担当しました。制作は STUDIO（ノーコード）で行い、店舗側でも更新しやすい運用性を確保しています。",
+        "トップでは、番号付きの完全個室（バーカウンター席や複数名向けルーム）をグリッドで見せ、空間の雰囲気を写真で訴求。PLAN セクションでは「カラオケ付き完全個室＋飲み放題＋フルコース」を軸に、人数・チャージ料金・飲み放題・設備（ステージ／モニター／カラオケ／スタンドマイク／コンセント／Wi-Fi）まで、来店前に知りたい情報を整理して掲載しました。",
+        "メニューは、シェフによる料理を BAR FOOD・SALAD・PASTA・PIZZA・DESSERT・DRINK のカテゴリで構成し、各品に価格を明記。料理・ドリンクの写真を大きく使い、来店したくなる見せ方を意識しました。",
+        "来店予約（RESERVE）、LINE 公式アカウント、Instagram 連携（「TODAYS STORAGE」として最新投稿を表示）を各所に配置し、サイトから予約・フォロー・問い合わせへスムーズにつながる導線にしています。日本語／英語の切り替えにも対応しました。",
+        "技術は STUDIO（ノーコード）でデザインから公開まで構築。写真訴求を活かしたレスポンシブ対応で、PC・スマートフォン双方で雰囲気が伝わる表示に仕上げています。"
+      ],
+      "pt": [
+        "「STORAGE」は、西麻布・六本木エリアにある個室カラオケダイニングの公式サイトです。「カラオケ付き完全個室 × ダイニング」という体験を、上質で非日常感のあるダークトーンのデザインで表現することを目指し、サイト全体の構築・リニューアルを担当しました。制作は STUDIO（ノーコード）で行い、店舗側でも更新しやすい運用性を確保しています。",
+        "トップでは、番号付きの完全個室（バーカウンター席や複数名向けルーム）をグリッドで見せ、空間の雰囲気を写真で訴求。PLAN セクションでは「カラオケ付き完全個室＋飲み放題＋フルコース」を軸に、人数・チャージ料金・飲み放題・設備（ステージ／モニター／カラオケ／スタンドマイク／コンセント／Wi-Fi）まで、来店前に知りたい情報を整理して掲載しました。",
+        "メニューは、シェフによる料理を BAR FOOD・SALAD・PASTA・PIZZA・DESSERT・DRINK のカテゴリで構成し、各品に価格を明記。料理・ドリンクの写真を大きく使い、来店したくなる見せ方を意識しました。",
+        "来店予約（RESERVE）、LINE 公式アカウント、Instagram 連携（「TODAYS STORAGE」として最新投稿を表示）を各所に配置し、サイトから予約・フォロー・問い合わせへスムーズにつながる導線にしています。日本語／英語の切り替えにも対応しました。",
+        "技術は STUDIO（ノーコード）でデザインから公開まで構築。写真訴求を活かしたレスポンシブ対応で、PC・スマートフォン双方で雰囲気が伝わる表示に仕上げています。"
+      ]
+    },
+    "repoLink": "https://storage-nishiazabu.com/",
+    "repoImage": "/images/projects/storage-3.webp",
+    "images": [
+      "/images/projects/storage-1.webp",
+      "/images/projects/storage-2.webp",
+      "/images/projects/storage-3.webp",
+      "/images/projects/storage-4.webp",
+      "/images/projects/storage-5.webp",
+      "/images/projects/storage-6.webp"
+    ],
+    "languages": [
+      "studio"
     ],
     "status": "Complete"
   },
