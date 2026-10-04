@@ -2,10 +2,20 @@
 
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
-const TILE_COLS = 10;
-const TILE_ROWS = 6;
-const STAGGER_WINDOW = 220; // ms over which tile delays are spread
-const TILE_DURATION = 320; // ms each tile takes to shatter away
+// Values verified against 12-office.com's production JS bundle (OGL + GSAP):
+// - grid: landscape viewports use a 4-col x 2-row tile grid
+//   (gridResolution.x = width*0.25, gridResolution.y = height*0.5)
+// - duration: 1.8s, ease: GSAP's easeNone (linear)
+// - each tile's reveal window is delayed by up to 40% of the total duration
+//   and plays over the remaining ~60%, so tiles don't all finish together
+const TILE_COLS = 4;
+const TILE_ROWS = 2;
+const TOTAL_DURATION = 1800; // ms, matches reference exactly
+const MAX_DELAY_RATIO = 0.4;
+const WINDOW_RATIO = 0.6;
+// the reference unlocks interaction well before the visual tail finishes
+// (gsap .add(callback, .8) inside the 1.8s timeline)
+const UNLOCK_AT = 1000; // ms
 
 export interface ShatterCanvasHandle {
   play: (imageSrc: string, onDone: () => void) => void;
@@ -13,10 +23,6 @@ export interface ShatterCanvasHandle {
 
 interface ShatterCanvasProps {
   preloadSrcs?: string[];
-}
-
-function easeOutCubic(t: number) {
-  return 1 - Math.pow(1 - t, 3);
 }
 
 function getCoverRect(imgW: number, imgH: number, boxW: number, boxH: number) {
@@ -40,21 +46,20 @@ function getCoverRect(imgW: number, imgH: number, boxW: number, boxH: number) {
 interface Tile {
   col: number;
   row: number;
-  delay: number;
-  dx: number;
-  dy: number;
-  rot: number;
+  delayRatio: number;
 }
 
 const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
   function ShatterCanvas({ preloadSrcs }, ref) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const rafRef = useRef<number | null>(null);
+    const unlockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const imgCache = useRef<Map<string, HTMLImageElement>>(new Map());
 
     useEffect(() => {
       return () => {
         if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        if (unlockTimerRef.current) clearTimeout(unlockTimerRef.current);
       };
     }, []);
 
@@ -76,16 +81,16 @@ const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
           onDone();
           return;
         }
+        if (unlockTimerRef.current) clearTimeout(unlockTimerRef.current);
+        unlockTimerRef.current = setTimeout(onDone, UNLOCK_AT);
+
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const boxW = canvas.clientWidth;
         const boxH = canvas.clientHeight;
         canvas.width = boxW * dpr;
         canvas.height = boxH * dpr;
         const ctx = canvas.getContext("2d");
-        if (!ctx) {
-          onDone();
-          return;
-        }
+        if (!ctx) return;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
         const draw = (img: HTMLImageElement) => {
@@ -103,76 +108,47 @@ const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
           const tiles: Tile[] = [];
           for (let row = 0; row < TILE_ROWS; row++) {
             for (let col = 0; col < TILE_COLS; col++) {
-              tiles.push({
-                col,
-                row,
-                delay: Math.random() * STAGGER_WINDOW,
-                dx: (Math.random() - 0.5) * 36,
-                dy: (Math.random() - 0.5) * 36,
-                rot: (Math.random() - 0.5) * 0.3,
-              });
+              tiles.push({ col, row, delayRatio: Math.random() * MAX_DELAY_RATIO });
             }
           }
 
           canvas.style.opacity = "1";
           const start = performance.now();
-          const totalDuration = STAGGER_WINDOW + TILE_DURATION;
 
           const frame = (now: number) => {
-            const elapsed = now - start;
+            const globalRatio = Math.min(1, (now - start) / TOTAL_DURATION);
             ctx.clearRect(0, 0, boxW, boxH);
 
             let allDone = true;
             for (const t of tiles) {
-              const tElapsed = elapsed - t.delay;
-              if (tElapsed < 0) {
-                // not started yet: draw tile fully intact
-                allDone = false;
-                ctx.drawImage(
-                  img,
-                  sx + t.col * tileSrcW,
-                  sy + t.row * tileSrcH,
-                  tileSrcW,
-                  tileSrcH,
-                  t.col * tileDstW,
-                  t.row * tileDstH,
-                  tileDstW + 0.5,
-                  tileDstH + 0.5,
-                );
-                continue;
-              }
-              const p = Math.min(1, tElapsed / TILE_DURATION);
-              if (p < 1) allDone = false;
+              // linear remap within this tile's own delayed window —
+              // matches the reference's un-eased (easeNone) per-tile reveal
+              const p = Math.min(
+                1,
+                Math.max(0, (globalRatio - t.delayRatio) / WINDOW_RATIO),
+              );
               if (p >= 1) continue; // fully gone
-
-              const eased = easeOutCubic(p);
-              const cx = t.col * tileDstW + tileDstW / 2 + t.dx * eased;
-              const cy = t.row * tileDstH + tileDstH / 2 + t.dy * eased;
-              ctx.save();
-              ctx.globalAlpha = 1 - eased;
-              ctx.translate(cx, cy);
-              ctx.rotate(t.rot * eased);
-              ctx.scale(1 - 0.25 * eased, 1 - 0.25 * eased);
+              allDone = false;
+              ctx.globalAlpha = 1 - p;
               ctx.drawImage(
                 img,
                 sx + t.col * tileSrcW,
                 sy + t.row * tileSrcH,
                 tileSrcW,
                 tileSrcH,
-                -tileDstW / 2,
-                -tileDstH / 2,
+                t.col * tileDstW,
+                t.row * tileDstH,
                 tileDstW + 0.5,
                 tileDstH + 0.5,
               );
-              ctx.restore();
             }
+            ctx.globalAlpha = 1;
 
-            if (elapsed < totalDuration && !allDone) {
+            if (globalRatio < 1 && !allDone) {
               rafRef.current = requestAnimationFrame(frame);
             } else {
               ctx.clearRect(0, 0, boxW, boxH);
               canvas.style.opacity = "0";
-              onDone();
             }
           };
           rafRef.current = requestAnimationFrame(frame);
@@ -190,7 +166,6 @@ const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
           imgCache.current.set(imageSrc, img);
           draw(img);
         };
-        img.onerror = () => onDone();
       },
     }));
 

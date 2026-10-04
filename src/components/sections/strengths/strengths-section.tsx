@@ -80,7 +80,7 @@ function StrengthsSideNav({ activeIndex }: { activeIndex: number }) {
               activeIndex === i ? "text-off-w" : "text-off-w/35",
             )}
           >
-            {s.no} / {s.en}
+            {s.en}
           </span>
         </div>
       ))}
@@ -216,7 +216,7 @@ function StrengthsPinned() {
               <span className="font-jp text-acc-yellow-3/80 text-xs tracking-[0.35em]">
                 {STRENGTHS[activeIndex].no} ｜ {STRENGTHS[activeIndex].en}
               </span>
-              <h3 className="font-serif-jp text-off-w mt-4 leading-[1.15] font-bold">
+              <h3 className="font-jp text-off-w mt-4 leading-[1.15] font-bold">
                 {STRENGTHS[activeIndex].titleLines.map((line, i) => (
                   <span
                     key={line}
@@ -228,7 +228,7 @@ function StrengthsPinned() {
                 ))}
               </h3>
             </div>
-            <p className="font-serif-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
+            <p className="font-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
               {STRENGTHS[activeIndex].desc}
             </p>
           </div>
@@ -274,10 +274,10 @@ function StrengthsMobile() {
               <span className="font-jp text-acc-yellow-3/80 text-[11px] tracking-[0.3em]">
                 {s.no} / {s.en}
               </span>
-              <h3 className="font-serif-jp text-off-w text-lg font-semibold">
+              <h3 className="font-jp text-off-w text-lg font-semibold">
                 {s.titleLines.join("")}
               </h3>
-              <p className="font-serif-jp text-off-w/60 text-xs leading-relaxed sm:text-sm">
+              <p className="font-jp text-off-w/60 text-xs leading-relaxed sm:text-sm">
                 {s.desc}
               </p>
             </div>
