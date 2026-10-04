@@ -192,6 +192,14 @@ function StrengthsPinned() {
               priority={i === 0}
               className="object-cover"
             />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 flex translate-x-[12%] items-center overflow-hidden select-none"
+            >
+              <span className="text-darkest/40 font-jp text-[20rem] leading-none font-black lg:text-[26rem]">
+                {s.no}
+              </span>
+            </div>
             <div className="bg-darkest/60 absolute inset-0" />
             <div className="from-darkest/90 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
           </div>
