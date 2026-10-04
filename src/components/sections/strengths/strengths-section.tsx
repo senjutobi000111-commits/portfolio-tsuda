@@ -9,7 +9,7 @@ import ShatterCanvas, { type ShatterCanvasHandle } from "./shatter-canvas";
 interface Strength {
   no: string;
   en: string;
-  title: string;
+  titleLines: string[];
   desc: string;
   image: string;
 }
@@ -19,28 +19,28 @@ const STRENGTHS: Strength[] = [
   {
     no: "01",
     en: "FULL-STACK",
-    title: "フルスタックで一気通貫",
+    titleLines: ["フルスタックで", "一気通貫"],
     desc: "要件定義からデザイン、開発、運用まで。一人で全工程を担当できるので、伝言ゲームによるロスや手戻りがありません。",
     image: "/images/strengths/strength-fullstack.webp",
   },
   {
     no: "02",
     en: "SPEED",
-    title: "止まらないスピード対応",
+    titleLines: ["止まらない", "スピード対応"],
     desc: "小さな確認から大きな意思決定まで、プロジェクトを止めずに前へ進める対応力。スピード感のあるやり取りを大切にしています。",
     image: "/images/strengths/strength-speed.webp",
   },
   {
     no: "03",
     en: "DESIGN",
-    title: "成果に直結するデザイン",
+    titleLines: ["成果に直結する", "デザイン"],
     desc: "機能だけでなく「見た目」にもこだわる。細部の質感まで詰めて、使われる・選ばれるプロダクトに仕上げます。",
     image: "/images/strengths/strength-design.webp",
   },
   {
     no: "04",
     en: "AI",
-    title: "実務で使えるAI活用力",
+    titleLines: ["実務で使える", "AI活用力"],
     desc: "業務自動化から開発支援まで、AIを実務レベルで使いこなす。効率化のその先まで提案します。",
     image: "/images/strengths/strength-ai.webp",
   },
@@ -186,7 +186,7 @@ function StrengthsPinned() {
           >
             <Image
               src={s.image}
-              alt={s.title}
+              alt={s.titleLines.join("")}
               fill
               sizes="100vw"
               priority={i === 0}
@@ -210,15 +210,25 @@ function StrengthsPinned() {
           {String(COUNT).padStart(2, "0")}
         </div>
 
-        <div className="relative z-10 flex h-full w-full items-end px-6 pb-16 sm:px-12 sm:pb-20 lg:px-24 lg:pb-24">
-          <div key={activeIndex} className="max-w-xl">
-            <span className="font-jp text-acc-yellow-3/80 text-xs tracking-[0.35em]">
-              {STRENGTHS[activeIndex].no} / {STRENGTHS[activeIndex].en}
-            </span>
-            <h3 className="font-serif-jp text-off-w mt-3 text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
-              {STRENGTHS[activeIndex].title}
-            </h3>
-            <p className="font-serif-jp text-off-w/70 mt-4 text-sm leading-relaxed sm:text-base">
+        <div className="relative z-10 flex h-full w-full items-center px-6 sm:px-12 lg:pr-24 lg:pl-72">
+          <div className="flex w-full flex-col items-start gap-8 lg:flex-row lg:items-center lg:gap-16">
+            <div>
+              <span className="font-jp text-acc-yellow-3/80 text-xs tracking-[0.35em]">
+                {STRENGTHS[activeIndex].no} ｜ {STRENGTHS[activeIndex].en}
+              </span>
+              <h3 className="font-serif-jp text-off-w mt-4 leading-[1.15] font-bold">
+                {STRENGTHS[activeIndex].titleLines.map((line, i) => (
+                  <span
+                    key={line}
+                    className="block text-4xl tracking-wide sm:text-5xl lg:text-6xl"
+                    style={{ marginLeft: `${i * 1.25}em` }}
+                  >
+                    {line}
+                  </span>
+                ))}
+              </h3>
+            </div>
+            <p className="font-serif-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
               {STRENGTHS[activeIndex].desc}
             </p>
           </div>
@@ -253,7 +263,7 @@ function StrengthsMobile() {
             <div className="relative aspect-video w-full overflow-hidden">
               <Image
                 src={s.image}
-                alt={s.title}
+                alt={s.titleLines.join("")}
                 fill
                 sizes="(min-width: 640px) 28rem, 100vw"
                 className="object-cover"
@@ -265,7 +275,7 @@ function StrengthsMobile() {
                 {s.no} / {s.en}
               </span>
               <h3 className="font-serif-jp text-off-w text-lg font-semibold">
-                {s.title}
+                {s.titleLines.join("")}
               </h3>
               <p className="font-serif-jp text-off-w/60 text-xs leading-relaxed sm:text-sm">
                 {s.desc}
