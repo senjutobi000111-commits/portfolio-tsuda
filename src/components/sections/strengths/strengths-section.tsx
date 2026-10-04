@@ -60,6 +60,40 @@ function StrengthsHeader() {
   );
 }
 
+// Echoes 12-office.com's logoLeft/logoRight: an outlined numeral revealed via
+// a stroke-dasharray/stroke-dashoffset "line being drawn" animation on enter
+// (verified in their source: stroke-dasharray === stroke-dashoffset at rest,
+// i.e. fully hidden, then dashoffset tweens to 0 to draw the line in).
+function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 440 240"
+      preserveAspectRatio="xMidYMid meet"
+      className="pointer-events-none absolute inset-y-0 right-0 h-full w-[46%] overflow-visible select-none"
+    >
+      <text
+        x="50%"
+        y="55%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        className="stroke-off-w/50 fill-none font-jp font-black"
+        style={{
+          fontSize: "220px",
+          strokeWidth: 1.5,
+          strokeDasharray: 1600,
+          strokeDashoffset: active ? 0 : 1600,
+          transition: active
+            ? "stroke-dashoffset 1500ms cubic-bezier(0.65,0,0.35,1)"
+            : "none",
+        }}
+      >
+        {value}
+      </text>
+    </svg>
+  );
+}
+
 function StrengthsSideNav({ activeIndex }: { activeIndex: number }) {
   return (
     <nav
@@ -192,14 +226,7 @@ function StrengthsPinned() {
               priority={i === 0}
               className="object-cover"
             />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-y-0 right-0 flex translate-x-[12%] items-center overflow-hidden select-none"
-            >
-              <span className="text-darkest/40 font-jp text-[20rem] leading-none font-black lg:text-[26rem]">
-                {s.no}
-              </span>
-            </div>
+            <StrokeNumeral value={s.no} active={activeIndex === i} />
             <div className="bg-darkest/60 absolute inset-0" />
             <div className="from-darkest/90 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
           </div>
