@@ -1,11 +1,10 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { useScroll, useMotionValueEvent } from "motion/react";
 
 import { cn } from "@/lib/utils";
-import { m, AnimatePresence } from "@/components/motion-wrapper";
+import ShatterCanvas, { type ShatterCanvasHandle } from "./shatter-canvas";
 
 interface Strength {
   no: string;
@@ -48,6 +47,7 @@ const STRENGTHS: Strength[] = [
 ];
 
 const COUNT = STRENGTHS.length;
+const SWIPE_THRESHOLD = 40; // px
 
 function StrengthsHeader() {
   return (
@@ -90,17 +90,84 @@ function StrengthsSideNav({ activeIndex }: { activeIndex: number }) {
 
 function StrengthsPinned() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const shatterRef = useRef<ShatterCanvasHandle>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(0);
+  const transitioningRef = useRef(false);
+  const touchStartYRef = useRef<number | null>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const idx = Math.min(COUNT - 1, Math.max(0, Math.floor(v * COUNT)));
-    setActiveIndex(idx);
-  });
+    const getEngagement = () => {
+      const rect = container.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const pinnedRange = rect.height - vh;
+      // allow a small top tolerance so scroll-margin-top (navbar offset) on
+      // entry doesn't leave the section un-engaged for the first wheel tick
+      const engaged = rect.top <= 60 && rect.top >= -pinnedRange - 0.5;
+      return { engaged, vh };
+    };
+
+    const advance = (dir: 1 | -1, vh: number) => {
+      if (transitioningRef.current) return;
+      const current = activeIndexRef.current;
+      const next = current + dir;
+
+      if (next < 0 || next > COUNT - 1) {
+        // exiting the pinned zone entirely — push scroll past the boundary
+        window.scrollBy({ top: dir * (vh + 80) });
+        return;
+      }
+
+      transitioningRef.current = true;
+      const outgoingImage = STRENGTHS[current].image;
+      activeIndexRef.current = next;
+      setActiveIndex(next);
+      window.scrollBy({ top: dir * vh });
+
+      shatterRef.current?.play(outgoingImage, () => {
+        transitioningRef.current = false;
+      });
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      const { engaged, vh } = getEngagement();
+      if (!engaged) return;
+      e.preventDefault();
+      if (Math.abs(e.deltaY) < 2) return;
+      advance(e.deltaY > 0 ? 1 : -1, vh);
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      const { engaged } = getEngagement();
+      touchStartYRef.current = engaged ? e.touches[0].clientY : null;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (touchStartYRef.current === null) return;
+      const { engaged, vh } = getEngagement();
+      if (!engaged) {
+        touchStartYRef.current = null;
+        return;
+      }
+      const dy = touchStartYRef.current - e.touches[0].clientY;
+      if (Math.abs(dy) < SWIPE_THRESHOLD) return;
+      e.preventDefault();
+      advance(dy > 0 ? 1 : -1, vh);
+      touchStartYRef.current = e.touches[0].clientY;
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+    };
+  }, []);
 
   return (
     <div
@@ -113,7 +180,7 @@ function StrengthsPinned() {
           <div
             key={s.no}
             className={cn(
-              "absolute inset-0 transition-opacity duration-700 ease-out",
+              "absolute inset-0",
               activeIndex === i ? "opacity-100" : "opacity-0",
             )}
           >
@@ -130,6 +197,11 @@ function StrengthsPinned() {
           </div>
         ))}
 
+        <ShatterCanvas
+          ref={shatterRef}
+          preloadSrcs={STRENGTHS.map((s) => s.image)}
+        />
+
         <StrengthsHeader />
         <StrengthsSideNav activeIndex={activeIndex} />
 
@@ -139,26 +211,17 @@ function StrengthsPinned() {
         </div>
 
         <div className="relative z-10 flex h-full w-full items-end px-6 pb-16 sm:px-12 sm:pb-20 lg:px-24 lg:pb-24">
-          <AnimatePresence mode="wait">
-            <m.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="max-w-xl"
-            >
-              <span className="font-jp text-acc-yellow-3/80 text-xs tracking-[0.35em]">
-                {STRENGTHS[activeIndex].no} / {STRENGTHS[activeIndex].en}
-              </span>
-              <h3 className="font-serif-jp text-off-w mt-3 text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
-                {STRENGTHS[activeIndex].title}
-              </h3>
-              <p className="font-serif-jp text-off-w/70 mt-4 text-sm leading-relaxed sm:text-base">
-                {STRENGTHS[activeIndex].desc}
-              </p>
-            </m.div>
-          </AnimatePresence>
+          <div key={activeIndex} className="max-w-xl">
+            <span className="font-jp text-acc-yellow-3/80 text-xs tracking-[0.35em]">
+              {STRENGTHS[activeIndex].no} / {STRENGTHS[activeIndex].en}
+            </span>
+            <h3 className="font-serif-jp text-off-w mt-3 text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
+              {STRENGTHS[activeIndex].title}
+            </h3>
+            <p className="font-serif-jp text-off-w/70 mt-4 text-sm leading-relaxed sm:text-base">
+              {STRENGTHS[activeIndex].desc}
+            </p>
+          </div>
         </div>
       </div>
     </div>
