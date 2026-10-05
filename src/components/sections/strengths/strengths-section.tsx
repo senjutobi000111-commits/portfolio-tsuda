@@ -32,8 +32,8 @@ const STRENGTHS: Strength[] = [
   {
     no: "02",
     en: "SPEED",
-    titleLines: ["止まらない", "スピード対応"],
-    desc: "「返信が速い」「止まらない」——発注者が一番求める安心感です。小さな確認から大きな意思決定まで対応します。",
+    titleLines: ["止まらない", "開発スピード"],
+    desc: "要件が固まれば、すぐに動くものを形にする開発スピードが強みです。実装から検証まで、プロジェクトを止めずに前へ進めます。",
     image: "/images/strengths/strength-speed.webp",
   },
   {
