@@ -68,21 +68,21 @@ function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
   return (
     <svg
       aria-hidden
-      viewBox="0 0 440 240"
-      preserveAspectRatio="xMidYMid meet"
-      className="pointer-events-none absolute inset-y-0 right-0 h-full w-[46%] overflow-visible select-none"
+      viewBox="0 0 400 400"
+      preserveAspectRatio="xMaxYMid meet"
+      className="pointer-events-none absolute inset-y-0 right-0 h-full w-[38%] overflow-visible select-none sm:w-[32%] lg:w-[26%]"
     >
       <text
-        x="50%"
-        y="55%"
-        textAnchor="middle"
+        x="92%"
+        y="52%"
+        textAnchor="end"
         dominantBaseline="middle"
-        className="stroke-off-w/50 fill-none font-jp font-black"
+        className="stroke-off-w/70 fill-none font-jp font-black"
         style={{
-          fontSize: "220px",
-          strokeWidth: 1.5,
-          strokeDasharray: 1600,
-          strokeDashoffset: active ? 0 : 1600,
+          fontSize: "380px",
+          strokeWidth: 1.25,
+          strokeDasharray: 2200,
+          strokeDashoffset: active ? 0 : 2200,
           transition: active
             ? "stroke-dashoffset 1500ms cubic-bezier(0.65,0,0.35,1)"
             : "none",
@@ -226,7 +226,7 @@ function StrengthsPinned() {
               priority={i === 0}
               className="object-cover"
             />
-            <StrokeNumeral value={s.no} active={activeIndex === i} />
+            <StrokeNumeral value={String(i + 1)} active={activeIndex === i} />
             <div className="bg-darkest/60 absolute inset-0" />
             <div className="from-darkest/90 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
           </div>
