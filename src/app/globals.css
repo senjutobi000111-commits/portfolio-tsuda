@@ -13,6 +13,29 @@
   }
 }
 
+/* slow, uneven breathing darkness — not a clean sine wave, so it doesn't
+   read as a mechanical pulse */
+@keyframes darken-drift {
+  0% {
+    opacity: 0.38;
+  }
+  22% {
+    opacity: 0.62;
+  }
+  41% {
+    opacity: 0.3;
+  }
+  63% {
+    opacity: 0.58;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.38;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

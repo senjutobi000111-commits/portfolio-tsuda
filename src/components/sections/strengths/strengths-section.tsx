@@ -24,9 +24,9 @@ const STRENGTHS: Strength[] = [
     desc: "キャバドレスやウェディングドレスなど、ファッション・アパレル業界のEC構築を数多く手がけてきました。商品の魅力が伝わる見せ方と、購入までの導線設計にこだわります。",
     image: "/images/strengths/strength-fashion.webp",
     grids: [
-      "/images/strengths/grid-fashion-1.webp",
-      "/images/strengths/grid-fashion-2.webp",
-      "/images/strengths/grid-fashion-3.webp",
+      "/images/packages/makeshop-ec-1.webp",
+      "/images/packages/shopify-ec-1.webp",
+      "/images/packages/rakuten-ec-1.webp",
     ],
   },
   {
@@ -276,7 +276,13 @@ function StrengthsPinned() {
               className="object-cover"
             />
             <StrokeNumeral value={String(i + 1)} active={activeIndex === i} />
-            <div className="bg-darkest/60 absolute inset-0" />
+            <div
+              className="bg-darkest absolute inset-0"
+              style={{
+                animation: `darken-drift ${9 + i * 1.7}s ease-in-out infinite`,
+                animationDelay: `${-i * 2.3}s`,
+              }}
+            />
             <div className="from-darkest/90 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
           </div>
         ))}
