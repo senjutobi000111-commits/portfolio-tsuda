@@ -19,10 +19,15 @@ interface Strength {
 const STRENGTHS: Strength[] = [
   {
     no: "01",
-    en: "FULL-STACK",
-    titleLines: ["フルスタックで", "一気通貫"],
-    desc: "要件定義からデザイン、開発、運用まで。一人で全工程を担当できるので、伝言ゲームによるロスや手戻りがありません。",
-    image: "/images/strengths/strength-fullstack.webp",
+    en: "FASHION EC",
+    titleLines: ["ファッション・アパレル", "ECサイト制作"],
+    desc: "キャバドレスやウェディングドレスなど、ファッション・アパレル業界のEC構築を数多く手がけてきました。商品の魅力が伝わる見せ方と、購入までの導線設計にこだわります。",
+    image: "/images/strengths/strength-fashion.webp",
+    grids: [
+      "/images/strengths/grid-fashion-1.webp",
+      "/images/strengths/grid-fashion-2.webp",
+      "/images/strengths/grid-fashion-3.webp",
+    ],
   },
   {
     no: "02",
