@@ -70,7 +70,7 @@ function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
       aria-hidden
       viewBox="0 0 400 400"
       preserveAspectRatio="xMaxYMax meet"
-      style={{ overflow: "visible" }}
+      style={{ overflow: "visible", transform: "translateY(4%)" }}
       className="pointer-events-none absolute right-0 bottom-0 h-[65%] w-[68%] select-none sm:h-[75%] sm:w-[62%] lg:h-[85%] lg:w-[55%]"
     >
       <text
@@ -85,7 +85,7 @@ function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
           strokeDasharray: 2200,
           strokeDashoffset: active ? 0 : 2200,
           transition: active
-            ? "stroke-dashoffset 1500ms cubic-bezier(0.65,0,0.35,1)"
+            ? "stroke-dashoffset 2400ms cubic-bezier(0.65,0,0.35,1)"
             : "none",
         }}
       >
@@ -123,12 +123,20 @@ function StrengthsSideNav({ activeIndex }: { activeIndex: number }) {
   );
 }
 
+// trackpad flicks keep emitting wheel events well after the physical
+// gesture ends (momentum/inertia); once the lock unlocks at UNLOCK_AT a
+// trailing low-magnitude event from the SAME gesture could slip through
+// and fire a second advance, skipping a slide. Gate new advances behind a
+// longer cooldown (independent of the canvas/visual unlock) to swallow it.
+const WHEEL_COOLDOWN = 1700; // ms
+
 function StrengthsPinned() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shatterRef = useRef<ShatterCanvasHandle>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const activeIndexRef = useRef(0);
   const transitioningRef = useRef(false);
+  const cooldownUntilRef = useRef(0);
   const touchStartYRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -146,7 +154,8 @@ function StrengthsPinned() {
     };
 
     const advance = (dir: 1 | -1, vh: number) => {
-      if (transitioningRef.current) return;
+      const now = performance.now();
+      if (transitioningRef.current || now < cooldownUntilRef.current) return;
       const current = activeIndexRef.current;
       const next = current + dir;
 
@@ -157,6 +166,7 @@ function StrengthsPinned() {
       }
 
       transitioningRef.current = true;
+      cooldownUntilRef.current = now + WHEEL_COOLDOWN;
       const outgoingImage = STRENGTHS[current].image;
       activeIndexRef.current = next;
       setActiveIndex(next);
