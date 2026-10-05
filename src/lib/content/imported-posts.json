@@ -2,7 +2,7 @@
   {
     "slug": "android-tesseract-tessdata",
     "title": "Android + Tesseract OCRで \"Data path must contain subfolder tessdata!\" が出たときの直し方",
-    "date": "2026-07-20",
+    "date": "2026-10-03",
     "category": "モバイルアプリ",
     "tags": [
       "Android",
@@ -30,7 +30,7 @@
   {
     "slug": "playwright-rails-turbo",
     "title": "Playwright で Rails 7 (Turbo) のフォーム送信が効かなかった件と解決策",
-    "date": "2026-05-23",
+    "date": "2026-10-01",
     "category": "QA・テスト自動化",
     "tags": [
       "Python",
@@ -45,7 +45,7 @@
   {
     "slug": "react19-suspense-hooks",
     "title": "React 19 で Suspense と Hooks を使ったデータフェッチングの話",
-    "date": "2026-05-05",
+    "date": "2026-09-29",
     "category": "Web フロントエンド",
     "tags": [
       "hooks",
