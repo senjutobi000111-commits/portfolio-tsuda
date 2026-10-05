@@ -12,6 +12,7 @@ interface Strength {
   titleLines: string[];
   desc: string;
   image: string;
+  grids?: string[];
 }
 
 // NOTE: 画像・本文は仮置き（後日差し替え予定）
@@ -36,6 +37,11 @@ const STRENGTHS: Strength[] = [
     titleLines: ["成果に直結する", "デザイン"],
     desc: "機能だけでなく「見た目」にもこだわる。細部の質感まで詰めて、使われる・選ばれるプロダクトに仕上げます。",
     image: "/images/strengths/strength-design.webp",
+    grids: [
+      "/images/strengths/grid-design-1.svg",
+      "/images/strengths/grid-design-2.svg",
+      "/images/strengths/grid-design-3.svg",
+    ],
   },
   {
     no: "04",
@@ -92,6 +98,30 @@ function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
         {value}
       </text>
     </svg>
+  );
+}
+
+// Rises in after the main shatter reveal settles (~1.8s), each card
+// starting its own rise with a left-to-right stagger — mounted fresh each
+// time its slide becomes active, so a CSS @keyframes animation (not a
+// transition) is used so it reliably plays on mount.
+function DesignGrids({ grids }: { grids: string[] }) {
+  return (
+    <div className="mt-6 flex gap-3 sm:gap-4">
+      {grids.map((src, i) => (
+        <div
+          key={src}
+          className="border-off-w/15 bg-off-w/90 size-20 shrink-0 overflow-hidden rounded-lg border shadow-lg sm:size-24 lg:size-28"
+          style={{
+            opacity: 0,
+            animation: `rise-in 700ms cubic-bezier(0.22,1,0.36,1) ${1700 + i * 220}ms both`,
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt="" className="h-full w-full object-contain p-2" />
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -274,9 +304,17 @@ function StrengthsPinned() {
                 ))}
               </h3>
             </div>
-            <p className="font-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
-              {STRENGTHS[activeIndex].desc}
-            </p>
+            <div>
+              <p className="font-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
+                {STRENGTHS[activeIndex].desc}
+              </p>
+              {STRENGTHS[activeIndex].grids && (
+                <DesignGrids
+                  key={activeIndex}
+                  grids={STRENGTHS[activeIndex].grids!}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
