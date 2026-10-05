@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
-import { Crimson_Pro, Noto_Sans_JP, Noto_Serif_JP, Unbounded } from "next/font/google";
+import { Crimson_Pro, Inter, Noto_Sans_JP, Noto_Serif_JP, Unbounded } from "next/font/google";
 
 import JotaiProvider from "@/components/jotai-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -70,6 +70,14 @@ const serifJp = Noto_Serif_JP({
   display: "swap",
 });
 
+const inter = Inter({
+  preload: true,
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 const unbounded = Unbounded({
   preload: true,
   variable: "--font-unbounded",
@@ -88,7 +96,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${jp.variable} ${unbounded.variable} ${crimson.variable} ${serifJp.variable} font-serif-jp bg-darkest antialiased`}
+        className={`${jp.variable} ${unbounded.variable} ${inter.variable} ${crimson.variable} ${serifJp.variable} font-serif-jp bg-darkest antialiased`}
       >
         <JotaiProvider>
           <MotionWrapper>

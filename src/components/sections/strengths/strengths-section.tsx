@@ -69,15 +69,16 @@ function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
     <svg
       aria-hidden
       viewBox="0 0 400 400"
-      preserveAspectRatio="xMaxYMid meet"
-      className="pointer-events-none absolute inset-y-0 right-0 h-full w-[38%] overflow-visible select-none sm:w-[32%] lg:w-[26%]"
+      preserveAspectRatio="xMaxYMax meet"
+      style={{ overflow: "visible" }}
+      className="pointer-events-none absolute right-0 bottom-0 h-[65%] w-[68%] select-none sm:h-[75%] sm:w-[62%] lg:h-[85%] lg:w-[55%]"
     >
       <text
-        x="92%"
-        y="52%"
+        x="98%"
+        y="92%"
         textAnchor="end"
-        dominantBaseline="middle"
-        className="stroke-off-w/70 fill-none font-jp font-black"
+        dominantBaseline="text-after-edge"
+        className="stroke-off-w/70 fill-none font-inter font-black"
         style={{
           fontSize: "380px",
           strokeWidth: 1.25,
