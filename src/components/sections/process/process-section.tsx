@@ -17,11 +17,15 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 interface ProcessImage {
   src: string;
   alt: string;
   caption: string;
 }
+
+type CollageLayout = "main-left" | "main-top" | "grid2x2" | "split-v" | "split-h";
 
 interface ProcessStep {
   no: string;
@@ -30,6 +34,7 @@ interface ProcessStep {
   desc: string;
   Icon: LucideIcon;
   images?: ProcessImage[];
+  layout?: CollageLayout;
 }
 
 const PROCESS_STEPS: ProcessStep[] = [
@@ -39,6 +44,29 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "要件定義・ヒアリング",
     desc: "目的・課題・ご予算をヒアリングし、必要な機能と優先順位を言語化します。認識のズレをなくすことが、プロジェクト成功の第一歩です。",
     Icon: ClipboardList,
+    layout: "grid2x2",
+    images: [
+      {
+        src: "/images/process/process-req-main.webp",
+        alt: "要件定義",
+        caption: "要件定義",
+      },
+      {
+        src: "/images/process/process-req-2.webp",
+        alt: "企画アイデアの整理",
+        caption: "アイデア整理",
+      },
+      {
+        src: "/images/process/process-req-3.webp",
+        alt: "ヒアリング作業の様子",
+        caption: "ヒアリング",
+      },
+      {
+        src: "/images/process/process-req-4.webp",
+        alt: "Q&Aのやり取り",
+        caption: "Q&A",
+      },
+    ],
   },
   {
     no: "02",
@@ -46,6 +74,29 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "企画・設計",
     desc: "サイトマップやワイヤーフレーム、使用技術を設計します。ユーザー導線と運用のしやすさを両立する構成を固めます。",
     Icon: Compass,
+    layout: "main-top",
+    images: [
+      {
+        src: "/images/process/process-plan-main.webp",
+        alt: "ワイヤーフレームのスケッチ",
+        caption: "ワイヤーフレーム",
+      },
+      {
+        src: "/images/process/process-plan-2.webp",
+        alt: "設計イメージ",
+        caption: "技術設計",
+      },
+      {
+        src: "/images/process/process-plan-3.webp",
+        alt: "情報設計の様子",
+        caption: "情報設計",
+      },
+      {
+        src: "/images/process/process-plan-4.webp",
+        alt: "画面構成の検討",
+        caption: "画面構成",
+      },
+    ],
   },
   {
     no: "03",
@@ -53,6 +104,7 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "デザイン制作",
     desc: "イラスト制作から配色、プロダクトの型紙設計、CG/VFXのライティングまで——媒体を問わず「伝わる見た目」を形にする工程です。ラフスケッチを起点に、質感・色・動きを一つずつ詰めていきます。",
     Icon: Palette,
+    layout: "main-left",
     images: [
       {
         src: "/images/process/design-cgvfx.webp",
@@ -82,6 +134,19 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "開発・実装",
     desc: "フロントエンド・バックエンドを実装し、デザインを実際に動くプロダクトへ落とし込みます。レビューを重ねながら、保守しやすい設計を意識します。",
     Icon: Code2,
+    layout: "split-v",
+    images: [
+      {
+        src: "/images/process/process-dev-1.webp",
+        alt: "実装作業の様子",
+        caption: "実装",
+      },
+      {
+        src: "/images/process/process-dev-2.webp",
+        alt: "開発チームの様子",
+        caption: "開発",
+      },
+    ],
   },
   {
     no: "05",
@@ -89,13 +154,103 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "検証・公開",
     desc: "動作検証・QAを経て本番環境へ公開します。公開後も運用・改善までサポートします。",
     Icon: Rocket,
+    layout: "split-h",
+    images: [
+      {
+        src: "/images/process/process-release-1.webp",
+        alt: "検証・公開の完了",
+        caption: "検証完了",
+      },
+      {
+        src: "/images/process/process-release-2.webp",
+        alt: "公開されたWebサイト",
+        caption: "公開",
+      },
+    ],
   },
 ];
 
 const PANEL_COUNT = PROCESS_STEPS.length;
 
-function DesignCollage({ images }: { images: ProcessImage[] }) {
+function CollageTile({
+  img,
+  sizes,
+  small = false,
+}: {
+  img: ProcessImage;
+  sizes: string;
+  small?: boolean;
+}) {
+  return (
+    <div className="relative overflow-hidden">
+      <Image src={img.src} alt={img.alt} fill sizes={sizes} className="object-cover" />
+      <span
+        className={cn(
+          "font-jp text-off-w/90 bg-darkest/55 absolute rounded-sm tracking-widest backdrop-blur-sm",
+          small
+            ? "bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px]"
+            : "bottom-2 left-2 px-2 py-0.5 text-[10px]",
+        )}
+      >
+        {img.caption}
+      </span>
+    </div>
+  );
+}
+
+function Collage({
+  images,
+  layout,
+}: {
+  images: ProcessImage[];
+  layout: CollageLayout;
+}) {
   const [main, ...rest] = images;
+
+  if (layout === "main-top") {
+    return (
+      <div className="bg-off-w/5 grid h-full w-full grid-rows-[2fr_1fr] gap-0.5 p-0.5">
+        <CollageTile img={main} sizes="(min-width: 1024px) 56vw, 100vw" />
+        <div className="grid grid-cols-3 gap-0.5">
+          {rest.map((img) => (
+            <CollageTile key={img.src} img={img} sizes="(min-width: 1024px) 19vw, 33vw" small />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (layout === "grid2x2") {
+    return (
+      <div className="bg-off-w/5 grid h-full w-full grid-cols-2 grid-rows-2 gap-0.5 p-0.5">
+        {images.map((img) => (
+          <CollageTile key={img.src} img={img} sizes="(min-width: 1024px) 28vw, 50vw" small />
+        ))}
+      </div>
+    );
+  }
+
+  if (layout === "split-v") {
+    return (
+      <div className="bg-off-w/5 grid h-full w-full grid-rows-2 gap-0.5 p-0.5">
+        {images.map((img) => (
+          <CollageTile key={img.src} img={img} sizes="(min-width: 1024px) 56vw, 100vw" />
+        ))}
+      </div>
+    );
+  }
+
+  if (layout === "split-h") {
+    return (
+      <div className="bg-off-w/5 grid h-full w-full grid-cols-2 gap-0.5 p-0.5">
+        {images.map((img) => (
+          <CollageTile key={img.src} img={img} sizes="(min-width: 1024px) 28vw, 50vw" />
+        ))}
+      </div>
+    );
+  }
+
+  // "main-left" (default): 1 tall tile left, 3 stacked right
   return (
     <div className="bg-off-w/5 grid h-full w-full grid-cols-2 grid-rows-3 gap-0.5 p-0.5">
       <div className="relative col-span-1 row-span-3 overflow-hidden">
@@ -111,25 +266,16 @@ function DesignCollage({ images }: { images: ProcessImage[] }) {
         </span>
       </div>
       {rest.map((img) => (
-        <div key={img.src} className="relative overflow-hidden">
-          <Image
-            src={img.src}
-            alt={img.alt}
-            fill
-            sizes="(min-width: 1024px) 15vw, 30vw"
-            className="object-cover"
-          />
-          <span className="font-jp text-off-w/90 bg-darkest/55 absolute bottom-1.5 left-1.5 rounded-sm px-1.5 py-0.5 text-[9px] tracking-widest backdrop-blur-sm">
-            {img.caption}
-          </span>
-        </div>
+        <CollageTile key={img.src} img={img} sizes="(min-width: 1024px) 15vw, 30vw" small />
       ))}
     </div>
   );
 }
 
 function ProcessVisual({ step }: { step: ProcessStep }) {
-  if (step.images) return <DesignCollage images={step.images} />;
+  if (step.images) {
+    return <Collage images={step.images} layout={step.layout ?? "main-left"} />;
+  }
   const { Icon } = step;
   return (
     <div className="from-acc-yellow/15 via-darkest to-darkest flex h-full w-full items-center justify-center bg-gradient-to-br">
