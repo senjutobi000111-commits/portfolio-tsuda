@@ -101,17 +101,18 @@ function StrokeNumeral({ value, active }: { value: string; active: boolean }) {
   );
 }
 
-// Rises in after the main shatter reveal settles (~1.8s), each card
+// Rises in after the main shatter reveal settles (~1.8s), each panel
 // starting its own rise with a left-to-right stagger — mounted fresh each
 // time its slide becomes active, so a CSS @keyframes animation (not a
-// transition) is used so it reliably plays on mount.
+// transition) is used so it reliably plays on mount. Full-width band
+// pinned to the bottom of the frame, split into 3 equal panels.
 function DesignGrids({ grids }: { grids: string[] }) {
   return (
-    <div className="mt-6 flex gap-3 sm:gap-4">
+    <div className="absolute inset-x-0 bottom-0 z-10 flex h-[26%] gap-2 px-6 pb-6 sm:gap-3 sm:px-12 sm:pb-8 lg:gap-4 lg:px-24 lg:pb-10">
       {grids.map((src, i) => (
         <div
           key={src}
-          className="border-off-w/70 size-20 shrink-0 border p-1.5 shadow-lg sm:size-24 lg:size-28"
+          className="border-off-w/70 flex-1 border p-1.5 shadow-lg"
           style={{
             opacity: 0,
             animation: `rise-in 700ms cubic-bezier(0.22,1,0.36,1) ${1700 + i * 220}ms both`,
@@ -306,19 +307,15 @@ function StrengthsPinned() {
                 ))}
               </h3>
             </div>
-            <div>
-              <p className="font-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
-                {STRENGTHS[activeIndex].desc}
-              </p>
-              {STRENGTHS[activeIndex].grids && (
-                <DesignGrids
-                  key={activeIndex}
-                  grids={STRENGTHS[activeIndex].grids!}
-                />
-              )}
-            </div>
+            <p className="font-jp text-off-w/70 max-w-xs text-sm leading-relaxed sm:text-base lg:max-w-sm">
+              {STRENGTHS[activeIndex].desc}
+            </p>
           </div>
         </div>
+
+        {STRENGTHS[activeIndex].grids && (
+          <DesignGrids key={activeIndex} grids={STRENGTHS[activeIndex].grids!} />
+        )}
       </div>
     </div>
   );
