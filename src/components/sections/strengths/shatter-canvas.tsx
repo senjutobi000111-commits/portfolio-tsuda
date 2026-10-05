@@ -2,17 +2,27 @@
 
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
-// Values verified against 12-office.com's production JS bundle (OGL + GSAP):
+// Values verified by reading 12-office.com's production JS bundle directly
+// (OGL fragment shader + GSAP timeline), not guessed from screenshots:
 // - grid: landscape viewports use a 4-col x 2-row tile grid
 //   (gridResolution.x = width*0.25, gridResolution.y = height*0.5)
-// - duration: 1.8s, ease: GSAP's easeNone (linear)
-// - each tile's reveal window is delayed by up to 40% of the total duration
-//   and plays over the remaining ~60%, so tiles don't all finish together
+// - a single GSAP tween drives `leaveAnimationValue` 0->1 linearly (easeNone)
+//   over 1.8s; the SHADER then remaps that per-tile through its own
+//   exponential easing and a randomized delay/duration window — the linear
+//   GSAP driver is just the clock, not the visible curve.
+// - per tile: offsetRatio = rand1 * 0.4 (delay), durationRatio =
+//   (1 - offsetRatio) * (0.6 + 0.4 * rand2) (getAnimationValue2 in source)
+// - tiles don't fade in place — the shader shifts each tile's sample
+//   coordinate by 2x its own size and wraps it (mod), i.e. the tile scrolls
+//   through itself and wraps before disappearing, not a plain opacity fade
+// - alternating tiles (checkerboard col/row parity) scroll in opposite
+//   axes — even parity horizontal, odd parity vertical (dirIndex in source)
 const TILE_COLS = 4;
 const TILE_ROWS = 2;
 const TOTAL_DURATION = 1800; // ms, matches reference exactly
-const MAX_DELAY_RATIO = 0.4;
-const WINDOW_RATIO = 0.6;
+const MAX_OFFSET_RATIO = 0.4;
+const MIN_DURATION_RATIO = 0.6;
+const SCROLL_CYCLES = 2;
 // the reference unlocks interaction well before the visual tail finishes
 // (gsap .add(callback, .8) inside the 1.8s timeline)
 const UNLOCK_AT = 1000; // ms
@@ -23,6 +33,10 @@ export interface ShatterCanvasHandle {
 
 interface ShatterCanvasProps {
   preloadSrcs?: string[];
+}
+
+function exponentialOut(t: number) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 }
 
 function getCoverRect(imgW: number, imgH: number, boxW: number, boxH: number) {
@@ -47,6 +61,26 @@ interface Tile {
   col: number;
   row: number;
   delayRatio: number;
+  durationRatio: number;
+  vertical: boolean;
+}
+
+function buildTiles(): Tile[] {
+  const tiles: Tile[] = [];
+  for (let row = 0; row < TILE_ROWS; row++) {
+    for (let col = 0; col < TILE_COLS; col++) {
+      const rv1 = Math.random();
+      const rv2 = Math.random();
+      const delayRatio = rv1 * MAX_OFFSET_RATIO;
+      const maxDurationRatio = 1 - delayRatio;
+      const durationRatio =
+        maxDurationRatio * (MIN_DURATION_RATIO + (1 - MIN_DURATION_RATIO) * rv2);
+      // dirIndex: checkerboard parity — odd scrolls vertically, even horizontally
+      const vertical = (col + row) % 2 === 1;
+      tiles.push({ col, row, delayRatio, durationRatio, vertical });
+    }
+  }
+  return tiles;
 }
 
 const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
@@ -105,12 +139,7 @@ const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
           const tileDstW = boxW / TILE_COLS;
           const tileDstH = boxH / TILE_ROWS;
 
-          const tiles: Tile[] = [];
-          for (let row = 0; row < TILE_ROWS; row++) {
-            for (let col = 0; col < TILE_COLS; col++) {
-              tiles.push({ col, row, delayRatio: Math.random() * MAX_DELAY_RATIO });
-            }
-          }
+          const tiles = buildTiles();
 
           canvas.style.opacity = "1";
           const start = performance.now();
@@ -121,28 +150,76 @@ const ShatterCanvas = forwardRef<ShatterCanvasHandle, ShatterCanvasProps>(
 
             let allDone = true;
             for (const t of tiles) {
-              // linear remap within this tile's own delayed window —
-              // matches the reference's un-eased (easeNone) per-tile reveal
-              const p = Math.min(
+              const raw = Math.min(
                 1,
-                Math.max(0, (globalRatio - t.delayRatio) / WINDOW_RATIO),
+                Math.max(0, (globalRatio - t.delayRatio) / t.durationRatio),
               );
-              if (p >= 1) continue; // fully gone
+              const eased = exponentialOut(raw);
+              if (eased >= 1) continue; // fully gone
               allDone = false;
-              ctx.globalAlpha = 1 - p;
-              ctx.drawImage(
-                img,
-                sx + t.col * tileSrcW,
-                sy + t.row * tileSrcH,
-                tileSrcW,
-                tileSrcH,
-                t.col * tileDstW,
-                t.row * tileDstH,
-                tileDstW + 0.5,
-                tileDstH + 0.5,
-              );
+
+              const dstX = t.col * tileDstW;
+              const dstY = t.row * tileDstH;
+              const srcX = sx + t.col * tileSrcW;
+              const srcY = sy + t.row * tileSrcH;
+              const shift = (eased * SCROLL_CYCLES) % 1;
+
+              ctx.save();
+              ctx.globalAlpha = 1 - eased;
+              ctx.beginPath();
+              ctx.rect(dstX, dstY, tileDstW, tileDstH);
+              ctx.clip();
+              if (t.vertical) {
+                const dy = shift * tileDstH;
+                ctx.drawImage(
+                  img,
+                  srcX,
+                  srcY,
+                  tileSrcW,
+                  tileSrcH,
+                  dstX,
+                  dstY - tileDstH + dy,
+                  tileDstW + 0.5,
+                  tileDstH + 0.5,
+                );
+                ctx.drawImage(
+                  img,
+                  srcX,
+                  srcY,
+                  tileSrcW,
+                  tileSrcH,
+                  dstX,
+                  dstY + dy,
+                  tileDstW + 0.5,
+                  tileDstH + 0.5,
+                );
+              } else {
+                const dx = shift * tileDstW;
+                ctx.drawImage(
+                  img,
+                  srcX,
+                  srcY,
+                  tileSrcW,
+                  tileSrcH,
+                  dstX - tileDstW + dx,
+                  dstY,
+                  tileDstW + 0.5,
+                  tileDstH + 0.5,
+                );
+                ctx.drawImage(
+                  img,
+                  srcX,
+                  srcY,
+                  tileSrcW,
+                  tileSrcH,
+                  dstX + dx,
+                  dstY,
+                  tileDstW + 0.5,
+                  tileDstH + 0.5,
+                );
+              }
+              ctx.restore();
             }
-            ctx.globalAlpha = 1;
 
             if (globalRatio < 1 && !allDone) {
               rafRef.current = requestAnimationFrame(frame);
