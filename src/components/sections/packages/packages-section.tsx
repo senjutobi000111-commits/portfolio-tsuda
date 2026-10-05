@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 import { m } from "@/components/motion-wrapper";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
-import { ArrowUpRight } from "lucide-react";
 
 interface Package {
   id: string;
@@ -351,7 +349,7 @@ const CARD_ITEM = {
   },
 };
 
-const PackageCard = ({ title, category, images, value, href }: Package) => {
+const PackageCard = ({ title, category, images, value }: Package) => {
   return (
     <m.article
       variants={CARD_ITEM}
@@ -361,9 +359,9 @@ const PackageCard = ({ title, category, images, value, href }: Package) => {
       )}
     >
       {/* バナー（ホバーで自動スライド） */}
-      <Link href={href} target="_blank" rel="noopener noreferrer" className="block">
+      <div className="block">
         <PackageSlideshow images={images} alt={title} category={category} />
-      </Link>
+      </div>
 
       {/* 内容 */}
       <div className="flex flex-1 flex-col gap-3 p-5">
@@ -373,15 +371,6 @@ const PackageCard = ({ title, category, images, value, href }: Package) => {
         <p className="text-darkest/70 font-jp flex-1 text-xs leading-relaxed text-pretty sm:text-sm">
           {value}
         </p>
-        <Link
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-acc-yellow hover:text-acc-yellow-2 mt-1 inline-flex items-center gap-1 self-start text-sm font-bold tracking-wide transition-colors"
-        >
-          詳細・ご相談
-          <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
       </div>
     </m.article>
   );
