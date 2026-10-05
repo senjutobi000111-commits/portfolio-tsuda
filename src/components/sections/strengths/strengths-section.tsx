@@ -21,7 +21,7 @@ const STRENGTHS: Strength[] = [
     no: "01",
     en: "FASHION EC",
     titleLines: ["ファッション・アパレル", "ECサイト制作"],
-    desc: "キャバドレスやウェディングドレスなど、ファッション・アパレル業界のEC構築を数多く手がけてきました。商品の魅力が伝わる見せ方と、購入までの導線設計にこだわります。",
+    desc: "「どう見せれば売れるか」を、数々のアパレルECで磨いてきました。写真・導線・UIの一つひとつが購入の決め手になります。",
     image: "/images/strengths/strength-fashion.webp",
     grids: [
       "/images/packages/makeshop-ec-1.webp",
@@ -33,14 +33,14 @@ const STRENGTHS: Strength[] = [
     no: "02",
     en: "SPEED",
     titleLines: ["止まらない", "スピード対応"],
-    desc: "小さな確認から大きな意思決定まで、プロジェクトを止めずに前へ進める対応力。スピード感のあるやり取りを大切にしています。",
+    desc: "「返信が速い」「止まらない」——発注者が一番求める安心感です。小さな確認から大きな意思決定まで対応します。",
     image: "/images/strengths/strength-speed.webp",
   },
   {
     no: "03",
     en: "DESIGN",
     titleLines: ["成果に直結する", "デザイン"],
-    desc: "機能だけでなく「見た目」にもこだわる。細部の質感まで詰めて、使われる・選ばれるプロダクトに仕上げます。",
+    desc: "機能が良くても、見た目で選ばれなければ意味がありません。細部の質感まで詰めて仕上げます。",
     image: "/images/strengths/strength-design.webp",
     grids: [
       "/images/strengths/grid-design-1.webp",
@@ -52,7 +52,7 @@ const STRENGTHS: Strength[] = [
     no: "04",
     en: "AI",
     titleLines: ["実務で使える", "AI活用力"],
-    desc: "業務自動化から開発支援まで、AIを実務レベルで使いこなす。効率化のその先まで提案します。",
+    desc: "「使えるAI」と「使えないAI」の差は実装力です。業務自動化から開発支援まで、効率化のその先まで提案します。",
     image: "/images/strengths/strength-ai.webp",
   },
 ];
