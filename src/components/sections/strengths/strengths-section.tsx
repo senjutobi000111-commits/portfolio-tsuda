@@ -38,9 +38,9 @@ const STRENGTHS: Strength[] = [
     desc: "機能だけでなく「見た目」にもこだわる。細部の質感まで詰めて、使われる・選ばれるプロダクトに仕上げます。",
     image: "/images/strengths/strength-design.webp",
     grids: [
-      "/images/strengths/grid-design-1.svg",
-      "/images/strengths/grid-design-2.svg",
-      "/images/strengths/grid-design-3.svg",
+      "/images/strengths/grid-design-1.webp",
+      "/images/strengths/grid-design-2.webp",
+      "/images/strengths/grid-design-3.webp",
     ],
   },
   {
@@ -111,14 +111,16 @@ function DesignGrids({ grids }: { grids: string[] }) {
       {grids.map((src, i) => (
         <div
           key={src}
-          className="border-off-w/15 bg-off-w/90 size-20 shrink-0 overflow-hidden rounded-lg border shadow-lg sm:size-24 lg:size-28"
+          className="border-off-w/70 size-20 shrink-0 border p-1.5 shadow-lg sm:size-24 lg:size-28"
           style={{
             opacity: 0,
             animation: `rise-in 700ms cubic-bezier(0.22,1,0.36,1) ${1700 + i * 220}ms both`,
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={src} alt="" className="h-full w-full object-contain p-2" />
+          <div className="h-full w-full overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={src} alt="" className="h-full w-full object-cover" />
+          </div>
         </div>
       ))}
     </div>
