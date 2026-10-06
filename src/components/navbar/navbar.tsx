@@ -70,7 +70,10 @@ export default function Navbar() {
   const handleSectionTravel = useCallback(
     (linkId: string) => {
       const section = document.querySelector(`#${linkId}`);
-      if (!section) return console.warn(`Section with ID "${linkId}" not found`);
+      if (!section) {
+        window.location.href = `/#${linkId}`;
+        return;
+      }
 
       setActiveSection(linkId);
       startSmoothScroll();

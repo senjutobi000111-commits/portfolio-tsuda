@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { PROJECTS } from "@/lib/content/projects";
+import Navbar from "@/components/navbar/navbar";
 import { ProjectTemplate } from "@/components/sections/projects/project-template";
 import { ProjectsBackground } from "@/components/sections/projects/projects-background";
+import {
+  ProjectBackLink,
+  ProjectFloatingBackButton,
+} from "@/components/sections/projects/project-back-link";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -31,16 +35,6 @@ export async function generateMetadata({
   };
 }
 
-const BackLink = () => (
-  <Link
-    href="/#projects-section"
-    className="text-off-w/60 hover:text-acc-yellow font-jp inline-flex items-center gap-1.5 text-sm transition-colors"
-  >
-    <ArrowLeft className="size-4" />
-    制作実績一覧に戻る
-  </Link>
-);
-
 export default async function ProjectPage({
   params,
 }: {
@@ -51,13 +45,30 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
-    <main className="bg-darkest relative min-h-dvh overflow-clip px-6 py-14 sm:px-10 sm:py-20">
-      <ProjectsBackground />
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col gap-8">
-        <BackLink />
-        <ProjectTemplate slug={slug} />
-        <BackLink />
-      </div>
+    <main>
+      <Navbar />
+
+      <section
+        className={cn(
+          "relative flex flex-col items-center justify-center overflow-clip bg-darkest",
+          "max-lg:scroll-mt-[var(--navbar-height)]",
+        )}
+      >
+        <div
+          className={cn(
+            "z-10 flex min-h-dvh max-w-[1500px] items-center justify-center px-8 py-16",
+            "sm:px-12 sm:py-24 xl:py-36",
+          )}
+        >
+          <div className="flex flex-col justify-center">
+            <ProjectBackLink />
+            <ProjectTemplate slug={slug} />
+            <ProjectFloatingBackButton />
+          </div>
+        </div>
+
+        <ProjectsBackground />
+      </section>
     </main>
   );
 }
