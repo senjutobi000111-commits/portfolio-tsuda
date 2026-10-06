@@ -11,6 +11,7 @@ export type Socials<T extends string> = {
 };
 
 export type ProjectType = {
+  slug: string;
   title: string;
   description: { en: string; pt: string };
   body: { en: string[]; pt: string[] };

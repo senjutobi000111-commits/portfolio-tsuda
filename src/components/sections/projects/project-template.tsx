@@ -1,9 +1,11 @@
-import type { ProjectType } from "@/lib/types";
+"use client";
 
 import { useState } from "react";
+import { notFound } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
+import { PROJECTS } from "@/lib/content/projects";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectImage } from "@/components/sections/projects/project-image";
 import { ProjectLightbox } from "@/components/sections/projects/project-lightbox";
@@ -12,9 +14,12 @@ import { TextAnimate } from "@/components/ui/text-animate";
 
 type LanguageCode = "en" | "pt";
 
-export const ProjectTemplate = ({ ...props }: ProjectType) => {
+export const ProjectTemplate = ({ slug }: { slug: string }) => {
   const t = useTranslations("Projects");
   const currentLocale = useLocale() as LanguageCode;
+
+  const props = PROJECTS.find((p) => p.slug === slug);
+  if (!props) notFound();
 
   const hasLink = !!props.repoLink && props.repoLink !== "#";
   const images = props.images?.length ? props.images : [props.repoImage];

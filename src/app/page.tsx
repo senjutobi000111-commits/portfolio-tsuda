@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar/navbar";
+import { ScrollMemory } from "@/components/scroll-memory";
 import HeroSection from "@/components/sections/hero/hero-section";
 import AboutSection from "@/components/sections/about/about-section";
 import ServicesSection from "@/components/sections/services/services-section";
@@ -12,6 +13,7 @@ import ContactSection from "@/components/sections/contact/contact-section";
 export default function Home() {
   return (
     <main>
+      <ScrollMemory />
       <Navbar />
       <HeroSection />
       <AboutSection />

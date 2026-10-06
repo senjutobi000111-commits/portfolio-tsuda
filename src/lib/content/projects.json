@@ -33,7 +33,8 @@
       "css",
       "js"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "vivion-blue"
   },
   {
     "title": "CoCoMelody（ウェディングドレス Shopify ストア）",
@@ -71,7 +72,8 @@
       "css",
       "js"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "cocomelody"
   },
   {
     "title": "DESTINY Line（ウェディングドレスサロン公式サイト）",
@@ -105,7 +107,8 @@
       "wordpress",
       "php"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "destiny-line"
   },
   {
     "title": "WANNA（ギャラ飲みマッチングアプリ／公式サイト）",
@@ -138,7 +141,8 @@
     "languages": [
       "flutter"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "wanna"
   },
   {
     "title": "めろん日記（成長ホルモン治療 服薬管理アプリ／アップデート開発）",
@@ -172,7 +176,8 @@
       "flutter",
       "firebase"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "melon-diary"
   },
   {
     "title": "Ultra Bluepond（NDL古典籍OCR Web アプリ／機能拡張・UI開発）",
@@ -204,7 +209,8 @@
     "languages": [
       "vite"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "ultra-bluepond"
   },
   {
     "title": "MotionNote（動画モーション解析・骨格可視化 Web アプリ／個人開発）",
@@ -237,7 +243,8 @@
       "ts",
       "vite"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "motionnote"
   },
   {
     "title": "ラヴィファクトリー（フォトウェディング・前撮り 公式サイト／構築・リニューアル）",
@@ -277,7 +284,8 @@
       "html",
       "css"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "la-vie-factory"
   },
   {
     "title": "PlanningPME（スケジューリング／リソース管理ソフト・機能開発）",
@@ -314,7 +322,8 @@
       "dotnet",
       "database"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "planningpme"
   },
   {
     "title": "高精度3D地図プラットフォーム 公式サイト（自動運転・HDマップ）",
@@ -349,7 +358,8 @@
       "wordpress",
       "php"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "hd-map-platform"
   },
   {
     "title": "STORAGE（西麻布・個室カラオケダイニング 公式サイト）",
@@ -386,7 +396,8 @@
     "languages": [
       "studio"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "storage-nishiazabu"
   },
   {
     "title": "Tika（キャバドレス・ミニドレス通販 EC サイト）",
@@ -425,7 +436,8 @@
       "css",
       "js"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "tika"
   },
   {
     "title": "BEARS（カジュアル＆アウトドア MakeShop EC）",
@@ -457,7 +469,8 @@
       "css",
       "js"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "bears"
   },
   {
     "title": "Rew-You（キャバドレス通販 EC）",
@@ -495,7 +508,8 @@
       "css",
       "js"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "rew-you"
   },
   {
     "title": "婚活のみかた",
@@ -531,7 +545,8 @@
       "js",
       "css"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "konkatsu-no-mikata"
   },
   {
     "title": "LACOCO（脱毛サロン ブランドサイト）",
@@ -568,7 +583,8 @@
       "react",
       "tiktok"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "lacoco"
   },
   {
     "title": "LangJournal（言語学習 × 日記 Web アプリ）",
@@ -608,7 +624,8 @@
       "firebase",
       "openai"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "langjournal"
   },
   {
     "title": "AI UNIVERSE（3D AI学習プラットフォーム）",
@@ -646,7 +663,8 @@
       "openai"
     ],
     "status": "Complete",
-    "hasDemo": true
+    "hasDemo": true,
+    "slug": "ai-universe"
   },
   {
     "title": "AIアバター面接練習（web-mensetsu）",
@@ -682,7 +700,8 @@
       "openai"
     ],
     "status": "Complete",
-    "hasDemo": true
+    "hasDemo": true,
+    "slug": "ai-interview-practice"
   },
   {
     "title": "物流SaaS Trac（QA・テスト設計）",
@@ -719,7 +738,8 @@
       "mysql",
       "python"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "trac-logistics-saas"
   },
   {
     "title": "エンジニア工数管理・承認システム",
@@ -758,7 +778,8 @@
       "tanstack"
     ],
     "status": "Complete",
-    "cardSingleImage": true
+    "cardSingleImage": true,
+    "slug": "engineer-hours-management"
   },
   {
     "title": "n8n 業務自動化ワークフロー",
@@ -795,7 +816,8 @@
       "slack"
     ],
     "status": "Complete",
-    "cardSingleImage": true
+    "cardSingleImage": true,
+    "slug": "n8n-automation-workflow"
   },
   {
     "title": "動画学習プラットフォーム（LMS）",
@@ -834,7 +856,8 @@
       "aws"
     ],
     "status": "Complete",
-    "cardSingleImage": true
+    "cardSingleImage": true,
+    "slug": "video-learning-lms"
   },
   {
     "title": "LINE写真買取査定システム",
@@ -868,7 +891,8 @@
       "s3",
       "amplify"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "line-photo-appraisal"
   },
   {
     "title": "避難所混雑率マップ（防災データ可視化）",
@@ -895,7 +919,8 @@
       "openstreetmap",
       "js"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "shelter-crowding-map"
   },
   {
     "title": "ハイスタッフ！（舞台技術者マッチング）",
@@ -922,7 +947,8 @@
     "languages": [
       "bubble"
     ],
-    "status": "Complete"
+    "status": "Complete",
+    "slug": "histaff"
   },
   {
     "title": "従業員管理システム（HR Manager）",
@@ -963,6 +989,7 @@
       "tanstack"
     ],
     "status": "Complete",
-    "cardSingleImage": true
+    "cardSingleImage": true,
+    "slug": "hr-manager"
   }
 ]

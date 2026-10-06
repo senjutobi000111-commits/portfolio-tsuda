@@ -1,17 +1,9 @@
-"use client";
-
-import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
-import { useAtomValue } from "jotai";
 import { cn } from "@/lib/utils";
 
 import { ProjectsBackground } from "@/components/sections/projects/projects-background";
-import { ProjectView } from "@/components/sections/projects/project-view";
 import { ProjectsList } from "@/components/sections/projects/projects-list";
 
 export default function ProjectsSection() {
-  const currentProject = useAtomValue(currentProjectAtom);
-  const isProjectOpen = useAtomValue(isProjectOpenAtom);
-
   return (
     <section
       id="projects-section"
@@ -26,7 +18,7 @@ export default function ProjectsSection() {
           "sm:px-12 sm:py-24 xl:py-36",
         )}
       >
-        {isProjectOpen ? <ProjectView {...currentProject!} /> : <ProjectsList />}
+        <ProjectsList />
       </div>
 
       <ProjectsBackground />

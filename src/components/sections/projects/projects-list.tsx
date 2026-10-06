@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { PROJECTS } from "@/lib/content/projects";
 import { cn } from "@/lib/utils";

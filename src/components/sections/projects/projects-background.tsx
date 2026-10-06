@@ -1,7 +1,5 @@
 "use client";
 
-import { isProjectOpenAtom } from "@/lib/store/projects";
-import { useAtomValue } from "jotai";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
@@ -9,8 +7,6 @@ import { m } from "@/components/motion-wrapper";
 import { RisingEmbers } from "@/components/ui/rising-embers";
 
 export const ProjectsBackground = () => {
-  const isOpen = useAtomValue(isProjectOpenAtom);
-
   return (
     <div className="absolute inset-0">
       {/* 霧の水墨山水（pro5）— 元の色のまま。暗いヴェールで墨トーンに沈める */}
@@ -20,10 +16,7 @@ export const ProjectsBackground = () => {
         fill
         sizes="100vw"
         quality={82}
-        className={cn(
-          "object-cover object-center transition-opacity duration-700",
-          isOpen ? "opacity-25" : "opacity-65",
-        )}
+        className={cn("object-cover object-center opacity-65")}
         priority={false}
         aria-hidden="true"
       />

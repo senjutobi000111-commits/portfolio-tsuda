@@ -1,9 +1,10 @@
+"use client";
+
 import type { ProjectType } from "@/lib/types";
 
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { useSetAtom } from "jotai";
 import { useLocale } from "next-intl";
-import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
 import { LanguageCode } from "@/lib/constants/langs";
 
 import { ProjectTag } from "./project-tag";
@@ -13,23 +14,11 @@ import { ShineBorder } from "@/components/ui/shine-border";
 export const ProjectCard = ({ ...props }: ProjectType) => {
   const currentLocale = useLocale() as LanguageCode;
 
-  const setCurrentProject = useSetAtom(currentProjectAtom);
-  const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
-
-  const openProject = () => {
-    const projectsSection = document.querySelector("#projects-section");
-    if (!projectsSection) return;
-    projectsSection.scrollIntoView({ behavior: "instant" });
-
-    setIsProjectOpen(true);
-    setCurrentProject(props);
-  };
-
   return (
-    <article
+    <Link
+      href={`/projects/${props.slug}`}
       id="project-card"
       className="group border-acc-yellow/50 relative grid aspect-square w-[clamp(325px,_40vw,_400px)] cursor-pointer grid-cols-1 overflow-hidden rounded-none border shadow-lg"
-      onClick={openProject}
     >
       <ProjectTag
         status={props.status}
@@ -84,6 +73,6 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
         borderWidth={1}
         duration={10}
       />
-    </article>
+    </Link>
   );
 };
