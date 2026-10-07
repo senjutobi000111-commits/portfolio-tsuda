@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { m } from "@/components/motion-wrapper";
-import { Briefcase, Layers, MapPin, Clock } from "lucide-react";
+import { Briefcase, Layers, Clock } from "lucide-react";
 
 // 数値カウントアップ（0 → to）。reduced-motion では即最終値。
 const CountUp = ({ to, delay = 0 }: { to: number; delay?: number }) => {
@@ -65,13 +65,6 @@ export const HeroFacts = () => {
           <b className={numClass}>
             <CountUp to={50} delay={700} />件
           </b>
-        </span>
-        <span className="text-acc-yellow-3/50" aria-hidden="true">
-          ｜
-        </span>
-        <span className="flex items-center gap-1.5">
-          <MapPin className={iconClass} />
-          香川県
         </span>
       </div>
       <div className="text-off-w/90 font-serif-jp flex items-center gap-1.5 text-xs sm:text-sm">
