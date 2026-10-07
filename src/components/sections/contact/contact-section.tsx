@@ -47,15 +47,6 @@ const CONTACT_CHANNELS: ContactChannel[] = [
     iconSrc: "/images/icons/line.svg",
     brand: "#06C755",
   },
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    value: "in/祟志-萩原",
-    href: "https://www.linkedin.com/in/祟志-萩原-a17b28436/",
-    desc: "経歴・お仕事のご相談",
-    iconSrc: "/images/icons/linkedin.svg",
-    brand: "#0A66C2",
-  },
 ];
 
 const GRID_CONTAINER = {
@@ -186,7 +177,7 @@ export default function ContactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
+          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
         >
           {CONTACT_CHANNELS.map((channel) => (
             <ContactCard key={channel.id} {...channel} />

@@ -25,7 +25,13 @@ interface ProcessImage {
   caption: string;
 }
 
-type CollageLayout = "main-left" | "main-top" | "grid2x2" | "split-v" | "split-h";
+type CollageLayout =
+  | "main-left"
+  | "main-top"
+  | "grid2x2"
+  | "split-v"
+  | "split-h"
+  | "split-top-main-bottom";
 
 interface ProcessStep {
   no: string;
@@ -154,7 +160,7 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "検証・公開",
     desc: "動作検証・QAを経て本番環境へ公開します。公開後も運用・改善までサポートします。",
     Icon: Rocket,
-    layout: "grid2x2",
+    layout: "split-top-main-bottom",
     images: [
       {
         src: "/images/process/process-release-www.webp",
@@ -170,11 +176,6 @@ const PROCESS_STEPS: ProcessStep[] = [
         src: "/images/process/process-release-1.webp",
         alt: "検証・公開の完了",
         caption: "検証完了",
-      },
-      {
-        src: "/images/process/process-release-2.webp",
-        alt: "公開されたWebサイト",
-        caption: "公開",
       },
     ],
   },
@@ -256,6 +257,19 @@ function Collage({
         {images.map((img) => (
           <CollageTile key={img.src} img={img} sizes="(min-width: 1024px) 28vw, 50vw" />
         ))}
+      </div>
+    );
+  }
+
+  if (layout === "split-top-main-bottom") {
+    const [first, second, bottomMain] = images;
+    return (
+      <div className="bg-off-w/5 grid h-full w-full grid-rows-[1fr_2fr] gap-0.5 p-0.5">
+        <div className="grid grid-cols-2 gap-0.5">
+          <CollageTile img={first} sizes="(min-width: 1024px) 28vw, 50vw" small />
+          <CollageTile img={second} sizes="(min-width: 1024px) 28vw, 50vw" small />
+        </div>
+        <CollageTile img={bottomMain} sizes="(min-width: 1024px) 56vw, 100vw" />
       </div>
     );
   }
