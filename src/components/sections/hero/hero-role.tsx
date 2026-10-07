@@ -28,7 +28,7 @@ export const HeroRole = () => {
       <p className="text-off-w/95 font-serif-jp text-base leading-relaxed [text-shadow:0_1px_4px_rgba(0,0,0,0.95),0_2px_12px_rgba(0,0,0,0.6)] sm:text-lg lg:text-2xl">
         成果に直結する
         <span className="text-acc-yellow-3 font-semibold">
-          UIデザイン×AI・Web・EC開発
+          UIデザイン×AI・Web・EC開発・Blockchain
         </span>
       </p>
     </m.div>

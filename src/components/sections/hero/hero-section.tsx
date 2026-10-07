@@ -36,7 +36,7 @@ export default function HeroSection() {
 
       {/* 背景画像 — フェードイン＋ゆっくりズーム（Ken Burns） */}
       <Image
-        src="/images/hero-2026.webp"
+        src="/images/hero-ai-ec-blockchain.webp"
         alt="萩原 祟志 — ポートフォリオ"
         className={cn(
           imageBaseClasses,
