@@ -1013,7 +1013,10 @@
     "repoLink": "https://www.acsl.co.jp/",
     "repoImage": "/images/projects/acsl-1.webp",
     "images": [
-      "/images/projects/acsl-1.webp"
+      "/images/projects/acsl-1.webp",
+      "/images/projects/acsl-2.webp",
+      "/images/projects/acsl-3.webp",
+      "/images/projects/acsl-4.webp"
     ],
     "languages": [
       "html",
@@ -1021,7 +1024,6 @@
       "js"
     ],
     "status": "Complete",
-    "cardSingleImage": true,
     "slug": "acsl"
   },
   {
@@ -1045,7 +1047,10 @@
     "repoLink": "https://isomurass.jp/",
     "repoImage": "/images/projects/isomura-1.webp",
     "images": [
-      "/images/projects/isomura-1.webp"
+      "/images/projects/isomura-1.webp",
+      "/images/projects/isomura-2.webp",
+      "/images/projects/isomura-3.webp",
+      "/images/projects/isomura-4.webp"
     ],
     "languages": [
       "wordpress",
@@ -1054,7 +1059,6 @@
       "js"
     ],
     "status": "Complete",
-    "cardSingleImage": true,
     "slug": "isomura"
   }
 ]
