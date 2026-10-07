@@ -22,9 +22,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const project = PROJECTS.find((p) => p.slug === slug);
-  if (!project) return { title: "プロジェクトが見つかりません | 萩原 崇志" };
+  if (!project) return { title: "プロジェクトが見つかりません | ManekiCat_29" };
   return {
-    title: `${project.title} | 萩原 崇志`,
+    title: `${project.title} | ManekiCat_29`,
     description: project.description.en,
     openGraph: {
       title: project.title,

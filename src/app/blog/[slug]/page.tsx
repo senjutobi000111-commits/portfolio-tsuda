@@ -17,9 +17,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) return { title: "記事が見つかりません | 萩原 崇志" };
+  if (!post) return { title: "記事が見つかりません | ManekiCat_29" };
   return {
-    title: `${post.title} | 萩原 崇志`,
+    title: `${post.title} | ManekiCat_29`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

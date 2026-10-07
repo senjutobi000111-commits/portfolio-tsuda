@@ -14,9 +14,9 @@ import "@/app/globals.css";
 export const dynamic = "force-dynamic";
 
 const siteUrl = "https://portfolio-takashi.vercel.app";
-const siteName = "萩原 祟志 | Portfolio";
+const siteName = "ManekiCat_29 | Portfolio";
 const siteDescription =
-  "Webエンジニアとして8年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。萩原 祟志のポートフォリオサイト。";
+  "Webエンジニアとして8年間、ECサイトの制作から業務システム・SaaS・AI業務自動化まで幅広く開発。ManekiCat_29 のポートフォリオサイト。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

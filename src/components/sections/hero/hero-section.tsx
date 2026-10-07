@@ -37,7 +37,7 @@ export default function HeroSection() {
       {/* 背景画像 — フェードイン＋ゆっくりズーム（Ken Burns） */}
       <Image
         src="/images/hero-ai-ec-blockchain.webp"
-        alt="萩原 祟志 — ポートフォリオ"
+        alt="ManekiCat_29 — ポートフォリオ"
         className={cn(
           imageBaseClasses,
           "hero-bg-anim inset-0 z-10 h-full w-full object-cover object-center",

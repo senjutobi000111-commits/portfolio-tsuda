@@ -6,7 +6,7 @@ import { BLOG_POSTS } from "@/lib/content/blog";
 import { BlogCard } from "@/components/blog/blog-card";
 
 export const metadata: Metadata = {
-  title: "ブログ | 萩原 崇志",
+  title: "ブログ | ManekiCat_29",
   description:
     "EC 構築・業務システム・AI 業務自動化・アプリ開発などについて、実案件をもとにした記事を発信しています。",
 };
