@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { m } from "@/components/motion-wrapper";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
-import { ArrowRight, MessagesSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ContactChannel {
   id: string;
@@ -180,39 +180,17 @@ export default function ContactSection() {
           </p>
         </m.header>
 
-        {/* 連絡チャネル — 一時的に非表示（元のコードは保持、復活時は false を true に戻す） */}
-        {false && (
-          <m.div
-            variants={GRID_CONTAINER}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
-          >
-            {CONTACT_CHANNELS.map((channel) => (
-              <ContactCard key={channel.id} {...channel} />
-            ))}
-          </m.div>
-        )}
-
-        {/* 連絡ボタン — 個別の連絡先は非表示、ボタンのみ表示（リダイレクトなし） */}
+        {/* 連絡チャネル — 3×2 グリッド */}
         <m.div
-          initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+          variants={GRID_CONTAINER}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
+          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
         >
-          <button
-            type="button"
-            className={cn(
-              "flex cursor-pointer items-center gap-3 rounded-sm p-3 px-6 text-base font-medium shadow-md sm:text-lg",
-              "bg-acc-yellow-2 text-darkest transition-all duration-150",
-              "hover:bg-acc-yellow-3 sm:hover:-translate-y-1",
-            )}
-          >
-            お問い合わせはこちら
-            <MessagesSquare className="size-5 sm:size-6" />
-          </button>
+          {CONTACT_CHANNELS.map((channel) => (
+            <ContactCard key={channel.id} {...channel} />
+          ))}
         </m.div>
 
         {/* 締めの一文 */}

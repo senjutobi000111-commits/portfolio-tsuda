@@ -115,8 +115,7 @@ export default function Navbar() {
           onClick={() => handleSectionTravel("hero-section")}
           aria-label="Go to home section"
           className={cn(
-            "before:font-jp relative cursor-pointer border-l-2 pl-2 font-extrabold tracking-tight transition-colors duration-150",
-            "before:font-jp before:absolute before:top-0 before:-left-6 before:text-base before:transition-all before:duration-150 before:content-['萩']",
+            "cursor-pointer border-l-2 pl-2 font-extrabold tracking-tight transition-colors duration-150",
             currentStyles.link,
           )}
         />
