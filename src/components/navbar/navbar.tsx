@@ -119,9 +119,7 @@ export default function Navbar() {
             "before:font-jp before:absolute before:top-0 before:-left-6 before:text-base before:transition-all before:duration-150 before:content-['萩']",
             currentStyles.link,
           )}
-        >
-          Hagiwara
-        </button>
+        />
       </div>
 
       {/* Right Side: Desktop Nav + Controls */}
