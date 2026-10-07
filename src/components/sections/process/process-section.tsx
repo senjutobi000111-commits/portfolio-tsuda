@@ -154,8 +154,18 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: "検証・公開",
     desc: "動作検証・QAを経て本番環境へ公開します。公開後も運用・改善までサポートします。",
     Icon: Rocket,
-    layout: "split-h",
+    layout: "grid2x2",
     images: [
+      {
+        src: "/images/process/process-release-www.webp",
+        alt: "WWW — Web制作・公開",
+        caption: "WWW",
+      },
+      {
+        src: "/images/process/process-release-good.webp",
+        alt: "お客様からの高評価",
+        caption: "Good!",
+      },
       {
         src: "/images/process/process-release-1.webp",
         alt: "検証・公開の完了",
