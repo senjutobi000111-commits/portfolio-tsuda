@@ -359,6 +359,12 @@
       0 1px 3px rgba(0, 0, 0, 0.45);
   }
 
+  /* 暗い背景パネル用のごく薄いグレイン・テクスチャ */
+  .noise-texture {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-bg-anim {
       animation: enter-splash 1.8s ease forwards;

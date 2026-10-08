@@ -319,6 +319,7 @@ function ProcessPanel({ step }: { step: ProcessStep }) {
       </div>
 
       <div className="relative flex flex-1 flex-col justify-center gap-4 px-6 py-8 sm:px-12 lg:px-14">
+        <div className="noise-texture pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
         <span className="font-jp text-off-w/30 text-sm tracking-[0.3em]">
           {step.no}
         </span>
