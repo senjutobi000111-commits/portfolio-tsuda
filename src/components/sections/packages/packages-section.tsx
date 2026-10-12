@@ -58,19 +58,6 @@ const PACKAGES: Package[] = [
     href: "https://www.lancers.jp/menu/detail/1344968",
   },
   {
-    id: "wix-web",
-    title: "Wix Web サイト構築",
-    category: "コーポレート・LP",
-    images: [
-      "/images/packages/wix-web-1.webp",
-      "/images/packages/wix-web-2.webp",
-      "/images/packages/wix-web-3.webp",
-    ],
-    value:
-      "Wix で、洗練されたデザインと売れる動線の Web サイトを構築。Velo コード開発・SEO・レスポンシブ対応まで対応します。",
-    href: "https://www.lancers.jp/menu/detail/1344969",
-  },
-  {
     id: "wordpress-web",
     title: "WordPress サイト構築",
     category: "コーポレート・LP",

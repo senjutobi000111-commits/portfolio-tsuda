@@ -1,136 +1,9 @@
 "use client";
 
-import type { CSSProperties } from "react";
-
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import { m } from "@/components/motion-wrapper";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
-import { ArrowRight } from "lucide-react";
-
-interface ContactChannel {
-  id: string;
-  label: string;
-  value: string;
-  href: string;
-  desc: string;
-  iconSrc: string;
-  brand: string;
-}
-
-const CONTACT_CHANNELS: ContactChannel[] = [
-  {
-    id: "email",
-    label: "Email",
-    value: "suizhiqiuyuan248@gmail.com",
-    href: "mailto:suizhiqiuyuan248@gmail.com",
-    desc: "お気軽にご連絡ください",
-    iconSrc: "/images/icons/gmail.svg",
-    brand: "#EA4335",
-  },
-  {
-    id: "chatwork",
-    label: "Chatwork",
-    value: "chatwork.com/smartec34_cw",
-    href: "https://www.chatwork.com/smartec34_cw",
-    desc: "お気軽にメッセージください",
-    iconSrc: "/images/icons/chatwork.svg",
-    brand: "#F03748",
-  },
-  {
-    id: "line",
-    label: "LINE",
-    value: "line.me/ti/p/9jFrJ5Lg2q",
-    href: "https://line.me/ti/p/9jFrJ5Lg2q",
-    desc: "LINE からもご相談ください",
-    iconSrc: "/images/icons/line.svg",
-    brand: "#06C755",
-  },
-];
-
-const GRID_CONTAINER = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-};
-
-const CARD_ITEM = {
-  hidden: { opacity: 0, y: 18, filter: "blur(4px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-    },
-  },
-};
-
-const ContactCard = ({ label, value, href, desc, iconSrc, brand }: ContactChannel) => {
-  const hasLink = href.length > 0;
-
-  const cardClass = cn(
-    "group relative flex items-center gap-4 rounded-xl border border-black/15 p-4 shadow-sm backdrop-blur-sm transition-all duration-300",
-    "bg-off-w/80",
-    hasLink && "hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-md",
-  );
-
-  const inner = (
-    <>
-      {/* アイコン — 本物のブランドロゴSVG */}
-      <span className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-black/15 bg-black/[0.03] transition-colors duration-300 group-hover:border-[var(--brand)]/50">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={iconSrc} alt={`${label} のロゴ`} className="size-6 object-contain" loading="lazy" />
-      </span>
-
-      {/* ラベル + 値 */}
-      <span className="flex min-w-0 flex-1 flex-col">
-        <span className="text-acc-yellow font-jp text-xs font-bold tracking-[0.18em] uppercase sm:text-sm">
-          {label}
-        </span>
-        {value ? (
-          <span className="text-darkest font-serif-jp truncate text-sm sm:text-base">
-            {value}
-          </span>
-        ) : null}
-        <span className="text-darkest/45 font-jp truncate text-xs">{desc}</span>
-      </span>
-
-      {/* 矢印 */}
-      <span className="text-darkest/50 flex size-8 shrink-0 items-center justify-center rounded-full border border-black/20 transition-all duration-300 group-hover:border-[var(--brand)] group-hover:bg-[var(--brand)]/10 group-hover:text-[var(--brand)]">
-        <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-      </span>
-    </>
-  );
-
-  return (
-    <m.div variants={CARD_ITEM}>
-      {hasLink ? (
-        <Link
-          href={href}
-          target={href.startsWith("mailto:") ? undefined : "_blank"}
-          rel="noopener noreferrer"
-          style={{ "--brand": brand } as CSSProperties}
-          aria-label={`${label} で連絡する`}
-          className={cardClass}
-        >
-          {inner}
-        </Link>
-      ) : (
-        <div
-          style={{ "--brand": brand } as CSSProperties}
-          aria-label={label}
-          className={cardClass}
-        >
-          {inner}
-        </div>
-      )}
-    </m.div>
-  );
-};
 
 export default function ContactSection() {
   return (
@@ -170,19 +43,6 @@ export default function ContactSection() {
             お返事はできるだけ早くお送りします。
           </p>
         </m.header>
-
-        {/* 連絡チャネル — 3×2 グリッド */}
-        <m.div
-          variants={GRID_CONTAINER}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
-        >
-          {CONTACT_CHANNELS.map((channel) => (
-            <ContactCard key={channel.id} {...channel} />
-          ))}
-        </m.div>
 
         {/* 締めの一文 */}
         <m.div
