@@ -52,6 +52,7 @@ import {
   SiLaravel,
   SiSharp,
   SiDotnet,
+  SiFramer,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -212,6 +213,10 @@ export const TECH_LANGUAGES = {
   dotnet: {
     src: SiDotnet,
     alt: ".NET logo",
+  },
+  framer: {
+    src: SiFramer,
+    alt: "Framer logo",
   },
   database: {
     src: Database as unknown as IconType,

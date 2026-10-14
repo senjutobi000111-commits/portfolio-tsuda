@@ -924,5 +924,39 @@
     ],
     "status": "Complete",
     "slug": "isomura"
+  },
+  {
+    "title": "STEPN（Web3 Move-to-Earn アプリ 公式サイト）",
+    "description": {
+      "en": "歩く・走るだけで報酬が得られる Web3 ライフスタイルアプリ「STEPN」の公式サイト。Adidas・Binance・Solana・Sequoia 等と提携するグローバルプロジェクトで、既存デザインをもとに Framer でのフロントエンド実装を担当しました。",
+      "pt": "歩く・走るだけで報酬が得られる Web3 ライフスタイルアプリ「STEPN」の公式サイト。Adidas・Binance・Solana・Sequoia 等と提携するグローバルプロジェクトで、既存デザインをもとに Framer でのフロントエンド実装を担当しました。"
+    },
+    "body": {
+      "en": [
+        "STEPN は、スニーカー型 NFT を装着して屋外で歩く・ジョギング・ランニングすることで暗号資産を獲得できる Web3 ライフスタイルアプリです。Solana ブロックチェーン上に構築され、Adidas・Binance・Sequoia Capital・WhaleFin・LINE など、名だたる企業・投資家と提携するグローバルプロジェクトです。",
+        "本サイトでは、既存デザインをもとに Framer 上でのフロントエンド実装を担当しました。「MAKE YOUR STEPS COUNT!」のヒーローセクション、トークノミクス・走行距離などのリアルタイム統計表示、パートナー企業一覧、STEPN LEADERBOARDS（週間・月間・累計のランキング機能）の訴求セクションなどを実装しています。",
+        "Web3 特有の情報量（トークン経済・NFT仕様・ランキング計算ロジックなど）を、一般ユーザーにも分かりやすいビジュアルで伝えることを意識し、既存デザインの意図を忠実に再現しながら実装しました。"
+      ],
+      "pt": [
+        "STEPN は、スニーカー型 NFT を装着して屋外で歩く・ジョギング・ランニングすることで暗号資産を獲得できる Web3 ライフスタイルアプリです。Solana ブロックチェーン上に構築され、Adidas・Binance・Sequoia Capital・WhaleFin・LINE など、名だたる企業・投資家と提携するグローバルプロジェクトです。",
+        "本サイトでは、既存デザインをもとに Framer 上でのフロントエンド実装を担当しました。「MAKE YOUR STEPS COUNT!」のヒーローセクション、トークノミクス・走行距離などのリアルタイム統計表示、パートナー企業一覧、STEPN LEADERBOARDS（週間・月間・累計のランキング機能）の訴求セクションなどを実装しています。",
+        "Web3 特有の情報量（トークン経済・NFT仕様・ランキング計算ロジックなど）を、一般ユーザーにも分かりやすいビジュアルで伝えることを意識し、既存デザインの意図を忠実に再現しながら実装しました。"
+      ]
+    },
+    "repoLink": "https://www.stepn.com/",
+    "repoImage": "/images/projects/stepn-1.webp",
+    "images": [
+      "/images/projects/stepn-1.webp",
+      "/images/projects/stepn-2.webp",
+      "/images/projects/stepn-3.webp",
+      "/images/projects/stepn-4.webp"
+    ],
+    "languages": [
+      "framer",
+      "js",
+      "css"
+    ],
+    "status": "Complete",
+    "slug": "stepn"
   }
 ]
