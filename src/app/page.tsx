@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar/navbar";
 import { ScrollMemory } from "@/components/scroll-memory";
 import HeroSection from "@/components/sections/hero/hero-section";
 import AboutSection from "@/components/sections/about/about-section";
+import TechStackSection from "@/components/sections/techstack/techstack-section";
 import ServicesSection from "@/components/sections/services/services-section";
 import StrengthsSection from "@/components/sections/strengths/strengths-section";
 import ProcessSection from "@/components/sections/process/process-section";
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <TechStackSection />
       <ServicesSection />
       <StrengthsSection />
       <ProcessSection />
