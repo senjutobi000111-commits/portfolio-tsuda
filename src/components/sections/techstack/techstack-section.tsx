@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import styles from "./techstack-section.module.css";
 
@@ -115,6 +116,16 @@ export default function TechStackSection() {
 
   return (
     <section className={styles.section}>
+      <Image
+        src="/images/hero-ai-ec-blockchain.webp"
+        alt=""
+        aria-hidden="true"
+        fill
+        quality={70}
+        className={styles.bgImage}
+      />
+      <div className={styles.bgOverlay} aria-hidden="true" />
+
       <div className={styles.inner}>
         <h2 className={styles.heading}>
           対応<em>技術・ツール</em>

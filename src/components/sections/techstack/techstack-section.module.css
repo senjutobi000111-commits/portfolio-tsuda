@@ -29,6 +29,21 @@
   overflow: clip;
 }
 
+.bgImage {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(10, 15, 34, 0.88) 0%, rgba(10, 15, 34, 0.82) 45%, rgba(10, 15, 34, 0.94) 100%),
+    linear-gradient(100deg, rgba(10, 15, 34, 0.55) 0%, rgba(10, 15, 34, 0.2) 55%, rgba(10, 15, 34, 0.55) 100%);
+}
+
 .inner {
   position: relative;
   z-index: 10;
