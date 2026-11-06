@@ -5,7 +5,7 @@ import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import { HeroOverlay } from "./hero-overlay";
 import { HeroRole } from "./hero-role";
 import { HeroFacts } from "./hero-facts";
-import { HeroParallaxScene } from "./hero-parallax-scene";
+import { Hero3DScene } from "./hero-3d-scene";
 import { HeroScrollIndicator } from "./hero-scroll-indicator";
 
 const STATIC_COLOR = "#f3e5d7";
@@ -17,7 +17,7 @@ export default function HeroSection() {
     <section
       id="hero-section"
       className={cn(
-        "relative flex min-h-dvh flex-col items-start justify-end overflow-hidden pb-20",
+        "bg-darkest relative flex min-h-dvh flex-col items-start justify-end overflow-hidden pb-20",
         "px-8 xs:px-12 sm:pb-28 lg:px-24 lg:pb-32",
       )}
     >
@@ -31,8 +31,19 @@ export default function HeroSection() {
       {/* ⑩ スクロール誘導 */}
       <HeroScrollIndicator />
 
-      {/* 背景・スポットライト・ネットワークライン・粒子（マウス視差シーン） */}
-      <HeroParallaxScene />
+      {/* 背景の奥行きグロー */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 65% 45%, rgba(31,95,158,0.35), transparent 60%)," +
+            "radial-gradient(ellipse 50% 50% at 20% 80%, rgba(255,191,122,0.12), transparent 65%)",
+        }}
+      />
+
+      {/* WebGL 3Dシーン（AIコア＋粒子） */}
+      <Hero3DScene />
 
       {/* 暗いオーバーレイ — クライアントコンポーネントに分離 */}
       <HeroOverlay />
