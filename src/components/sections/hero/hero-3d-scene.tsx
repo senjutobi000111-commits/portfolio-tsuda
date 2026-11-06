@@ -1,62 +1,128 @@
 "use client";
 
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Sparkles, useTexture } from "@react-three/drei";
 import gsap from "gsap";
-import type { Mesh, Material, PointLight } from "three";
+import type { Group, Mesh, Material, PointLight } from "three";
 
-const IMAGE_SRC = "/images/hero-ai-ec-blockchain.webp";
-const IMAGE_ASPECT = 1672 / 941;
+// ChatGPTで個別生成したレイヤー画像。背景は透過PNG。
+// 新しいレイヤーを追加する場合はここに1行足すだけでよい。
+interface LayerConfig {
+  src: string;
+  aspect: number; // 画像自体の横/縦比
+  z: number; // 奥行き（0が基準面、プラスが手前）
+  widthFrac: number; // 基準面の幅に対する比率
+  offsetXFrac: number; // 基準面の幅に対する左右オフセット（符号付き）
+  offsetYFrac: number; // 基準面の高さに対する上下オフセット（符号付き）
+  parallax: number; // グループ全体の傾きに加える、このレイヤー独自の追従量
+  isBase?: boolean; // 基準面（ビューポート全体を覆うレイヤー）かどうか
+}
 
-// 元のファーストビュー画像を本物の3D空間上のテクスチャとして配置し、
-// マウスに応じて傾き・光が実際に反応する「触れる1枚絵」にする。
-const HeroImagePlane = () => {
+const LAYERS: LayerConfig[] = [
+  {
+    src: "/images/hero-layers/dashboard.webp",
+    aspect: 1672 / 941,
+    z: 0,
+    widthFrac: 1,
+    offsetXFrac: 0,
+    offsetYFrac: 0,
+    parallax: 0,
+    isBase: true,
+  },
+  {
+    src: "/images/hero-layers/magnifier.webp",
+    aspect: 1536 / 1024,
+    z: 0.9,
+    widthFrac: 0.34,
+    offsetXFrac: 0.13,
+    offsetYFrac: 0.18,
+    parallax: 0.4,
+  },
+];
+
+const HeroLayer = ({
+  layer,
+  basePlaneW,
+  basePlaneH,
+}: {
+  layer: LayerConfig;
+  basePlaneW: number;
+  basePlaneH: number;
+}) => {
   const meshRef = useRef<Mesh>(null);
-  const texture = useTexture(IMAGE_SRC);
-  const viewport = useThree((s) => s.viewport);
+  const texture = useTexture(layer.src);
 
-  // ビューポートいっぱいに収まるよう、アスペクト比を保って少しオーバースキャンさせる
-  const overscan = 1.18;
-  let planeW = viewport.width * overscan;
-  let planeH = planeW / IMAGE_ASPECT;
-  if (planeH < viewport.height * overscan) {
-    planeH = viewport.height * overscan;
-    planeW = planeH * IMAGE_ASPECT;
-  }
+  const { w, h, x, y } = useMemo(() => {
+    const overscan = layer.isBase ? 1.18 : 1;
+    let pw = basePlaneW * layer.widthFrac * overscan;
+    let ph = pw / layer.aspect;
+    if (layer.isBase && ph < basePlaneH * overscan) {
+      ph = basePlaneH * overscan;
+      pw = ph * layer.aspect;
+    }
+    return {
+      w: pw,
+      h: ph,
+      x: layer.offsetXFrac * basePlaneW,
+      y: layer.offsetYFrac * basePlaneH,
+    };
+  }, [basePlaneW, basePlaneH, layer]);
 
   useEffect(() => {
     if (!meshRef.current) return;
+    const delay = layer.isBase ? 0.15 : 0.45;
     gsap.fromTo(
       meshRef.current.scale,
-      { x: 0.92, y: 0.92, z: 0.92 },
-      { x: 1, y: 1, z: 1, duration: 1.6, ease: "power3.out", delay: 0.15 },
+      { x: 0.9, y: 0.9, z: 0.9 },
+      { x: 1, y: 1, z: 1, duration: 1.5, ease: "power3.out", delay },
     );
     gsap.fromTo(
       meshRef.current.material as Material,
       { opacity: 0 },
-      { opacity: 1, duration: 1.4, ease: "power2.out", delay: 0.1 },
+      { opacity: 1, duration: 1.3, ease: "power2.out", delay },
     );
-  }, []);
+  }, [layer.isBase]);
 
   useFrame((state) => {
-    if (!meshRef.current) return;
-    const { x, y } = state.pointer;
-    // 実際のカード傾き — 視差ではなく本物の回転
-    meshRef.current.rotation.y += (x * 0.14 - meshRef.current.rotation.y) * 0.045;
-    meshRef.current.rotation.x += (-y * 0.09 - meshRef.current.rotation.x) * 0.045;
+    if (!meshRef.current || layer.parallax === 0) return;
+    const { x: px, y: py } = state.pointer;
+    const targetX = x + px * layer.parallax * basePlaneW * 0.05;
+    const targetY = y + py * layer.parallax * basePlaneH * 0.05;
+    meshRef.current.position.x += (targetX - meshRef.current.position.x) * 0.06;
+    meshRef.current.position.y += (targetY - meshRef.current.position.y) * 0.06;
   });
 
   return (
-    <mesh ref={meshRef}>
-      <planeGeometry args={[planeW, planeH]} />
-      <meshStandardMaterial
-        map={texture}
-        roughness={0.55}
-        metalness={0.12}
-        transparent
-      />
+    <mesh ref={meshRef} position={[x, y, layer.z]}>
+      <planeGeometry args={[w, h]} />
+      <meshStandardMaterial map={texture} roughness={0.5} metalness={0.15} transparent />
     </mesh>
+  );
+};
+
+// レイヤー群をまとめて傾けるグループ — マウスに応じて本物の回転で追従する
+const HeroLayerGroup = () => {
+  const groupRef = useRef<Group>(null);
+  const viewport = useThree((s) => s.viewport);
+
+  const base = LAYERS.find((l) => l.isBase) ?? LAYERS[0];
+  const basePlaneW = viewport.width;
+  const basePlaneH = basePlaneW / base.aspect;
+
+  useFrame((state) => {
+    if (!groupRef.current) return;
+    const { x, y } = state.pointer;
+    groupRef.current.rotation.y += (x * 0.14 - groupRef.current.rotation.y) * 0.045;
+    groupRef.current.rotation.x += (-y * 0.09 - groupRef.current.rotation.x) * 0.045;
+  });
+
+  return (
+    <group ref={groupRef}>
+      {LAYERS.map((layer) => (
+        <HeroLayer key={layer.src} layer={layer} basePlaneW={basePlaneW} basePlaneH={basePlaneH} />
+      ))}
+    </group>
   );
 };
 
@@ -85,7 +151,7 @@ const HeroSceneContent = () => {
     <>
       <HeroLights />
       <Suspense fallback={null}>
-        <HeroImagePlane />
+        <HeroLayerGroup />
       </Suspense>
       <Sparkles
         count={70}
@@ -112,8 +178,9 @@ const usePrefersReducedMotion = () => {
   return reduced;
 };
 
-// ファーストビューの3Dシーン — 元の背景画像を本物のWebGLテクスチャとして
-// 傾き・光に反応させる。prefers-reduced-motion では描画自体をスキップ。
+// ファーストビューの3Dシーン — 元画像を要素ごとに分離したレイヤーとして
+// 本物のWebGL空間に配置し、それぞれ独立した奥行き・動きを持たせる。
+// prefers-reduced-motion では描画自体をスキップ。
 export const Hero3DScene = () => {
   const reducedMotion = usePrefersReducedMotion();
 
