@@ -39,14 +39,66 @@ const LAYERS: LayerConfig[] = [
     offsetYFrac: 0.18,
     parallax: 0.4,
   },
+  // 右上：棒グラフ＋ドーナツチャート
+  {
+    src: "/images/hero-layers/chart-panel.webp",
+    aspect: 1672 / 941,
+    z: 0.5,
+    widthFrac: 0.3,
+    offsetXFrac: 0.3,
+    offsetYFrac: 0.32,
+    parallax: 0.3,
+  },
+  // 右：フローチャート
+  {
+    src: "/images/hero-layers/flowchart-panel.webp",
+    aspect: 1536 / 1024,
+    z: 0.45,
+    widthFrac: 0.24,
+    offsetXFrac: 0.38,
+    offsetYFrac: 0.02,
+    parallax: 0.3,
+  },
+  // 左：ネットワーク／ブロックチェーン図
+  {
+    src: "/images/hero-layers/network-panel.webp",
+    aspect: 1536 / 1024,
+    z: 0.45,
+    widthFrac: 0.22,
+    offsetXFrac: -0.4,
+    offsetYFrac: 0.08,
+    parallax: 0.3,
+  },
+  // 中段：AIネットワーク（光る脳） — ダッシュボードより奥
+  {
+    src: "/images/hero-layers/ai-network-layer.webp",
+    aspect: 1672 / 941,
+    z: -0.35,
+    widthFrac: 0.42,
+    offsetXFrac: -0.15,
+    offsetYFrac: -0.12,
+    parallax: 0.15,
+  },
+  // 下段：サーバー＋チャート＋波形 — 最も奥
+  {
+    src: "/images/hero-layers/servers-layer.webp",
+    aspect: 1672 / 941,
+    z: -0.6,
+    widthFrac: 0.8,
+    offsetXFrac: 0.02,
+    offsetYFrac: -0.32,
+    parallax: 0.12,
+  },
 ];
 
 const HeroLayer = ({
   layer,
+  index,
   basePlaneW,
   basePlaneH,
 }: {
   layer: LayerConfig;
+  index: number;
   basePlaneW: number;
   basePlaneH: number;
 }) => {
@@ -71,7 +123,7 @@ const HeroLayer = ({
 
   useEffect(() => {
     if (!meshRef.current) return;
-    const delay = layer.isBase ? 0.15 : 0.45;
+    const delay = layer.isBase ? 0.15 : 0.35 + index * 0.1;
     gsap.fromTo(
       meshRef.current.scale,
       { x: 0.9, y: 0.9, z: 0.9 },
@@ -82,7 +134,7 @@ const HeroLayer = ({
       { opacity: 0 },
       { opacity: 1, duration: 1.3, ease: "power2.out", delay },
     );
-  }, [layer.isBase]);
+  }, [layer.isBase, index]);
 
   useFrame((state) => {
     if (!meshRef.current || layer.parallax === 0) return;
@@ -119,8 +171,14 @@ const HeroLayerGroup = () => {
 
   return (
     <group ref={groupRef}>
-      {LAYERS.map((layer) => (
-        <HeroLayer key={layer.src} layer={layer} basePlaneW={basePlaneW} basePlaneH={basePlaneH} />
+      {LAYERS.map((layer, i) => (
+        <HeroLayer
+          key={layer.src}
+          layer={layer}
+          index={i}
+          basePlaneW={basePlaneW}
+          basePlaneH={basePlaneH}
+        />
       ))}
     </group>
   );
