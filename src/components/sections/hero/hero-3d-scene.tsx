@@ -1,74 +1,101 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Sparkles } from "@react-three/drei";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Sparkles, useTexture } from "@react-three/drei";
 import gsap from "gsap";
-import type { Group } from "three";
+import type { Mesh, Material, PointLight } from "three";
 
-// AIコア：歪むガラス質のイコサヘドロン＋ワイヤーフレームの外殻。
-// マウス位置に応じて緩やかに向きを変え、常時ゆっくり自転する。
-const HeroCore = () => {
-  const groupRef = useRef<Group>(null);
+const IMAGE_SRC = "/images/hero-ai-ec-blockchain.webp";
+const IMAGE_ASPECT = 1672 / 941;
+
+// 元のファーストビュー画像を本物の3D空間上のテクスチャとして配置し、
+// マウスに応じて傾き・光が実際に反応する「触れる1枚絵」にする。
+const HeroImagePlane = () => {
+  const meshRef = useRef<Mesh>(null);
+  const texture = useTexture(IMAGE_SRC);
+  const viewport = useThree((s) => s.viewport);
+
+  // ビューポートいっぱいに収まるよう、アスペクト比を保って少しオーバースキャンさせる
+  const overscan = 1.18;
+  let planeW = viewport.width * overscan;
+  let planeH = planeW / IMAGE_ASPECT;
+  if (planeH < viewport.height * overscan) {
+    planeH = viewport.height * overscan;
+    planeW = planeH * IMAGE_ASPECT;
+  }
 
   useEffect(() => {
-    if (!groupRef.current) return;
+    if (!meshRef.current) return;
     gsap.fromTo(
-      groupRef.current.scale,
-      { x: 0, y: 0, z: 0 },
-      { x: 1, y: 1, z: 1, duration: 1.7, ease: "elastic.out(1, 0.55)", delay: 0.25 },
+      meshRef.current.scale,
+      { x: 0.92, y: 0.92, z: 0.92 },
+      { x: 1, y: 1, z: 1, duration: 1.6, ease: "power3.out", delay: 0.15 },
     );
     gsap.fromTo(
-      groupRef.current.position,
-      { y: -0.6 },
-      { y: 0, duration: 1.7, ease: "power3.out", delay: 0.25 },
+      meshRef.current.material as Material,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.4, ease: "power2.out", delay: 0.1 },
     );
   }, []);
 
-  useFrame((state, delta) => {
-    if (!groupRef.current) return;
+  useFrame((state) => {
+    if (!meshRef.current) return;
     const { x, y } = state.pointer;
-    groupRef.current.rotation.y += (x * 0.5 - groupRef.current.rotation.y) * 0.04 + delta * 0.08;
-    groupRef.current.rotation.x += (-y * 0.3 - groupRef.current.rotation.x) * 0.04;
+    // 実際のカード傾き — 視差ではなく本物の回転
+    meshRef.current.rotation.y += (x * 0.14 - meshRef.current.rotation.y) * 0.045;
+    meshRef.current.rotation.x += (-y * 0.09 - meshRef.current.rotation.x) * 0.045;
   });
 
   return (
-    <group ref={groupRef}>
-      <Float speed={1.4} rotationIntensity={0.5} floatIntensity={1.1}>
-        <mesh>
-          <icosahedronGeometry args={[1.35, 2]} />
-          <MeshDistortMaterial
-            color="#2d74b8"
-            emissive="#123a66"
-            emissiveIntensity={0.9}
-            roughness={0.1}
-            metalness={0.8}
-            distort={0.35}
-            speed={1.8}
-          />
-        </mesh>
-        <mesh scale={1.22}>
-          <icosahedronGeometry args={[1.35, 1]} />
-          <meshBasicMaterial color="#9be9ff" wireframe transparent opacity={0.18} />
-        </mesh>
-      </Float>
-    </group>
+    <mesh ref={meshRef}>
+      <planeGeometry args={[planeW, planeH]} />
+      <meshStandardMaterial
+        map={texture}
+        roughness={0.55}
+        metalness={0.12}
+        transparent
+      />
+    </mesh>
+  );
+};
+
+// カーソルに追従する光のスイープ＋常時ゆっくり往復する補助光
+const HeroLights = () => {
+  const sweepRef = useRef<PointLight>(null);
+
+  useFrame((state) => {
+    if (!sweepRef.current) return;
+    const { x, y } = state.pointer;
+    sweepRef.current.position.x += (x * 4 - sweepRef.current.position.x) * 0.06;
+    sweepRef.current.position.y += (y * 2.4 - sweepRef.current.position.y) * 0.06;
+  });
+
+  return (
+    <>
+      <ambientLight intensity={1.05} />
+      <pointLight ref={sweepRef} position={[0, 0, 3]} intensity={55} color="#ffd9a8" />
+      <pointLight position={[-4, -2, 2.5]} intensity={30} color="#5fd8ff" />
+    </>
   );
 };
 
 const HeroSceneContent = () => {
   return (
     <>
-      <ambientLight intensity={0.7} />
-      <pointLight position={[4, 3, 4]} intensity={90} color="#ffbf7a" />
-      <pointLight position={[-4, -2, -3]} intensity={70} color="#5fd8ff" />
-      <pointLight position={[0, -3, 5]} intensity={35} color="#ff9f6b" />
-
-      <HeroCore />
-
-      <Sparkles count={220} scale={8} size={3.2} speed={0.3} color="#9be9ff" opacity={0.9} />
-      <Sparkles count={90} scale={5} size={2.4} speed={0.2} color="#ffd9a8" opacity={0.8} />
-      <Sparkles count={60} scale={3.2} size={4} speed={0.15} color="#ffffff" opacity={0.6} />
+      <HeroLights />
+      <Suspense fallback={null}>
+        <HeroImagePlane />
+      </Suspense>
+      <Sparkles
+        count={70}
+        scale={[8, 4.5, 2]}
+        size={2.6}
+        speed={0.22}
+        color="#bfe9ff"
+        opacity={0.5}
+        position={[0, 0, 1.4]}
+      />
     </>
   );
 };
@@ -85,8 +112,8 @@ const usePrefersReducedMotion = () => {
   return reduced;
 };
 
-// ファーストビューの3Dシーン — WebGL (React Three Fiber) による本物の立体演出。
-// prefers-reduced-motion では描画自体をスキップし、背景グラデーションのみにする。
+// ファーストビューの3Dシーン — 元の背景画像を本物のWebGLテクスチャとして
+// 傾き・光に反応させる。prefers-reduced-motion では描画自体をスキップ。
 export const Hero3DScene = () => {
   const reducedMotion = usePrefersReducedMotion();
 
