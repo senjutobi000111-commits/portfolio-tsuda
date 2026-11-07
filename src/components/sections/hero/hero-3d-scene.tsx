@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, useVideoTexture, PerspectiveCamera } from "@react-three/drei";
+import { useGLTF, useVideoTexture, PerspectiveCamera, Sparkles } from "@react-three/drei";
 import { KTX2Loader } from "three-stdlib";
 import gsap from "gsap";
 import { MeshBasicMaterial, Vector3 } from "three";
@@ -254,6 +254,16 @@ const DarkHitboxes = () => {
         sectionId="projects-section"
       />
       <PrimitiveHitbox position={[-1.2, 1.6, -1.45]} radius={0.25} sectionId="about-section" />
+      {/* 壁の写真まわりにある装飾アクセントと同じ雰囲気で、時計まわりにも散りばめる */}
+      <Sparkles
+        count={20}
+        scale={[0.8, 0.8, 0.4]}
+        size={5}
+        speed={0.25}
+        color="#f09e46"
+        opacity={1}
+        position={[-1.2, 1.6, -1.45]}
+      />
     </>
   );
 };
