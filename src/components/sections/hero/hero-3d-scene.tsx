@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, useVideoTexture, PerspectiveCamera, Sparkles } from "@react-three/drei";
+import { useGLTF, useVideoTexture, PerspectiveCamera } from "@react-three/drei";
 import { KTX2Loader } from "three-stdlib";
 import gsap from "gsap";
 import { MeshBasicMaterial, Vector3 } from "three";
@@ -189,54 +189,6 @@ const RoomHitbox = ({
   );
 };
 
-// モデルに専用ジオメトリがない対象（時計など）用。球形のプリミティブでヒットボックスを作る。
-const PrimitiveHitbox = ({
-  position,
-  radius = 0.16,
-  sectionId,
-  color,
-}: {
-  position: [number, number, number];
-  radius?: number;
-  sectionId: string;
-  color?: string;
-}) => {
-  const animRef = useRef<Mesh>(null);
-
-  const handleEnter = (e: ThreeEvent<PointerEvent>) => {
-    e.stopPropagation();
-    document.body.style.cursor = "pointer";
-    if (animRef.current) {
-      gsap.to(animRef.current.scale, { x: 1, y: 1, z: 1, duration: 0.5, ease: "power2.out" });
-    }
-  };
-
-  const handleLeave = (e: ThreeEvent<PointerEvent>) => {
-    e.stopPropagation();
-    document.body.style.cursor = "auto";
-    if (animRef.current) {
-      gsap.to(animRef.current.scale, { x: 0, y: 0, z: 0, duration: 0.5, ease: "power2.out" });
-    }
-  };
-
-  const handleClick = (e: ThreeEvent<MouseEvent>) => {
-    e.stopPropagation();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <>
-      <mesh visible={false} position={position} onPointerOver={handleEnter} onPointerOut={handleLeave} onClick={handleClick}>
-        <sphereGeometry args={[radius, 16, 16]} />
-      </mesh>
-      <mesh ref={animRef} position={position} scale={0}>
-        <sphereGeometry args={[radius, 16, 16]} />
-        <meshBasicMaterial color={color ?? "#ffbf7a"} transparent opacity={0.35} toneMapped={false} />
-      </mesh>
-    </>
-  );
-};
-
 const DarkHitboxes = () => {
   const { nodes } = useRoomGLTF(`${DARK_BASE}/Dark_Targets.glb`);
   return (
@@ -252,17 +204,6 @@ const DarkHitboxes = () => {
         animGeometry={nodes.Dev_Work_Hitbox_Anim.geometry}
         position={[-0.457, 0.597, 1.021]}
         sectionId="projects-section"
-      />
-      <PrimitiveHitbox position={[-1.2, 1.6, -1.45]} radius={0.25} sectionId="about-section" />
-      {/* 壁の写真まわりにある装飾アクセントと同じ雰囲気で、時計まわりにも散りばめる */}
-      <Sparkles
-        count={20}
-        scale={[0.8, 0.8, 0.4]}
-        size={5}
-        speed={0.25}
-        color="#f09e46"
-        opacity={1}
-        position={[-1.2, 1.6, -1.45]}
       />
     </>
   );

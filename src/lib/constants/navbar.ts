@@ -30,7 +30,6 @@ export const NAV_LINKS = [
   { name: "packages", id: "packages-section" },
   { name: "projects", id: "projects-section" },
   { name: "blog", id: "blog-section" },
-  { name: "contact", id: "contact-section" },
 ] as const;
 
 export type NavbarLinks = typeof NAV_LINKS;

@@ -46,14 +46,14 @@ export const HeroButtons = () => {
       </button>
 
       <button
-        onClick={() => handleClick("contact-section")}
+        onClick={() => handleClick("blog-section")}
         className={cn(
           buttonBaseClasses,
           "text-off-w/60 border-off-w/45 bg-off-w/05 border",
           "hover:border-acc-red/60 hover:bg-acc-red/10 hover:text-acc-red sm:hover:-translate-y-1",
         )}
       >
-        {t("contact")}
+        {t("blog")}
 
         <MessagesSquare className="ml-2 size-5 sm:size-7" />
       </button>
