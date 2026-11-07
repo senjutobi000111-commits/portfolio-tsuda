@@ -32,10 +32,10 @@ export const HeroRole = () => {
       {/* サブ（提供価値） */}
       <m.p
         {...wipeReveal(0.49)}
-        className="text-off-w/95 font-serif-jp text-lg leading-relaxed [text-shadow:0_1px_4px_rgba(0,0,0,0.95),0_2px_12px_rgba(0,0,0,0.6)] sm:text-xl lg:text-3xl"
+        className="text-off-w/95 font-serif-jp text-base leading-relaxed [text-shadow:0_1px_4px_rgba(0,0,0,0.95),0_2px_12px_rgba(0,0,0,0.6)] sm:text-lg lg:text-2xl"
       >
         <span className="text-acc-yellow-3 font-semibold">
-          UIデザイン×AI・Web・EC開発
+          生成AI × Web／アプリ開発。画面からAPI・ECまで、一つひとつの案件に責任を持って最後まで完結させます。
         </span>
       </m.p>
     </div>
