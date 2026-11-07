@@ -1,225 +1,203 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Sparkles, useTexture } from "@react-three/drei";
+import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { KTX2Loader } from "three-stdlib";
 import gsap from "gsap";
-import type { Group, Mesh, Material, PointLight } from "three";
+import { MeshBasicMaterial, Vector3 } from "three";
+import type { Group, Mesh, MeshStandardMaterial, PerspectiveCamera as PerspectiveCameraType } from "three";
+import type { GLTFLoader } from "three-stdlib";
 
-// ChatGPTで個別生成したレイヤー画像。背景は透過PNG。
-// 新しいレイヤーを追加する場合はここに1行足すだけでよい。
-interface LayerConfig {
-  src: string;
-  aspect: number; // 画像自体の横/縦比
-  z: number; // 奥行き（0が基準面、プラスが手前）
-  widthFrac: number; // 基準面の幅に対する比率
-  offsetXFrac: number; // 基準面の幅に対する左右オフセット（符号付き）
-  offsetYFrac: number; // 基準面の高さに対する上下オフセット（符号付き）
-  parallax: number; // グループ全体の傾きに加える、このレイヤー独自の追従量
-  isBase?: boolean; // 基準面（ビューポート全体を覆うレイヤー）かどうか
+// 家具一式のおおよその中心点（確認済みの各メッシュ座標から算出）。カメラの注視点に使う。
+const ROOM_CENTER = new Vector3(-0.14, 0.45, 0.7);
+
+// 兄のポートフォリオ (portfolio-twenty-six.vercel.app) で使われている
+// Dark Room の3Dモデル（本人の許可を得て使用）。
+// Draco圧縮メッシュ + KTX2圧縮テクスチャで書き出されたファイルをそのまま読み込む。
+const MODEL_BASE = "/models/dark-room";
+
+type GLTFNodes = Record<string, Mesh>;
+type GLTFMaterials = Record<string, MeshStandardMaterial>;
+
+function useRoomGLTF(file: string) {
+  const { gl } = useThree();
+  return useGLTF(
+    `${MODEL_BASE}/${file}`,
+    true,
+    true,
+    (loader: GLTFLoader) => {
+      const ktx2 = new KTX2Loader().setTranscoderPath("/basis/").detectSupport(gl);
+      loader.setKTX2Loader(ktx2);
+    },
+  ) as unknown as { nodes: GLTFNodes; materials: GLTFMaterials };
 }
 
-const LAYERS: LayerConfig[] = [
-  {
-    src: "/images/hero-layers/dashboard.webp",
-    aspect: 1672 / 941,
-    z: 0,
-    widthFrac: 1,
-    offsetXFrac: 0,
-    offsetYFrac: 0,
-    parallax: 0,
-    isBase: true,
-  },
-  {
-    src: "/images/hero-layers/magnifier.webp",
-    aspect: 1536 / 1024,
-    z: 0.9,
-    widthFrac: 0.34,
-    offsetXFrac: 0.13,
-    offsetYFrac: 0.18,
-    parallax: 0.4,
-  },
-  // 右上：棒グラフ＋ドーナツチャート
-  {
-    src: "/images/hero-layers/chart-panel.webp",
-    aspect: 1672 / 941,
-    z: 0.5,
-    widthFrac: 0.3,
-    offsetXFrac: 0.3,
-    offsetYFrac: 0.32,
-    parallax: 0.3,
-  },
-  // 右：フローチャート
-  {
-    src: "/images/hero-layers/flowchart-panel.webp",
-    aspect: 1536 / 1024,
-    z: 0.45,
-    widthFrac: 0.24,
-    offsetXFrac: 0.38,
-    offsetYFrac: 0.02,
-    parallax: 0.3,
-  },
-  // 左：ネットワーク／ブロックチェーン図
-  {
-    src: "/images/hero-layers/network-panel.webp",
-    aspect: 1536 / 1024,
-    z: 0.45,
-    widthFrac: 0.22,
-    offsetXFrac: -0.4,
-    offsetYFrac: 0.08,
-    parallax: 0.3,
-  },
-  // 中段：AIネットワーク（光る脳） — ダッシュボードより奥
-  {
-    src: "/images/hero-layers/ai-network-layer.webp",
-    aspect: 1672 / 941,
-    z: -0.35,
-    widthFrac: 0.42,
-    offsetXFrac: -0.15,
-    offsetYFrac: -0.12,
-    parallax: 0.15,
-  },
-  // 下段：サーバー＋チャート＋波形 — 最も奥
-  {
-    src: "/images/hero-layers/servers-layer.webp",
-    aspect: 1672 / 941,
-    z: -0.6,
-    widthFrac: 0.8,
-    offsetXFrac: 0.02,
-    offsetYFrac: -0.32,
-    parallax: 0.12,
-  },
-];
-
-const HeroLayer = ({
-  layer,
-  index,
-  basePlaneW,
-  basePlaneH,
-}: {
-  layer: LayerConfig;
-  index: number;
-  basePlaneW: number;
-  basePlaneH: number;
-}) => {
-  const meshRef = useRef<Mesh>(null);
-  const texture = useTexture(layer.src);
-
-  const { w, h, x, y } = useMemo(() => {
-    const overscan = layer.isBase ? 1.18 : 1;
-    let pw = basePlaneW * layer.widthFrac * overscan;
-    let ph = pw / layer.aspect;
-    if (layer.isBase && ph < basePlaneH * overscan) {
-      ph = basePlaneH * overscan;
-      pw = ph * layer.aspect;
+// 元のテクスチャはベイク済みのライティングを含むため、MeshStandardMaterialではなく
+// MeshBasicMaterialに変換して使う（シーンのライトに反応させない）。
+function useBakedMaterials(materials: GLTFMaterials) {
+  return useMemo(() => {
+    const result: Record<string, MeshBasicMaterial> = {};
+    for (const [key, mat] of Object.entries(materials)) {
+      result[key] = new MeshBasicMaterial({
+        map: mat.map,
+        transparent: mat.transparent,
+        alphaTest: mat.transparent ? 0.1 : 0,
+        toneMapped: false,
+      });
     }
-    return {
-      w: pw,
-      h: ph,
-      x: layer.offsetXFrac * basePlaneW,
-      y: layer.offsetYFrac * basePlaneH,
-    };
-  }, [basePlaneW, basePlaneH, layer]);
+    return result;
+  }, [materials]);
+}
 
-  useEffect(() => {
-    if (!meshRef.current) return;
-    const delay = layer.isBase ? 0.15 : 0.35 + index * 0.1;
-    gsap.fromTo(
-      meshRef.current.scale,
-      { x: 0.9, y: 0.9, z: 0.9 },
-      { x: 1, y: 1, z: 1, duration: 1.5, ease: "power3.out", delay },
-    );
-    gsap.fromTo(
-      meshRef.current.material as Material,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: "power2.out", delay },
-    );
-  }, [layer.isBase, index]);
-
-  useFrame((state) => {
-    if (!meshRef.current || layer.parallax === 0) return;
-    const { x: px, y: py } = state.pointer;
-    const targetX = x + px * layer.parallax * basePlaneW * 0.05;
-    const targetY = y + py * layer.parallax * basePlaneH * 0.05;
-    meshRef.current.position.x += (targetX - meshRef.current.position.x) * 0.06;
-    meshRef.current.position.y += (targetY - meshRef.current.position.y) * 0.06;
-  });
-
+const DarkFirst = () => {
+  const { nodes, materials } = useRoomGLTF("Dark_First.glb");
+  const baked = useBakedMaterials(materials);
   return (
-    <mesh ref={meshRef} position={[x, y, layer.z]}>
-      <planeGeometry args={[w, h]} />
-      <meshStandardMaterial map={texture} roughness={0.5} metalness={0.15} transparent />
-    </mesh>
-  );
-};
-
-// レイヤー群をまとめて傾けるグループ — マウスに応じて本物の回転で追従する
-const HeroLayerGroup = () => {
-  const groupRef = useRef<Group>(null);
-  const viewport = useThree((s) => s.viewport);
-
-  const base = LAYERS.find((l) => l.isBase) ?? LAYERS[0];
-  const basePlaneW = viewport.width;
-  const basePlaneH = basePlaneW / base.aspect;
-
-  useFrame((state) => {
-    if (!groupRef.current) return;
-    const { x, y } = state.pointer;
-    groupRef.current.rotation.y += (x * 0.14 - groupRef.current.rotation.y) * 0.045;
-    groupRef.current.rotation.x += (-y * 0.09 - groupRef.current.rotation.x) * 0.045;
-  });
-
-  return (
-    <group ref={groupRef}>
-      {LAYERS.map((layer, i) => (
-        <HeroLayer
-          key={layer.src}
-          layer={layer}
-          index={i}
-          basePlaneW={basePlaneW}
-          basePlaneH={basePlaneH}
-        />
-      ))}
+    <group dispose={null}>
+      <mesh geometry={nodes.Mac_Screen.geometry} position={[-0.861, 0.815, 0.684]} rotation={[0, 0.523, 0]}>
+        <meshBasicMaterial color="#141a24" toneMapped={false} />
+      </mesh>
+      <mesh geometry={nodes.Computer_Screen.geometry} position={[-0.302, 0.955, 0.647]} rotation={[0, -0.053, 0]}>
+        <meshBasicMaterial color="#141a24" toneMapped={false} />
+      </mesh>
+      <mesh
+        geometry={nodes.First_Baked.geometry}
+        material={baked.first_real_realfdsa_Baked}
+        position={[-0.231, -0.14, 0.652]}
+        rotation={[Math.PI, 0, Math.PI]}
+      />
     </group>
   );
 };
 
-// カーソルに追従する光のスイープ＋常時ゆっくり往復する補助光
-const HeroLights = () => {
-  const sweepRef = useRef<PointLight>(null);
+const DarkSecond = () => {
+  const { nodes, materials } = useRoomGLTF("Dark_Second.glb");
+  const baked = useBakedMaterials(materials);
+  return (
+    <group dispose={null}>
+      <mesh
+        geometry={nodes.Second_Baked.geometry}
+        material={baked.Second_Real_Texture_Set_Baked}
+        position={[0.053, 0, 0.341]}
+        rotation={[Math.PI, 0, Math.PI]}
+      />
+    </group>
+  );
+};
+
+const DarkThird = () => {
+  const { nodes, materials } = useRoomGLTF("Dark_Third.glb");
+  const baked = useBakedMaterials(materials);
+  return (
+    <group dispose={null}>
+      <mesh
+        geometry={nodes.Floor_Vaccum_Third_Baked.geometry}
+        material={baked.Third_Real_Real_Texture_Set_Baked}
+        position={[1.371, 0, -0.354]}
+        rotation={[Math.PI, 0, Math.PI]}
+        scale={1.015}
+      />
+      <mesh
+        geometry={nodes.Third_Baked.geometry}
+        material={baked.Third_Real_Real_Texture_Set_Baked}
+        position={[-0.819, 0.746, 1.115]}
+        rotation={[Math.PI / 2, 0, 0.47]}
+      />
+      <mesh
+        geometry={nodes.Fan_Third_Baked.geometry}
+        material={baked.Third_Real_Real_Texture_Set_Baked}
+        position={[0.247, 0.951, 0.524]}
+        rotation={[Math.PI / 2, 0, 0.47]}
+      />
+    </group>
+  );
+};
+
+const DarkFourth = () => {
+  const { nodes, materials } = useRoomGLTF("Dark_Fourth.glb");
+  const baked = useBakedMaterials(materials);
+  return (
+    <group dispose={null}>
+      <mesh
+        geometry={nodes.Fourth_Baked.geometry}
+        material={baked.Fourth_Real_Real_Texture_Set_Baked}
+        position={[-0.356, 0, 1.362]}
+        rotation={[Math.PI, 0, Math.PI]}
+      />
+      <mesh
+        geometry={nodes.Chair_Top_Fourth_Baked.geometry}
+        material={baked.Fourth_Real_Real_Texture_Set_Baked}
+        position={[-0.373, 0.735, 1.304]}
+        rotation={[Math.PI, -0.121, Math.PI]}
+      />
+    </group>
+  );
+};
+
+// デスク一式をまとめたグループ — マウスの横位置に応じてゆるやかに回転追従する
+const DarkRoomGroup = () => {
+  const groupRef = useRef<Group>(null);
+  const rotTarget = useRef(0);
+
+  useEffect(() => {
+    if (!groupRef.current) return;
+    gsap.fromTo(
+      groupRef.current.scale,
+      { x: 0.85, y: 0.85, z: 0.85 },
+      { x: 1, y: 1, z: 1, duration: 1.6, ease: "power3.out", delay: 0.2 },
+    );
+    gsap.fromTo(
+      groupRef.current.position,
+      { y: -0.4 },
+      { y: 0, duration: 1.6, ease: "power3.out", delay: 0.2 },
+    );
+  }, []);
 
   useFrame((state) => {
-    if (!sweepRef.current) return;
-    const { x, y } = state.pointer;
-    sweepRef.current.position.x += (x * 4 - sweepRef.current.position.x) * 0.06;
-    sweepRef.current.position.y += (y * 2.4 - sweepRef.current.position.y) * 0.06;
+    if (!groupRef.current) return;
+    const target = state.pointer.x * Math.PI * 0.1;
+    rotTarget.current += (target - rotTarget.current) * 0.05;
+    groupRef.current.rotation.y = rotTarget.current;
   });
 
   return (
-    <>
-      <ambientLight intensity={1.05} />
-      <pointLight ref={sweepRef} position={[0, 0, 3]} intensity={55} color="#ffd9a8" />
-      <pointLight position={[-4, -2, 2.5]} intensity={30} color="#5fd8ff" />
-    </>
+    <group ref={groupRef}>
+      <Suspense fallback={null}>
+        <DarkFirst />
+        <DarkSecond />
+        <DarkThird />
+        <DarkFourth />
+      </Suspense>
+    </group>
+  );
+};
+
+// 元サイトの「Dark Room」カメラ位置（俯瞰アングル）を参考にしつつ、
+// 家具一式の中心を注視するよう向きを計算する。
+const DarkRoomCamera = () => {
+  const camRef = useRef<PerspectiveCameraType>(null);
+
+  useLayoutEffect(() => {
+    camRef.current?.lookAt(ROOM_CENTER);
+  });
+
+  return (
+    <PerspectiveCamera
+      ref={camRef}
+      makeDefault
+      fov={32}
+      position={[-5.343347927650611, 5.814755800622669, 6.742415043273456]}
+    />
   );
 };
 
 const HeroSceneContent = () => {
   return (
     <>
-      <HeroLights />
-      <Suspense fallback={null}>
-        <HeroLayerGroup />
-      </Suspense>
-      <Sparkles
-        count={70}
-        scale={[8, 4.5, 2]}
-        size={2.6}
-        speed={0.22}
-        color="#bfe9ff"
-        opacity={0.5}
-        position={[0, 0, 1.4]}
-      />
+      <ambientLight intensity={0.6} />
+      <DarkRoomCamera />
+      <DarkRoomGroup />
     </>
   );
 };
@@ -236,8 +214,7 @@ const usePrefersReducedMotion = () => {
   return reduced;
 };
 
-// ファーストビューの3Dシーン — 元画像を要素ごとに分離したレイヤーとして
-// 本物のWebGL空間に配置し、それぞれ独立した奥行き・動きを持たせる。
+// ファーストビューの3Dシーン — 兄のポートフォリオの実際のDark Roomモデルを表示。
 // prefers-reduced-motion では描画自体をスキップ。
 export const Hero3DScene = () => {
   const reducedMotion = usePrefersReducedMotion();
@@ -247,7 +224,6 @@ export const Hero3DScene = () => {
   return (
     <div className="pointer-events-none absolute inset-0 z-10" aria-hidden="true">
       <Canvas
-        camera={{ position: [0, 0, 6], fov: 45 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
